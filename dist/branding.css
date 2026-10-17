@@ -1,0 +1,19 @@
+.app-boot{background:#f7faf5!important;color:#1e3026;transition:opacity .16s ease}
+.app-boot .boot-panel{text-align:center;padding:30px 22px;max-width:350px}
+.boot-logo{display:block;width:96px;height:96px;margin:0 auto 24px;filter:drop-shadow(0 8px 18px #2d653b18)}
+.app-boot .boot-panel h2{font:750 24px/1.25 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.7px;margin:0 0 10px;color:inherit}
+.app-boot .boot-panel p{font:14px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#637466}
+.app-boot .boot-track{background:#e2ebdc;max-width:150px;height:4px}
+.app-boot .boot-track:after{background:#3f7847}
+.crew-calm .hub-brand-home{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;padding:0;border:0;border-radius:13px;background:none}
+.hub-brand-home img{display:block;width:42px;height:42px;border-radius:12px}
+.crew-calm .topbar>div:has(#sectionName){flex:1;min-width:0}
+.brand .mark img{display:block;width:44px;height:44px;border-radius:13px;max-width:none}
+.hub-card-brand{display:flex;align-items:center;gap:9px;text-align:left;color:var(--ink);font-size:12px;font-weight:750;margin:0 0 22px}
+.hub-card-brand img{flex-shrink:0;border-radius:9px}
+.cloud-loading .hub-loading-logo{width:80px;height:80px;display:block;margin:0 auto 18px;animation:hub-brand-breathe 1.8s ease-in-out infinite}
+@keyframes hub-brand-breathe{50%{opacity:.65;transform:translateY(-3px)}}
+html[data-theme=dark] .app-boot{background:#142019!important;color:#eaf3e7}
+html[data-theme=dark] .app-boot .boot-panel p{color:#b4c3b1}
+@media(max-width:390px){.crew-calm .topbar{gap:9px}.crew-calm .topbar strong{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.app-boot{transition:none}.hub-loading-logo{animation:none!important}}
