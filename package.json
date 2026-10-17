@@ -1,0 +1,17 @@
+{
+  "name": "bulletproof-seafarer-hub",
+  "version": "0.9.0",
+  "private": true,
+  "description": "Seafarer community prototype for feedback, with a Cloudflare Pages deployment path.",
+  "scripts": {
+    "build": "node scripts/configure.mjs && node scripts/check.mjs",
+    "test": "node scripts/check.mjs && node --test tests/*.test.mjs",
+    "preview": "python3 -m http.server 8080 --directory dist"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.118.0"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.10"
+  }
+}

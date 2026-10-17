@@ -1,0 +1,4257 @@
+[
+  {
+    "track": "nw",
+    "parsed": 4387,
+    "included": 4259,
+    "excluded": [
+      {
+        "id": "nw-108",
+        "number": 108,
+        "page": 11,
+        "pages": [
+          11
+        ],
+        "question": "In the time diagram , the angle at the pole between the hour circle of the First point of Aries to the meridian of the observer at Greenwich is called:",
+        "options": [
+          "GHA of Aries",
+          "SHA of Aries",
+          "Sidereal Hour Angle",
+          "Right Ascension"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-187",
+        "number": 187,
+        "page": 18,
+        "pages": [
+          18
+        ],
+        "question": "In the horizon system of coordinates what is equivalent to the meridian angle of the celestial equator system?",
+        "options": [
+          "Azimuth angle",
+          "Zenith distance",
+          "Co-latitude",
+          "Altitude"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-188",
+        "number": 188,
+        "page": 18,
+        "pages": [
+          18
+        ],
+        "question": "In the time diagram , the angle at the pole between the hour circle of the First point of Aries to the meridian of the observer at Greenwich is called:",
+        "options": [
+          "SHA of Aries",
+          "Right Ascension",
+          "GHA of Aries",
+          "Sidereal Hour Angle"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-195",
+        "number": 195,
+        "page": 19,
+        "pages": [
+          19
+        ],
+        "question": "What is a position obtained by applying estimated current and wind to your vessels course and speed?",
+        "options": [
+          "Dead-reckoning position",
+          "Assumed position",
+          "Estimated positon",
+          "Estimated positon"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "nw-207",
+        "number": 207,
+        "page": 20,
+        "pages": [
+          20
+        ],
+        "question": "The visibility of the lights indicated in the charts is in nautical miles for:",
+        "options": [
+          "geographic range of the light",
+          "luminous of light",
+          "charted range of the light",
+          ""
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-281",
+        "number": 281,
+        "page": 28,
+        "pages": [
+          28
+        ],
+        "question": "You are underway on a power driven vessel in open water when you observe a crossing power driven vessel approximately 8 miles away at 22 degrees on your port bow. Bearing steady, what action do you take?",
+        "options": [
+          "Reduce speed to let him pass ahead",
+          "Call him on VHF before deciding on what action to take",
+          "",
+          "Maintain course and speed with caution as he is the give way vessel"
+        ],
+        "markedOptions": [
+          3
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-417",
+        "number": 417,
+        "page": 44,
+        "pages": [
+          44
+        ],
+        "question": "As stated in the Collision Regulations, which of the listed refers to Annex II?",
+        "options": [
+          "Additional Signals for Fishing Vessel Fishing in Close Proximity",
+          "Vertical Positioning and Technical Details of Lights and Shapes",
+          "Vertical Positioning and Technical Details of Lights and Shapes",
+          "Technical Details of Sound and Light Signal Appliances"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "nw-418",
+        "number": 418,
+        "page": 44,
+        "pages": [
+          44
+        ],
+        "question": "As prescribed in Annex III of Rule of the Roads, what does it pertain to?",
+        "options": [
+          "Vertical Positioning and Technical Details of Lights and Shapes",
+          "Technical Details of Sound Signal Appliances",
+          "Additional Signals for Fishing Vessel Fishing in Close Proximity",
+          "Vertical Positioning and Technical Details of Lights and Shapes"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "nw-590",
+        "number": 590,
+        "page": 62,
+        "pages": [
+          62
+        ],
+        "question": "Which radar control is used to shorten all echoes on the display and reduces the clutter caused by the snow or rain?",
+        "options": [
+          "fast time constant",
+          "gain control",
+          "",
+          "brilliance"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-613",
+        "number": 613,
+        "page": 64,
+        "pages": [
+          64
+        ],
+        "question": "The description &quot;Racon&quot; beside an illustration on a chart would mean a:",
+        "options": [
+          "circular radio beacon",
+          "radar transponder beacon",
+          "radar conspicuous beacon",
+          "radar calibration beacon"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-828",
+        "number": 828,
+        "page": 86,
+        "pages": [
+          86
+        ],
+        "question": "ECDIS must have the capability to preserve the record of the track for the previous __________.",
+        "options": [
+          "6 hours",
+          "24 hours",
+          "12 hours",
+          "18 hours"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-902",
+        "number": 902,
+        "page": 93,
+        "pages": [
+          93
+        ],
+        "question": "Which of the following is NOT considered as distress signal?",
+        "options": [
+          "",
+          "Green star shells",
+          "A flag over a ball",
+          "Continuous sounding of a whistle"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-1091",
+        "number": 1091,
+        "page": 115,
+        "pages": [
+          115
+        ],
+        "question": "During a search, a RU would like to communicate by VHF radio telephone on channel indicated, she must signal what code group?",
+        "options": [
+          "YY",
+          "GH",
+          "MI",
+          "MG"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-1114",
+        "number": 1114,
+        "page": 118,
+        "pages": [
+          118
+        ],
+        "question": "What should you do if you have transmitted a distress call a number of times on channel 16 and have received no reply?",
+        "options": [
+          "",
+          "Repeat the message using any other channel on which you might attract attention.",
+          "Turn up the volume on the receiver before transmitting again.",
+          "Key the microphone several times before transmitting again."
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-1189",
+        "number": 1189,
+        "page": 127,
+        "pages": [
+          127
+        ],
+        "question": "What is a Rescue Unit (RU)?",
+        "options": [
+          "A permanently manned rescue vessel.",
+          "A unit composed of trained personnel suitably equipped for expeditious search and rescue operations.",
+          "A unit specializing in search and rescue operations at sea.",
+          ""
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-1253",
+        "number": 1253,
+        "page": 134,
+        "pages": [
+          134
+        ],
+        "question": "What is/are the content of table #1 of radiotelephony procedures? I. Nature of distress in code from the International code of signals II. Phonetic alphabets and figure spelling III. Position in code from the International code of signals",
+        "options": [
+          "I only",
+          "II only",
+          "III only",
+          "I, II & III"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-1271",
+        "number": 1271,
+        "page": 136,
+        "pages": [
+          136
+        ],
+        "question": "What is/are the content of table #1 of radiotelephony procedures? I. Nature of distress in code from the International code of signals II. Phonetic alphabets and figure spelling III. Position in code from the International code of signals",
+        "options": [
+          "II only",
+          "I only",
+          "III only",
+          "I, II &amp; III"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-1315",
+        "number": 1315,
+        "page": 140,
+        "pages": [
+          140
+        ],
+        "question": "How many VHF Survival Craft Transceivers are required aboard passenger ships?",
+        "options": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-1425",
+        "number": 1425,
+        "page": 150,
+        "pages": [
+          150
+        ],
+        "question": "The use of three (3) figure signals denotes _______.",
+        "options": [
+          "longitude",
+          "bearing or azimuth",
+          "distance",
+          "time"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-1461",
+        "number": 1461,
+        "page": 154,
+        "pages": [
+          154
+        ],
+        "question": "Figures preceeded by letter R indicate _______.",
+        "options": [
+          "distance",
+          "latitude",
+          "bearing",
+          "none of these"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-1462",
+        "number": 1462,
+        "page": 154,
+        "pages": [
+          154
+        ],
+        "question": "Figures preceeded by the letter S indicate _______.",
+        "options": [
+          "ship s heading",
+          "destination",
+          "a question",
+          "speed"
+        ],
+        "markedOptions": [
+          3
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-1465",
+        "number": 1465,
+        "page": 154,
+        "pages": [
+          154
+        ],
+        "question": "How is the call part of a signal by flashing light made?",
+        "options": [
+          "",
+          "omitting the call if the name of the station is unknown",
+          "sending CQ",
+          "the identity signal of the station called"
+        ],
+        "markedOptions": [
+          3
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-1469",
+        "number": 1469,
+        "page": 155,
+        "pages": [
+          155
+        ],
+        "question": "What is the International Code signal for a decimal point between figures using flashing light?",
+        "options": [
+          "TTTT",
+          "EEEEE",
+          "AAA",
+          "AS"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-1471",
+        "number": 1471,
+        "page": 155,
+        "pages": [
+          155
+        ],
+        "question": "The letter HOTEL when hoisted means:",
+        "options": [
+          "I require a doctor.",
+          "I have a doctor on board.",
+          "",
+          "I have a pilot on board."
+        ],
+        "markedOptions": [
+          3
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-1472",
+        "number": 1472,
+        "page": 155,
+        "pages": [
+          155
+        ],
+        "question": "Figures preceeded by the letter S indicate:",
+        "options": [
+          "speed",
+          "destination",
+          "ships heading",
+          "a question"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-1473",
+        "number": 1473,
+        "page": 155,
+        "pages": [
+          155
+        ],
+        "question": "Figures preceeded by letter R indicate:",
+        "options": [
+          "bearing",
+          "none of the options",
+          "distance",
+          "latitude"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-1480",
+        "number": 1480,
+        "page": 156,
+        "pages": [
+          156
+        ],
+        "question": "What international signal letter is used when calling another vessel by light signal?",
+        "options": [
+          "Kilo",
+          "November",
+          "Delta",
+          "Bravo"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-1487",
+        "number": 1487,
+        "page": 156,
+        "pages": [
+          156
+        ],
+        "question": "The use of three (3) figure signals denotes:",
+        "options": [
+          "bearing or azimuth",
+          "distance",
+          "longitude",
+          "time"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-1512",
+        "number": 1512,
+        "page": 158,
+        "pages": [
+          158
+        ],
+        "question": "What is the primary purpose for Digital Selective Calling (DSC)?",
+        "options": [
+          "DSC provides reception of weather and navigational warnings plus search and rescue information.",
+          "DSC is to be used for transmitting and receiving distress alerts to and from other ships or coast radio stations via radio.",
+          "DSC provides low- cost, routine communications for the vessel operator.",
+          "This aids SAR authorities in tracking a vessels position by satellite."
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-1513",
+        "number": 1513,
+        "page": 158,
+        "pages": [
+          158
+        ],
+        "question": "What is the basic concept of GMDSS?",
+        "options": [
+          "All of the options",
+          "Search and rescue authorities ashore can be alerted to a distress situation.",
+          "Shipping in the immediate vicinity of a ship in distress will be rapidly alerted.",
+          "Shoreside authorities and vessels can assist in a coordinated SAR operation with minimum delay."
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-1514",
+        "number": 1514,
+        "page": 158,
+        "pages": [
+          158
+        ],
+        "question": "Which communications functions must all vessels be capable of performing under GMDSS as defined by the International Maritime Organization?",
+        "options": [
+          "All communications possible within the International Safety-NET service",
+          "Communications in each of the operational ocean areas",
+          "Radio direction finding",
+          "Distress alerting to and from vessels, search and rescue coordination, on- scene communications, signals for locating, Maritime Safety Information, general and bridge-to-bridge communications."
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-1564",
+        "number": 1564,
+        "page": 164,
+        "pages": [
+          164
+        ],
+        "question": "How long will a 12 knot steamer normally complete one circle turn at full rudder angle?",
+        "options": [
+          "8 minutes",
+          "10 minutes",
+          "13 minutes",
+          "16 minutes"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-1565",
+        "number": 1565,
+        "page": 164,
+        "pages": [
+          164
+        ],
+        "question": "The auxiliary steering gear shall be capable of putting the rudder over from 15 deg on one side to 15 deg on the other side in not more than _________ at its seagoing draft and service speed of 7 knots or half of the maximum ahead speed whichever is greater.",
+        "options": [
+          "15 seconds",
+          "28 seconds",
+          "38 seconds",
+          "60 seconds"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-1811",
+        "number": 1811,
+        "page": 189,
+        "pages": [
+          189
+        ],
+        "question": "On a manned ship carrying packaged hazardous cargo, the hazardous materials shall be inspected __________.",
+        "options": [
+          "All of the above",
+          "Prior to the entry into a U.S. port",
+          "After stowage is complete",
+          "Every 24 hours. unless equipped with a fire detecting system"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-1818",
+        "number": 1818,
+        "page": 190,
+        "pages": [
+          190
+        ],
+        "question": "If you are on duty and observe any situation which presents a safety or pollution hazard during fuel transfer operations what action should you take first?",
+        "options": [
+          "Close the valves at the manifold",
+          "Close the valves at the manifold",
+          "Notify the person in charge from shore",
+          "Shut down the transfer operation"
+        ],
+        "markedOptions": [
+          3
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "nw-1893",
+        "number": 1893,
+        "page": 197,
+        "pages": [
+          197
+        ],
+        "question": "Which of the following is the advantage of having a (COW) crude oil washing?",
+        "options": [
+          "increased work load in port",
+          "an effective monitoring system",
+          "an effective monitoring system",
+          "reduction in time of passage tank cleaning"
+        ],
+        "markedOptions": [
+          3
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "nw-2020",
+        "number": 2020,
+        "page": 210,
+        "pages": [
+          210
+        ],
+        "question": "Sawn timber not less than 50 mm thick and 230 mm or 250 mm wide. A Petrograd &quot;Standard Deal&quot; is 1 piece, 75 mm x 280 mm x 1,830 mm. A &quot;Slit-deal&quot; is 30 mm thick. A &quot;Whole deal&quot; is 15 mm thick. A &quot;Hundred deals&quot; = 120 pieces, 150 mm x 75 mm x 280 mm x 165 cu.ft.",
+        "options": [
+          "Baulks",
+          "Waney Timber",
+          "Deals",
+          "Baulks"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "nw-2032",
+        "number": 2032,
+        "page": 211,
+        "pages": [
+          211
+        ],
+        "question": "Sawn timber 50 mm thick and under, any width. Above 150 mm stow at 230/240 cu. Ft per Standard and 250/260 cu. Ft below 150 mm thick.",
+        "options": [
+          "Boards",
+          "Baulks",
+          "Baulks",
+          "Waney Timber"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "nw-2123",
+        "number": 2123,
+        "page": 220,
+        "pages": [
+          220
+        ],
+        "question": "When stripping a tank excessive air in the suction line may cause __________.",
+        "options": [
+          "an over pressurized line",
+          "loss of suction",
+          "increase of suction",
+          "back pressure"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2135",
+        "number": 2135,
+        "page": 221,
+        "pages": [
+          221
+        ],
+        "question": "Line Displacement is a procedure that is followed at an oil terminal facility, when there is a change of which of the following?",
+        "options": [
+          "product during the final phase of loading",
+          "cargo lines at the terminal before loading",
+          "product before the start of loading",
+          "product after the final discharge"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2136",
+        "number": 2136,
+        "page": 221,
+        "pages": [
+          221
+        ],
+        "question": "How do you determine the weight of the vessel that is supported by the ground when a vessel has run aground?",
+        "options": [
+          "This requires extensive calculation and is usually performed only by a naval architect not by a ship s officer.",
+          "Determine the point where aground and the draft at that point, then calculate it using the grounding formula.",
+          "Use the inclining experiment formula and substitute the change of trim for the angle of list.",
+          "Use the hydrostatic tables and enter with the mean draft before grounding and the mean draft after grounding."
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2137",
+        "number": 2137,
+        "page": 221,
+        "pages": [
+          221
+        ],
+        "question": "How does an inert gas system on a tanker function to prevent explosions in cargo tanks?",
+        "options": [
+          "Maintains a positive pressure on the vent header to cool the flammable vapors.",
+          "De-energizes the charged mist effect.",
+          "Inert gas dilutes the flammable vapor and air concentrations to keep them below the lower explosive limit.",
+          "Inert gas filters out the flammable vapors from the cargo tank spaces."
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2138",
+        "number": 2138,
+        "page": 221,
+        "pages": [
+          221
+        ],
+        "question": "How is the minimum bursting pressure for each cargo hose assembly determined?",
+        "options": [
+          "four times the sum of the relief valve setting and the static head",
+          "three times the sum of the relief valve setting and the static head",
+          "the sum of the relief valve setting and the static head",
+          "twice the sum of the relief valve setting and the static head"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2139",
+        "number": 2139,
+        "page": 221,
+        "pages": [
+          221
+        ],
+        "question": "How much weight can you lift by applying 100 lbs. of force to a twofold purchase rigged to disadvantage (do not consider friction)?",
+        "options": [
+          "300 lbs.",
+          "400 lbs.",
+          "200 lbs.",
+          "500 lbs."
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2148",
+        "number": 2148,
+        "page": 222,
+        "pages": [
+          222
+        ],
+        "question": "What happens to the volume of flammable and combustible liquids when temperature is increased?",
+        "options": [
+          "it expands",
+          "it remains constant",
+          "it contracts",
+          "it remains constant if pressure remains constant"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2149",
+        "number": 2149,
+        "page": 222,
+        "pages": [
+          222
+        ],
+        "question": "What is a wet cargo?",
+        "options": [
+          "A cargo particularly susceptible to damage by moisture",
+          "A liquid cargo carried in the deep tanks",
+          "A canned or bottled liquid such as beer",
+          "A cargo that contains hygroscopic moisture"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2150",
+        "number": 2150,
+        "page": 222,
+        "pages": [
+          222
+        ],
+        "question": "What is an advantage of having wire rope with a fiber core over that of a wire rope of the same size with a wire core?",
+        "options": [
+          "Fiber core rope offers greater flexibility.",
+          "Fiber core rope is the only type authorized for cargo runners.",
+          "Fiber core rope offers greater strength.",
+          "Fiber core rope can be used at higher operating temperatures."
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2151",
+        "number": 2151,
+        "page": 222,
+        "pages": [
+          222
+        ],
+        "question": "What is an example of a fundamental objective of cargo stowage?",
+        "options": [
+          "Load so the trim does not exceed 3 feet by the stern.",
+          "Separate wet and dry cargoes into separate holds.",
+          "Prevent overcarriage by block stowage.",
+          "Make maximum use of existing dunnage."
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2191",
+        "number": 2191,
+        "page": 226,
+        "pages": [
+          226
+        ],
+        "question": "On the cargo manifest, the weight of the cargo inside a box is called __________.",
+        "options": [
+          "net weight",
+          "gross weight",
+          "light weight",
+          "rate weight"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2203",
+        "number": 2203,
+        "page": 227,
+        "pages": [
+          227
+        ],
+        "question": "Tonnage tax is officially based upon the figures obtained from the __________.",
+        "options": [
+          "Load Line Certificate",
+          "deadweight scale",
+          "Admeasurement Certificate",
+          "displacement scale"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-2218",
+        "number": 2218,
+        "page": 229,
+        "pages": [
+          229
+        ],
+        "question": "A reinspection of the vessel shall be made between which of the following months while the Certificate of Inspection is valid?",
+        "options": [
+          "10 - 12 months",
+          "10 - 14 months",
+          "8 - 12 months",
+          "12 - 14 months"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2221",
+        "number": 2221,
+        "page": 229,
+        "pages": [
+          229
+        ],
+        "question": "Which type of hull damage should be repaired FIRST?",
+        "options": [
+          "Damage to interior watertight boundaries",
+          "Damage below the waterline",
+          "Damage at or just above the waterline",
+          "Damage in way of machinery rooms"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2222",
+        "number": 2222,
+        "page": 229,
+        "pages": [
+          229
+        ],
+        "question": "What is the meaning of the term tare weight?",
+        "options": [
+          "Pounds of force necessary to damage a container",
+          "Weight of a container",
+          "Weight of the contents of a container",
+          "Total weight of a container and contents"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2223",
+        "number": 2223,
+        "page": 229,
+        "pages": [
+          229
+        ],
+        "question": "Sweat damage will occur in a cargo hold containing cased machinery when the __________.",
+        "options": [
+          "dew point of the outside air is lower than the temperature of the cargo",
+          "air temperature of the hold is higher than the temperature of the outside air",
+          "dew point of the hold is higher than the temperature of the ship's skin",
+          "outside air temperature is colder than the temperature of the cargo"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2224",
+        "number": 2224,
+        "page": 229,
+        "pages": [
+          229
+        ],
+        "question": "Sweat damage in a hatch full of canned goods in cartons will occur when the __________.",
+        "options": [
+          "dew point is higher than the temperature of the cargo",
+          "air temperature is higher than the temperature of the cargo",
+          "air temperature is lower than the temperature of the cargo",
+          "dew point is lower than the temperature of the cargo"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2225",
+        "number": 2225,
+        "page": 229,
+        "pages": [
+          229
+        ],
+        "question": "When underway with a tow, you are required to notify the Coast Guard in which casualty situation?",
+        "options": [
+          "An injury requiring first aid treatment",
+          "Accidental stranding or grounding",
+          "Damage to property amounting to $12,500",
+          "Damage of bridge-to-bridge radio capability"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2313",
+        "number": 2313,
+        "page": 239,
+        "pages": [
+          239
+        ],
+        "question": "NOT an advantage of centrifugal pumps over reciprocating pumps.",
+        "options": [
+          "They require priming for stripping",
+          "They are smaller for equivalent pumping ability",
+          "They pump more cargo in less time",
+          "They are less expensive"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2366",
+        "number": 2366,
+        "page": 244,
+        "pages": [
+          244
+        ],
+        "question": "After an emergency shoring installation has been completed the _______.",
+        "options": [
+          "Shoring should be frequently inspected for looseness",
+          "Timbers are nailed in place to prevent looseness",
+          "Repair is completed and no further action is needed",
+          "Damaged plating should be straightened by heating"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2432",
+        "number": 2432,
+        "page": 250,
+        "pages": [
+          250
+        ],
+        "question": "Spreading oil on the open sea has the effect of __________.",
+        "options": [
+          "diminishing the height of the seas",
+          "lengthening the distance between successive crests",
+          "increasing the height of the seas",
+          "preventing the wave crests from breaking"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2574",
+        "number": 2574,
+        "page": 264,
+        "pages": [
+          264
+        ],
+        "question": "In the Oil record Book, each operation specifies in the regulation must be noted by the:",
+        "options": [
+          "The Chief Officer is to signed when the operations are completed and countersigned by the Master",
+          "When the operations are completed will be signed by the Officer or OIC of the operation",
+          "Officer or OIC of the operation and each completed page will be signed by the master",
+          "The entries match operations completed after which is signed by the Master"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2575",
+        "number": 2575,
+        "page": 264,
+        "pages": [
+          264
+        ],
+        "question": "Two signatures are essential in the Oil Record Book of a dry-cargo vessel. These are:",
+        "options": [
+          "the Master and the Officer in charge of the operations",
+          "the Master and the Chief Engineer",
+          "the Master and the Chief Mate",
+          "the Chief Mate and Chief Engineer"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2576",
+        "number": 2576,
+        "page": 264,
+        "pages": [
+          264
+        ],
+        "question": "The use of sinking and dispersing agents for removal of surface oil is:",
+        "options": [
+          "generally safe to sea life",
+          "the most common method used in the United States and European countries",
+          "too expensive for common use",
+          "generally harmful to sea life"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2680",
+        "number": 2680,
+        "page": 275,
+        "pages": [
+          275
+        ],
+        "question": "Your vessel rolls slowly and sluggishly. This indicates that the vessel __________.",
+        "options": [
+          "has a greater draft forward than aft",
+          "has poor stability",
+          "has off-center weights",
+          "has a greater draft forward than aft"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "nw-2743",
+        "number": 2743,
+        "page": 281,
+        "pages": [
+          281
+        ],
+        "question": "The figure obtained by dividing the total volume of the ship in cubic feet (after omission of exempted spaces) by 100 is the ______.",
+        "options": [
+          "Bale cubic",
+          "net tonnage",
+          "gross tonnage",
+          "light displacement"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-2814",
+        "number": 2814,
+        "page": 287,
+        "pages": [
+          287
+        ],
+        "question": "Your vessel rolls slowly and sluggishly. This indicates that the vessel __________.",
+        "options": [
+          "has poor stability",
+          "has off-center weights",
+          "has a greater draft forward than aft",
+          "has a greater draft forward than aft"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "nw-2816",
+        "number": 2816,
+        "page": 287,
+        "pages": [
+          287
+        ],
+        "question": "You are underway when a fire breaks out in the forward part of your vessel. If possible you should __________.",
+        "options": [
+          "abandon ship to windward",
+          "keep going at half speed",
+          "put the vessel's stern into the wind",
+          "call for assistance"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2817",
+        "number": 2817,
+        "page": 287,
+        "pages": [
+          287
+        ],
+        "question": "The purpose of the inclining experiment is to __________.",
+        "options": [
+          "verify the hydrostatic data",
+          "determine the location of the metacenter",
+          "determine the lightweight center of gravity location",
+          "verify data in the vessel's operating manual"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-2818",
+        "number": 2818,
+        "page": 287,
+        "pages": [
+          287
+        ],
+        "question": "Which technique could be used to give a more comfortable roll to a stiff vessel?",
+        "options": [
+          "Concentrate weights on upper decks",
+          "Ballast the peak tanks",
+          "Move weights lower in the ship",
+          "Add weight near the centerline of the lower hold"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3012",
+        "number": 3012,
+        "page": 305,
+        "pages": [
+          305
+        ],
+        "question": "Fire hose stations shall be marked in red letters and figures such as Fire Station No. \"1\", \"2\", \"3\", etc. The height of the letters and figures must be at least __________.",
+        "options": [
+          "1/2 inch",
+          "1-1/2 inches",
+          "2 inches",
+          "1 inch"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-3057",
+        "number": 3057,
+        "page": 309,
+        "pages": [
+          309
+        ],
+        "question": "Fire hose stations shall be marked in red letters and figures such as Fire Station No. \"1\", \"2\", \"3\", etc. The height of the letters and figures must be at least __________.",
+        "options": [
+          "1/2 inch",
+          "2 inches",
+          "1 inch",
+          "1-1/2 inches"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-3091",
+        "number": 3091,
+        "page": 313,
+        "pages": [
+          313
+        ],
+        "question": "What is a chemical that, when added to water, reduces the surface tension and increases the wetting effectiveness of the solution and causes it to spread and penetrate exposed objects more effectively?",
+        "options": [
+          "Mixing agent",
+          "Wetting agent",
+          "Concentrating agent",
+          "Drying agent"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3092",
+        "number": 3092,
+        "page": 313,
+        "pages": [
+          313
+        ],
+        "question": "Sread of fire may be prevented by which of the following?",
+        "options": [
+          "heating the surface adjacent to the fire",
+          "throwing the burning material overboard",
+          "removing combustible materials from adjacent areas",
+          "covering the fire with cloth"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3093",
+        "number": 3093,
+        "page": 313,
+        "pages": [
+          313
+        ],
+        "question": "What do you called the decomposition by microbial action as with synthetic detergent or protein based agents?",
+        "options": [
+          "Degradation",
+          "Micro Degradation",
+          "Biodegradation",
+          "Protein Degradation"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3094",
+        "number": 3094,
+        "page": 313,
+        "pages": [
+          313
+        ],
+        "question": "What is a negative change in the characteristics of qualities of foam?",
+        "options": [
+          "Degraduation",
+          "Degradation",
+          "Drainage",
+          "Discharge"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3095",
+        "number": 3095,
+        "page": 313,
+        "pages": [
+          313
+        ],
+        "question": "What is an inert organic compound in which fluorine replaces hydrogen?",
+        "options": [
+          "Hydrofluoro",
+          "Fluorohydro",
+          "Fluorocarbon",
+          "Fluoroprotein"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3096",
+        "number": 3096,
+        "page": 313,
+        "pages": [
+          313
+        ],
+        "question": "According to SOLAS convention, fired fire detection system cables must be ________.",
+        "options": [
+          "Fire proof",
+          "Flame retardant",
+          "Heavily insulated",
+          "Heat proof"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3097",
+        "number": 3097,
+        "page": 313,
+        "pages": [
+          313
+        ],
+        "question": "Cables used for fixed fire detection system should be ___________.",
+        "options": [
+          "Heat proof",
+          "Fire proof",
+          "Heavily insulated",
+          "Flame retardant"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3098",
+        "number": 3098,
+        "page": 313,
+        "pages": [
+          313
+        ],
+        "question": "As far as practicable, every fire extinguisher on board ship shall be clearly marked of the following EXCEPT:",
+        "options": [
+          "labeling of every fire extinguisher",
+          "name of manufacturer and inspector",
+          "date of expiry",
+          "pictorial and legible operating instructions"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3099",
+        "number": 3099,
+        "page": 313,
+        "pages": [
+          313
+        ],
+        "question": "In passenger ships fixed fire fighting system, a section of detectors and manually operated call points shall not be situated in more than one main vertical zone except on ____________.",
+        "options": [
+          "Mess hall",
+          "Pool area",
+          "Cabin balconies",
+          "Lounge"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3100",
+        "number": 3100,
+        "page": 313,
+        "pages": [
+          313
+        ],
+        "question": "Supplies for fixed fire detection system should have feeders that shall run to a switch situated in or adjacent to the control panel for the fire detection system, such switch must be _________.",
+        "options": [
+          "automatic change-over",
+          "manual recovery",
+          "manual change over",
+          "automatic recovery"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3108",
+        "number": 3108,
+        "page": 314,
+        "pages": [
+          314
+        ],
+        "question": "The number of fire detectors that a single power supply is capable to handle for continuous operation is limited to a maximum of _________.",
+        "options": [
+          "100",
+          "50",
+          "80",
+          "200"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3369",
+        "number": 3369,
+        "page": 340,
+        "pages": [
+          340
+        ],
+        "question": "To enable periodic maintenance of the survival craft launching and recovery arrangement, lifeboats must be provided with:",
+        "options": [
+          "a gong, a whistle and a flare",
+          "food, clothings, emergency kit and a radio",
+          "hanging-off to free the release gear",
+          "off-load release system"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3370",
+        "number": 3370,
+        "page": 340,
+        "pages": [
+          340
+        ],
+        "question": "What is the range of SART - at sea level and to Aircraft?",
+        "options": [
+          "About 3 nm at sea level, about 30 nm to Aircraft &quot;line of sight&quot;",
+          "About 5 nm at sea level, about 60 nm to Aircraft &quot;line of sight&quot;",
+          "About 1 nm at sea level, about 30 nm to Aircraft &quot;line of sight&quot;",
+          "About 2 nm at sea level, about 30 nm to Aircraft &quot;line of sight&quot;"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3371",
+        "number": 3371,
+        "page": 340,
+        "pages": [
+          340
+        ],
+        "question": "Mechanical gearing of deck machinery such as the windlass or boat hoists should ________.",
+        "options": [
+          "not be operated if there is any crew within 10 feet of the machinery",
+          "have a guard over the gearing",
+          "be open to view so, if a foreign object gets in the gearing, the operator can immediately stop the machinery",
+          "be painted a contrasting color from the base color in order to call attention to the gearing"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3372",
+        "number": 3372,
+        "page": 340,
+        "pages": [
+          340
+        ],
+        "question": "One of your crew members falls overboard from the starboard side. You should IMMEDIATELY:",
+        "options": [
+          "apply left rudder",
+          "begin backing your engines",
+          "throw the crew member a life preserver",
+          "position your vessel to windward and begin recovery"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3373",
+        "number": 3373,
+        "page": 340,
+        "pages": [
+          340
+        ],
+        "question": "In a rescue operation in heavy sea, you decide to hove to, the lifeboat should be:",
+        "options": [
+          "brought quarter into the sea",
+          "brought bow into the sea",
+          "brought to the sea",
+          "brought to a position with stern into the sea"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3374",
+        "number": 3374,
+        "page": 340,
+        "pages": [
+          340
+        ],
+        "question": "What is the EPIRB coverage?",
+        "options": [
+          "COSPAS-SARSAT - A1, A2, A3 and A4",
+          "Sea Area 4",
+          "COSPAS-SARSAT - A1, A2, A3 and A4 / Inmarsat - A1, A2 and A3",
+          "Inmarsat - A1, A2 and A3"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3375",
+        "number": 3375,
+        "page": 340,
+        "pages": [
+          340
+        ],
+        "question": "When a sea anchor is used in landing in heavy surf, headway is checked by:",
+        "options": [
+          "Drag the sea anchor",
+          "Slacking the tripping line and towing the apex end forward",
+          "Open the watertight door",
+          "Slacking the tripping line and towing the mouth forward by the holding line"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3376",
+        "number": 3376,
+        "page": 340,
+        "pages": [
+          340
+        ],
+        "question": "Bring survivors in a lifeboat and your position has not been transmitted to rescue services. What is the first action you should do?",
+        "options": [
+          "start rowing in a fixed direction to look for help",
+          "ration the water and food in case rescue is delayed",
+          "fire smoke signals to show your position",
+          "light a fire at night to show your position"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3466",
+        "number": 3466,
+        "page": 350,
+        "pages": [
+          350
+        ],
+        "question": "What should you do with your EPIRB if you are in a life raft during storm conditions?",
+        "options": [
+          "bring it inside the life raft and turn it off until the storm passes",
+          "bring it inside the life raft and leave it on",
+          "bring it inside the life raft and turn it off until the storm passes",
+          "bring it inside the life raft and turn it off until the storm passes"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "nw-3529",
+        "number": 3529,
+        "page": 356,
+        "pages": [
+          356
+        ],
+        "question": "Morphine is given either by subcutaneous injection or by Intramuscular Injection for quick pain relief and will act in approximately:",
+        "options": [
+          "10-15 minutes",
+          "3-5 minutes",
+          "5-8 minutes",
+          "2-4 minutes"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3530",
+        "number": 3530,
+        "page": 356,
+        "pages": [
+          356
+        ],
+        "question": "How open is the medicine chest and its contents including the medical equipment carried on board be inspected?",
+        "options": [
+          "24 months",
+          "18 months",
+          "12 months",
+          "36 months"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3531",
+        "number": 3531,
+        "page": 356,
+        "pages": [
+          356
+        ],
+        "question": "A patient has to be moved after basic life support has been started, interruption time should NOT exceed:",
+        "options": [
+          "15 seconds",
+          "20 seconds",
+          "5 seconds",
+          "10 seconds"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3532",
+        "number": 3532,
+        "page": 356,
+        "pages": [
+          356
+        ],
+        "question": "If hydrogen sulfide is burned (flared) on a vessel, which of the following conditions can be expected to happen?",
+        "options": [
+          "Only 80% of the hydrogen sulfide will be converted to sulfur dioxide",
+          "All of the hydrogen sulfide will be converted to hydrogen and free sulphur",
+          "none of the above",
+          "All of the hydrogen sulfide will be converted to sulfur dioxide"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3533",
+        "number": 3533,
+        "page": 356,
+        "pages": [
+          356
+        ],
+        "question": "First-, second-, and third- degree burns are classified according to the:",
+        "options": [
+          "source of heat causing the burn",
+          "layers of skin affected",
+          "size of the burned area",
+          "area of the body burned"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3590",
+        "number": 3590,
+        "page": 361,
+        "pages": [
+          361
+        ],
+        "question": "Morphine is given either by subcutaneous injection or by Intramuscular Injection for quick pain relief and will act in approximately:",
+        "options": [
+          "2-4 minutes",
+          "5-8 minutes",
+          "3-5 minutes",
+          "10-15 minutes"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3591",
+        "number": 3591,
+        "page": 361,
+        "pages": [
+          361
+        ],
+        "question": "How open is the medicine chest and its contents including the medical equipment carried on board be inspected?",
+        "options": [
+          "12 months",
+          "24 months",
+          "18 months",
+          "36 months"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3592",
+        "number": 3592,
+        "page": 361,
+        "pages": [
+          361
+        ],
+        "question": "A patient has to be moved after basic life support has been started, interruption time should NOT exceed:",
+        "options": [
+          "20 seconds",
+          "10 seconds",
+          "15 seconds",
+          "5 seconds"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3593",
+        "number": 3593,
+        "page": 361,
+        "pages": [
+          361
+        ],
+        "question": "If hydrogen sulfide is burned (flared) on a vessel, which of the following conditions can be expected to happen?",
+        "options": [
+          "All of the hydrogen sulfide will be converted to hydrogen and free sulphur",
+          "Only 80% of the hydrogen sulfide will be converted to sulfur dioxide",
+          "All of the hydrogen sulfide will be converted to sulfur dioxide",
+          "none of the above"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-3676",
+        "number": 3676,
+        "page": 370,
+        "pages": [
+          370
+        ],
+        "question": "A person who gets battery acid in an eye should IMMEDIATELY wash the eye with what liquid?",
+        "options": [
+          "water",
+          "water",
+          "boric acid solution",
+          "baking soda solution"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "nw-3907",
+        "number": 3907,
+        "page": 394,
+        "pages": [
+          394
+        ],
+        "question": "Fire hose stations shall be marked in red letters and figures such as Fire Station No. 1 2 3 etc. The height of the letters and figures must be at least _______.",
+        "options": [
+          "1/2 inch",
+          "2 inches",
+          "1-1/2 inches",
+          "1 inch"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "nw-3911",
+        "number": 3911,
+        "page": 395,
+        "pages": [
+          395
+        ],
+        "question": "How many low-velocity spray applicators are required on the weather decks of a tankship?",
+        "options": [
+          "",
+          "Two",
+          "Four",
+          "Three"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers",
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-3912",
+        "number": 3912,
+        "page": 395,
+        "pages": [
+          395
+        ],
+        "question": "If it is impractical to use the fill line to sound the fuel tank then the tank should be fitted with _______.",
+        "options": [
+          "",
+          "a separate sounding tube or an installed marine type fuel gauge",
+          "A glass tube to visually observe the fuel",
+          "A good air vent of sufficient diameter"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-3913",
+        "number": 3913,
+        "page": 395,
+        "pages": [
+          395
+        ],
+        "question": "Under the federal regulations, what minimum level of Blood Alcohol Content (BAC) constitutes a violation of the laws prohibiting Boating Under the Influence of Alcohol (BUI) on commercial vessels?",
+        "options": [
+          ".04% BAC",
+          "",
+          ".10% BAC",
+          ".06% BAC"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-3915",
+        "number": 3915,
+        "page": 395,
+        "pages": [
+          395
+        ],
+        "question": "If there are any changes in the crew in a foreign port, the changes will be made by __________.",
+        "options": [
+          "U.S. Consul on the Certified Crew List",
+          "",
+          "the Master on the Shipping Articles",
+          "U.S. Consul on the Shipping Articles"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-3916",
+        "number": 3916,
+        "page": 395,
+        "pages": [
+          395
+        ],
+        "question": "The Shipping Articles shall be signed by each seaman and the __________.",
+        "options": [
+          "",
+          "Master of the vessel",
+          "U.S. Customs Service",
+          "Shipping Commissioner"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-3918",
+        "number": 3918,
+        "page": 395,
+        "pages": [
+          395
+        ],
+        "question": "The strictest load line regulations apply to __________.",
+        "options": [
+          "passenger ships",
+          "gas carriers",
+          "",
+          "tankers"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-3919",
+        "number": 3919,
+        "page": 396,
+        "pages": [
+          396
+        ],
+        "question": "A tonnage tax is levied according to the __________.",
+        "options": [
+          "net tonnage of vessel",
+          "",
+          "deadweight cargo tonnage aboard",
+          "displacement tonnage of vessel"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "nw-4001",
+        "number": 4001,
+        "page": 405,
+        "pages": [
+          405
+        ],
+        "question": "Picking up a person that has fallen onboard. A small craft should approach the victim:",
+        "options": [
+          "to windward",
+          "with a net",
+          "to leeward",
+          "directly"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4009",
+        "number": 4009,
+        "page": 406,
+        "pages": [
+          406
+        ],
+        "question": "The objective of &quot;code of safe working practices&quot; is to provide practical guidance on health and safety in shipboard work with a view to: I. preventing accidents, diseases and other harmful effects II. ensuring that the responsibility for health and safety is understood and remains a priority III. promoting consultation and cooperation among government agencies, shipowner organisations and maritime unions",
+        "options": [
+          "I, II, III",
+          "II, III",
+          "I, II",
+          "I, III"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4010",
+        "number": 4010,
+        "page": 406,
+        "pages": [
+          406
+        ],
+        "question": "An incident is defined as an undesired event that causes or has the potential to cause: I. harm to people II. damage to property III. loss to an operation;",
+        "options": [
+          "II, III",
+          "I, II",
+          "I, III",
+          "I, II, III"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4076",
+        "number": 4076,
+        "page": 414,
+        "pages": [
+          414
+        ],
+        "question": "Which of the following is not an indication of error chain development? I.) ambiguity II.) distraction III.) inadequacy and confusion VI.) communication V.) proper conning or lookout VI.) procedural violation",
+        "options": [
+          "II",
+          "V",
+          "III",
+          "I"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4148",
+        "number": 4148,
+        "page": 422,
+        "pages": [
+          422
+        ],
+        "question": "Which of the following is NOT a specific step in short term startegy during bridge team management? I.) leave the problem and do the alternatives II.) Identify the problem III.) build plans to deal with the problem IV.) check the plans with the BTM member",
+        "options": [
+          "I,II,III",
+          "III, IV",
+          "II",
+          "V, VI"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4149",
+        "number": 4149,
+        "page": 422,
+        "pages": [
+          422
+        ],
+        "question": "Which of the following is not an indication of error chain development? I. ambiguity II. Distraction III. inadequacy and confusion IV. Communication V. proper conning or lookout VI. Procedural violation",
+        "options": [
+          "III, VI",
+          "I",
+          "V",
+          "II,IV"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4164",
+        "number": 4164,
+        "page": 424,
+        "pages": [
+          424
+        ],
+        "question": "First aid treatment for small cuts and open wounds is to __________.",
+        "options": [
+          "stop the bleeding, clean, medicate, and cover the wound",
+          "apply an ice pack to the wound and cover it when the bleeding stops",
+          "apply a hot towel to purge the wound, then medicate and cover it",
+          "lay the patient down and cover the wound when the bleeding stops"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4165",
+        "number": 4165,
+        "page": 424,
+        "pages": [
+          424
+        ],
+        "question": "The MOST important element in administering CPR is:",
+        "options": [
+          "Administering of oxygen",
+          "Treating for traumatic shock",
+          "Having the proper equipment for the process",
+          "Starting the treatment quickly"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4166",
+        "number": 4166,
+        "page": 424,
+        "pages": [
+          424
+        ],
+        "question": "A person slowly feel more sleepy and thirsty. The skin become very dry and there is a sweet taste of the breath. The glucose reaction shows positive. What kind of medicine will the person need as soon as possible?",
+        "options": [
+          "Insulin",
+          "Sugar lump, sugar drink or something sweet",
+          "Nothing at all",
+          "A glass of cold milk"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4237",
+        "number": 4237,
+        "page": 430,
+        "pages": [
+          430
+        ],
+        "question": "As a firefighting medium, CO2 can be dangerous under certain conditions as it can cause which of the following?",
+        "options": [
+          "indigestion",
+          "carbon monoxide poison",
+          "burns and blistering",
+          "hallucinations"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4238",
+        "number": 4238,
+        "page": 430,
+        "pages": [
+          430
+        ],
+        "question": "A term called when a temperature at which a liquid starts to and completely becomes a solid.",
+        "options": [
+          "Boiling Point",
+          "Solidifying Point",
+          "Latent Heat",
+          "Melting Point"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4239",
+        "number": 4239,
+        "page": 430,
+        "pages": [
+          430
+        ],
+        "question": "There are currently two standards of classifying fires as A, B, C, and D, according to the nature of the burning material. One standard is ISO 3941, the other is:",
+        "options": [
+          "NFPA 10",
+          "IFPA 10",
+          "NFPA 12",
+          "IFPA 12"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4245",
+        "number": 4245,
+        "page": 431,
+        "pages": [
+          431
+        ],
+        "question": "Combustible liquids are divided into how many classes?",
+        "options": [
+          "one",
+          "three",
+          "four",
+          "two"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4289",
+        "number": 4289,
+        "page": 435,
+        "pages": [
+          435
+        ],
+        "question": "Compared to air the weight of liquefied petroleum gas vapors are which of the following?",
+        "options": [
+          "heavier",
+          "variable",
+          "lighter",
+          "the same"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4290",
+        "number": 4290,
+        "page": 435,
+        "pages": [
+          435
+        ],
+        "question": "How often shall each member of the crew participate in an abandon ship -drill?",
+        "options": [
+          "once a year",
+          "Once every month",
+          "once every 3 months",
+          "Once every week"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4291",
+        "number": 4291,
+        "page": 435,
+        "pages": [
+          435
+        ],
+        "question": "How often shall it be conducted an abandon ship drill and fire drill onboard a passenger ship?",
+        "options": [
+          "tri-weekly (trice a month)",
+          "monthly",
+          "weekly",
+          "bi-weekly (twice a month)"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4292",
+        "number": 4292,
+        "page": 435,
+        "pages": [
+          435
+        ],
+        "question": "If some of the passengers are disabled i.e. using wheelchair cane blind etc. What precaution should the crew take?",
+        "options": [
+          "none of the above",
+          "passengerswith disability will hire somecrew to accompany them",
+          "All passengers that will require some form for assistance in case of evacuation etc. must be registered so there can be sent crew to assist them if needed.",
+          "Passenger with some form for disability must travel with accompany and live in same cabin or next door."
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4293",
+        "number": 4293,
+        "page": 436,
+        "pages": [
+          436
+        ],
+        "question": "If the meter needle of the oxygen indicator cannot be set to zero what should be done?",
+        "options": [
+          "Check the sampling tube for blockage.",
+          "Replace the platinum filament.",
+          "Adjust the final reading by the amount the needle is displaced from zero.",
+          "Replace the batteries."
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4317",
+        "number": 4317,
+        "page": 438,
+        "pages": [
+          438
+        ],
+        "question": "A piece of small stuff (small line) secured to an object to prevent it from going adrift is a __________.",
+        "options": [
+          "keeper",
+          "lanyard",
+          "noose",
+          "stopper"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "nw-4368",
+        "number": 4368,
+        "page": 444,
+        "pages": [
+          444
+        ],
+        "question": "The most practical method of extinguishing a class A fire, involving burning dunnage, is to use __________.",
+        "options": [
+          "chemical foam",
+          "a hand portable CO2 extinguishers",
+          "Purple K powder and light water",
+          "water"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      }
+    ]
+  },
+  {
+    "track": "ew",
+    "parsed": 4365,
+    "included": 4280,
+    "excluded": [
+      {
+        "id": "ew-13",
+        "number": 13,
+        "page": 2,
+        "pages": [
+          2
+        ],
+        "question": "Let ______ the real fact of the accident?",
+        "options": [
+          "me to tell you",
+          "I tell you",
+          "I to tell you",
+          "me tell you"
+        ],
+        "markedOptions": [
+          2,
+          3
+        ],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-17",
+        "number": 17,
+        "page": 3,
+        "pages": [
+          3
+        ],
+        "question": "The damage to winches is due to ______.",
+        "options": [
+          "insufficiency of packaging",
+          "insufficiency of packaging",
+          "rough handling",
+          "inherent vice of the cargo"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-147",
+        "number": 147,
+        "page": 18,
+        "pages": [
+          18
+        ],
+        "question": "An indicator card or pressure-volume diagram, shows graphically what relationship.",
+        "options": [
+          "relationships between pressure and temperature during one stroke of the engine",
+          "relationships between pressure and volume during one cycle of the engine",
+          "volume of the engine",
+          "compression ratio of the engine"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "ew-148",
+        "number": 148,
+        "page": 18,
+        "pages": [
+          18
+        ],
+        "question": "What can be the reason for this. An indicator diagram from an engine shows that the compression, combustion and the expansion lines are all too low. The exhaust temperature is too high and engine output is too low.",
+        "options": [
+          "the fuel pump plunger has been set too high",
+          "the fuel pump has sunk due to wear",
+          "blockages in the exhaust system",
+          "leaking fuel pump"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "ew-189",
+        "number": 189,
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "question": "The Mariners Handbook ______ general information affecting navigation and is complementary to the Sailing Directions?",
+        "options": [
+          "give",
+          "gives",
+          "giving",
+          "gives"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-191",
+        "number": 191,
+        "page": 22,
+        "pages": [
+          22
+        ],
+        "question": "The ship can leave the port ______ the joint inspection?",
+        "options": [
+          "after",
+          "at",
+          "before",
+          "at"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-416",
+        "number": 416,
+        "page": 48,
+        "pages": [
+          48
+        ],
+        "question": "If the valve tappets in a diesel engine are set at greater clearances than those specified by the engine manufacturer, those valves will __________.",
+        "options": [
+          "open late and close early",
+          "open late and close late",
+          "open late and close late",
+          "fail to open at normal operating temperature"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-595",
+        "number": 595,
+        "page": 68,
+        "pages": [
+          68
+        ],
+        "question": "What do you call a stress that tender to electro?",
+        "options": [
+          "bonding",
+          "shear",
+          "tensile",
+          "Compressive"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-612",
+        "number": 612,
+        "page": 70,
+        "pages": [
+          70
+        ],
+        "question": "The movement of steam piping, as a result of changes in temperature, is best compensated for by the use of:",
+        "options": [
+          "expansion joints",
+          "union joints",
+          "union joints",
+          "rigid brackets"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-625",
+        "number": 625,
+        "page": 71,
+        "pages": [
+          71
+        ],
+        "question": "The energy associated with atoms forming molecules is known as:",
+        "options": [
+          "potential energy",
+          "chemical energy",
+          "chemical energy",
+          "mechanical energy"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-644",
+        "number": 644,
+        "page": 72,
+        "pages": [
+          72
+        ],
+        "question": "One boiler hp is equivalent to:",
+        "options": [
+          "34,475 BTU per hour",
+          "33,475 BTU per hour",
+          "33,000 ft-lb per minute",
+          "550 ft.lb per second"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-646",
+        "number": 646,
+        "page": 72,
+        "pages": [
+          72
+        ],
+        "question": "On a four-cycle diesel engine, the valve subjected to the most severe conditions during normal service is the.",
+        "options": [
+          "cyl. relief valve",
+          "cylinder exhaust valve",
+          "air inlet valve",
+          "air starting valve"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-648",
+        "number": 648,
+        "page": 72,
+        "pages": [
+          72
+        ],
+        "question": "Which wave length applies to a frequency of 2000 kHz?",
+        "options": [
+          "150 meters",
+          "1500 meters",
+          "",
+          "15 meters"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "ew-677",
+        "number": 677,
+        "page": 76,
+        "pages": [
+          76
+        ],
+        "question": "What is/are the content of table #1 of radiotelephony procedures? I. Nature of distress in code from the International code of signals II. Phonetic alphabets and figure spelling III. Position in code from the International code of signals",
+        "options": [
+          "III only",
+          "I, II &amp; III",
+          "II only",
+          "I only"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "ew-678",
+        "number": 678,
+        "page": 76,
+        "pages": [
+          76
+        ],
+        "question": "What is/are the content of table #2 of radiotelephony procedures? I. Nature of distress in code from the International code of signals II. Phonetic alphabets and figure spelling III. Position in code from the International code of signals",
+        "options": [
+          "III only",
+          "I only",
+          "II only",
+          "I, II &amp; III"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "ew-680",
+        "number": 680,
+        "page": 76,
+        "pages": [
+          76
+        ],
+        "question": "What is/are the content of table #3 of radiotelephony procedures? I. Nature of distress in code from the International code of signals II. Phonetic alphabets and figure spelling III. Position in code from the International code of signals",
+        "options": [
+          "I, II &amp; III",
+          "I only",
+          "II only",
+          "III only"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "ew-779",
+        "number": 779,
+        "page": 89,
+        "pages": [
+          89
+        ],
+        "question": "In shore-ship use, what is useful range of VHF?",
+        "options": [
+          "About 50-70 miles Line of sight",
+          "About 40-70 miles Line of sight",
+          "About 30-70 miles Line of sight",
+          "About 30-70 miles Line of sight"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-840",
+        "number": 840,
+        "page": 97,
+        "pages": [
+          97
+        ],
+        "question": "",
+        "options": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers",
+          "incomplete table text",
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-868",
+        "number": 868,
+        "page": 99,
+        "pages": [
+          99
+        ],
+        "question": "A mooring winch should be equipped with mechanical brakes capable of holding_____.",
+        "options": [
+          "the maximum expected tension of the mooring line",
+          "the full breaking strength of the mooring line",
+          "half the breaking strength of the mooring line",
+          "50% over the working tension of the mooring line"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-988",
+        "number": 988,
+        "page": 116,
+        "pages": [
+          116
+        ],
+        "question": "A first stage unloader installed in a low pressure air compressor is unable to completely retract. This will result in _____.",
+        "options": [
+          "overheating of the discharge valve",
+          "loss of moisture in the air charge in the receiver",
+          "frequent lifting of the intercooler relief valve",
+          "an abnormally low intercooler pressure"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-1002",
+        "number": 1002,
+        "page": 118,
+        "pages": [
+          118
+        ],
+        "question": "The initial unloading (at start-up) of the device shown in the illustration is accomplished by ____________.",
+        "options": [
+          "holding open the high pressure stage reed-type suction valves",
+          "discharging the compressed air to the receiver with the minimum pressure valve closed",
+          "temporarily discharging the compressed air to the atmosphere",
+          "the use of an intercooler relief device"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "ew-1040",
+        "number": 1040,
+        "page": 124,
+        "pages": [
+          124
+        ],
+        "question": "While at sea, the flash type evaporator is discharging the output to the boiler water reserve feed tanks. If it becomes necessary to reduce the evaporator feed water temperature to below 165oF, you should _____.",
+        "options": [
+          "Dump the distillate to the bilge",
+          "Secure the evaporator until the feedwater temperature can be raised to 165oF or more",
+          "Decrease the steam pressure to the air ejector",
+          "Lower the feedwater trip point temperature at the indicating panel for the three-way dump valve"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-1073",
+        "number": 1073,
+        "page": 128,
+        "pages": [
+          128
+        ],
+        "question": "What will happen if the needle valve in a fuel injection nozzle sticks open?",
+        "options": [
+          "No fuel will be delivered through the nozzle",
+          "Fuel will leak into the nozzle drain line",
+          "The nozzle will overheat",
+          "Injection lag will be increased"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-1108",
+        "number": 1108,
+        "page": 133,
+        "pages": [
+          133
+        ],
+        "question": "Which would you do FIRST on starting a gear pump if pumping cold oil?",
+        "options": [
+          "throttle the suction valve",
+          "start the pump with valves closed and gradually open",
+          "ease off the spring loaded pressure relief valve",
+          "start/stop the pump frequently"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-1218",
+        "number": 1218,
+        "page": 144,
+        "pages": [
+          144
+        ],
+        "question": "",
+        "options": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers",
+          "incomplete table text",
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-1396",
+        "number": 1396,
+        "page": 165,
+        "pages": [
+          165
+        ],
+        "question": "Which component when defective will not produce DC voltage in the excitation system of an AC generator?",
+        "options": [
+          "Silicon rectifier",
+          "Reactor",
+          "Voltage regulator",
+          "Current transformer"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-1437",
+        "number": 1437,
+        "page": 169,
+        "pages": [
+          169
+        ],
+        "question": "What device is a low voltage circuit protective device that automatically opens (trips) in case of malfunction in the system?",
+        "options": [
+          "Over current relay",
+          "Overload relay",
+          "No fuse circuit breaker",
+          "Thermal relay"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-1454",
+        "number": 1454,
+        "page": 171,
+        "pages": [
+          171
+        ],
+        "question": "A fuse will blow as per below EXCEPT ________________.",
+        "options": [
+          "Excessive vibration",
+          "Loose fuse clips",
+          "Low resistance in the fuse",
+          "Extremely hot temperature"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-1471",
+        "number": 1471,
+        "page": 173,
+        "pages": [
+          173
+        ],
+        "question": "Which one of the possible causes why an indicator diagram of a two-stroke diesel shows fuel ignition taking place too early?",
+        "options": [
+          "Combustion pressure too high",
+          "Leaking fuel pump",
+          "Exhaust temperature is higher than normal",
+          "The fuel pump plunger has been set too high"
+        ],
+        "markedOptions": [
+          3
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "ew-1476",
+        "number": 1476,
+        "page": 173,
+        "pages": [
+          173
+        ],
+        "question": "What refers to the kind of operation of the center lathe machine onboard wherein the inside diameter is increased little by little up to the point where the desired measurement is met?",
+        "options": [
+          "Threading",
+          "Boring",
+          "Drilling",
+          "Boring"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-1483",
+        "number": 1483,
+        "page": 174,
+        "pages": [
+          174
+        ],
+        "question": "If the relay coil is not on when all indicates that it should be energized with rated voltage measured across the coil is present probably the cause would be ____________.",
+        "options": [
+          "Auxiliary contact in series with coil is defective",
+          "Coil is open",
+          "Fuse is blown",
+          "Transformer is defective"
+        ],
+        "markedOptions": [
+          0,
+          1
+        ],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-1525",
+        "number": 1525,
+        "page": 178,
+        "pages": [
+          178
+        ],
+        "question": "For high efficiency of transfer of power, internal resistance of the source should be",
+        "options": [
+          "equal to the load resistance",
+          "none of the above",
+          "less than the load resistance",
+          "more than the load resistance"
+        ],
+        "markedOptions": [
+          0,
+          2
+        ],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-1542",
+        "number": 1542,
+        "page": 179,
+        "pages": [
+          179
+        ],
+        "question": "The electric field at a point situated at a distance d from straight charged conductor is",
+        "options": [
+          "none of the above",
+          "inversely proportional to d",
+          "proportional to d",
+          "inversely proportional to d"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-1615",
+        "number": 1615,
+        "page": 184,
+        "pages": [
+          184
+        ],
+        "question": "Addition of weight to a vessel will ALWAYS __________.",
+        "options": [
+          "increase GM",
+          "increase righting moments",
+          "All of the above",
+          "reduce reserve buoyancy"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-1714",
+        "number": 1714,
+        "page": 194,
+        "pages": [
+          194
+        ],
+        "question": "What is the displacement of a vessel if it is floating on sea water exactly on her summer draft?",
+        "options": [
+          "Net tonnage",
+          "Fresh water allowance",
+          "Loaded displacement",
+          "Loaded displacement"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-1734",
+        "number": 1734,
+        "page": 196,
+        "pages": [
+          196
+        ],
+        "question": "What is known as the total force that the vessel or any part of the vessel should withstand under a given condition?",
+        "options": [
+          "Elastic limit",
+          "Load",
+          "Stress",
+          "Strain"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-1906",
+        "number": 1906,
+        "page": 214,
+        "pages": [
+          214
+        ],
+        "question": "A reinspection of the vessel shall be made between which of the following months while the Certificate of Inspection is valid?",
+        "options": [
+          "8 - 12 months",
+          "10 - 12 months",
+          "12 - 14 months",
+          "10 - 14 months"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-1994",
+        "number": 1994,
+        "page": 224,
+        "pages": [
+          224
+        ],
+        "question": "During a stay in port, what shall always be ready at the gangway?",
+        "options": [
+          "Life buoy with line.",
+          "Air breathing apparatus.",
+          "",
+          "Survival suit."
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "ew-2018",
+        "number": 2018,
+        "page": 226,
+        "pages": [
+          226
+        ],
+        "question": "Fire hose stations shall be marked in red letters and figures such as Fire Station No. \"1\", \"2\", \"3\", etc. The height of the letters and figures must be at least __________.",
+        "options": [
+          "2 inches",
+          "1 inch",
+          "1/2 inch",
+          "1-1/2 inches"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "ew-2090",
+        "number": 2090,
+        "page": 233,
+        "pages": [
+          233
+        ],
+        "question": "While on watch aboard a 900 psi steam vessel, you suddenly hear a loud, piercing, high-pitch noise. Which of the following actions should you take?,Move away from the noise to find a broom",
+        "options": [
+          "then cautiously advance",
+          "sweeping the handle ahead of you to locate the source.",
+          "Vacate everyone from the engine room immediately, as this the preliminary signal that the steam smothering system is about to be released.",
+          "Rapidly move towards the direction of the noise to investigate the probable source."
+        ],
+        "markedOptions": [
+          0,
+          1
+        ],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-2092",
+        "number": 2092,
+        "page": 234,
+        "pages": [
+          234
+        ],
+        "question": "Which one is NOT correct if you are asked by to differentiate a leader and a manager?",
+        "options": [
+          "A leader is focused on purposes but a manager is focused with structures and processes.",
+          "A leader does the right thing and a manager does each task the right way.",
+          "A leader has a short term view while a manager views work in long term duration",
+          "A leader is focused on purposes but a manager is focused with structures and processes."
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-2105",
+        "number": 2105,
+        "page": 235,
+        "pages": [
+          235
+        ],
+        "question": "What is the skill or ability of a manager that tenacity needed to overcome barrier when achieving goals?",
+        "options": [
+          "Fantasy",
+          "Persistence",
+          "Fantasy",
+          "Cautiousness"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-2291",
+        "number": 2291,
+        "page": 256,
+        "pages": [
+          256
+        ],
+        "question": "Movement of the pump control rack in a fuel injection system using individual plunger-type pumps_____.",
+        "options": [
+          "varies the quantity of fuel delivered",
+          "changes the position of the fuel inlet ports",
+          "changes the length of the pump stroke",
+          "varies the compression of the delivery valve spring"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-2302",
+        "number": 2302,
+        "page": 258,
+        "pages": [
+          258
+        ],
+        "question": "Plugged spray holes in a diesel engine fuel injector will cause excessive smoking at idling speed in addition to _____________.",
+        "options": [
+          "preignition",
+          "throughout the load range",
+          "detonation throughout the load range",
+          "damage to pistons or cylinder heads"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-2303",
+        "number": 2303,
+        "page": 258,
+        "pages": [
+          258
+        ],
+        "question": "When high firing pressures and low exhaust temperatures occur simultaneously in a diesel engine this may be a result of______.",
+        "options": [
+          "decreased piston-to- cylinder head clearance",
+          "early timing of fuel injection",
+          "decreased piston-to- cylinder head clearance",
+          "low scavenge air temperature"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-2358",
+        "number": 2358,
+        "page": 263,
+        "pages": [
+          263
+        ],
+        "question": "What could be the result if the hydraulic system is allowed to overheat?",
+        "options": [
+          "Slow circulation of the oil",
+          "Pump discharge pressure will increase",
+          "Low system pressure",
+          "A high oil level"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-2382",
+        "number": 2382,
+        "page": 265,
+        "pages": [
+          265
+        ],
+        "question": "Which of the following is the analogous quantity for mass element in force- voltage analogy?",
+        "options": [
+          "Resistance",
+          "Inductance",
+          "Conductance",
+          "Capacitance"
+        ],
+        "markedOptions": [
+          1,
+          2
+        ],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-2386",
+        "number": 2386,
+        "page": 266,
+        "pages": [
+          266
+        ],
+        "question": "If two blocks having gains A and B respectively are in parallel connection, find the resultant gain using block diagram reduction technique?",
+        "options": [
+          "A-B",
+          "A*B",
+          "A/B",
+          "A+B"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "ew-2396",
+        "number": 2396,
+        "page": 266,
+        "pages": [
+          266
+        ],
+        "question": "For type 1 system with parabolic input, the steady state error is ___",
+        "options": [
+          "finite constant",
+          "zero",
+          "infinite",
+          "zero"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-2454",
+        "number": 2454,
+        "page": 274,
+        "pages": [
+          274
+        ],
+        "question": "What are the factors that affect good working behaviors? I. Same nationality II. Same religion III. Same age",
+        "options": [
+          "I, II &amp; III",
+          "II &amp; III",
+          "I &amp; III",
+          "I &amp; II"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-2465",
+        "number": 2465,
+        "page": 276,
+        "pages": [
+          276
+        ],
+        "question": "the most effective spray pattern of a high velocity fog nozzle is with water pressure of not less than __________",
+        "options": [
+          "60 psi (413.6 kPa)",
+          "35 psi (241.3 kPa)",
+          "100 psi (689.4 kPa)",
+          "75 psi (517.0 kPa)"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-2547",
+        "number": 2547,
+        "page": 283,
+        "pages": [
+          283,
+          284
+        ],
+        "question": "A fire can spread by \"convection\" as a result of a_____________.",
+        "options": [
+          "the transfer of heat across an unobstructed space",
+          "the transfer of heat across an unobstructed space",
+          "the transfer of heat across an unobstructed space",
+          "hot combustion gases flowing through ventilation systems"
+        ],
+        "markedOptions": [
+          3
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-2559",
+        "number": 2559,
+        "page": 285,
+        "pages": [
+          285
+        ],
+        "question": "The piece of equipment shown in the illustration is used in conjunction with a fire hose to produce which of the listed fire extinguishing agents?",
+        "options": [
+          "Low velocity fog",
+          "Mechanical foam",
+          "Chemical foam",
+          "High velocity fog"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "requires source figure"
+        ]
+      },
+      {
+        "id": "ew-2604",
+        "number": 2604,
+        "page": 289,
+        "pages": [
+          289
+        ],
+        "question": "Which of the following is the propellant in a dry chemical fire extinguisher?",
+        "options": [
+          "Foam",
+          "Carbon dioxide",
+          "A chemical reaction",
+          "Compressed air"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-2811",
+        "number": 2811,
+        "page": 309,
+        "pages": [
+          309
+        ],
+        "question": "Round split dies are usually adjustable to _____.",
+        "options": [
+          "allow threading up to a shoulder",
+          "control the tightness of the thread fit",
+          "to help start the die squarely on the round stock",
+          "allow threading on oversized stock"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-2816",
+        "number": 2816,
+        "page": 310,
+        "pages": [
+          310
+        ],
+        "question": "Round split dies are usually adjustable to _____.",
+        "options": [
+          "to help start the die squarely on the round stock",
+          "allow threading up to a shoulder",
+          "allow threading on oversized stock",
+          "control the tightness of the thread fit"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-2932",
+        "number": 2932,
+        "page": 320,
+        "pages": [
+          320
+        ],
+        "question": "Brass is an alloy of_____.",
+        "options": [
+          "copper and aluminum",
+          "copper and manganese",
+          "copper and tin",
+          "copper and zinc"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-2949",
+        "number": 2949,
+        "page": 321,
+        "pages": [
+          321
+        ],
+        "question": "Which of the following material below does a zinc anode protects?",
+        "options": [
+          "Cast iron",
+          "Bronze",
+          "Cooper",
+          "Cast steel"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-2987",
+        "number": 2987,
+        "page": 325,
+        "pages": [
+          325
+        ],
+        "question": "A heavy duty screwdrivers are made with a square shank to____.",
+        "options": [
+          "Variable speed screwdriver with a jacobs chuck",
+          "Constant rpm screwdriver with a jacobs chuck",
+          "Torque limiting screwdriver",
+          "Torque limiting screwdriver"
+        ],
+        "markedOptions": [
+          2
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-2994",
+        "number": 2994,
+        "page": 325,
+        "pages": [
+          325
+        ],
+        "question": "What is the meaning of the term marking out?",
+        "options": [
+          "Locating lines, circles, arcs, points for drilling holes.",
+          "Locating lines, circles, arcs, points for drilling holes.",
+          "Scratching of lines on the surface of a workpiece.",
+          "Indenting of lines on the workpiece."
+        ],
+        "markedOptions": [
+          3
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-3010",
+        "number": 3010,
+        "page": 327,
+        "pages": [
+          327
+        ],
+        "question": "What kind of pipe is used to carry liquid containing acids which is flexible and can withstand vibrations and expansion?",
+        "options": [
+          "Brass pipe",
+          "Copper pipe",
+          "Stainless pipe",
+          "Lead pipe"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-3111",
+        "number": 3111,
+        "page": 337,
+        "pages": [
+          337
+        ],
+        "question": "When launching a lifeboat frapping lines should be rigged __________.",
+        "options": [
+          "at the embarkation deck",
+          "after the boat is in the water",
+          "before the gripes are released",
+          "before the boat is moved from the davits"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-3114",
+        "number": 3114,
+        "page": 337,
+        "pages": [
+          337
+        ],
+        "question": "The grab rail of a metal lifeboat is normally located_____.",
+        "options": [
+          "at the bow and at the stern",
+          "near the top of the gunwale",
+          "along each side of the keel",
+          "along the turn of the bilge"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-3125",
+        "number": 3125,
+        "page": 338,
+        "pages": [
+          338
+        ],
+        "question": "The light on a life jacket must be replaced_____.",
+        "options": [
+          "when it is no longer serviceable",
+          "each year after installation",
+          "when the power source is replaced",
+          "every six months"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-3189",
+        "number": 3189,
+        "page": 344,
+        "pages": [
+          344
+        ],
+        "question": "A person suffering from a heart attack may show which of the following symptoms?",
+        "options": [
+          "All of the above",
+          "Pain in the left arm",
+          "Nausea",
+          "Shortness of breath"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-3311",
+        "number": 3311,
+        "page": 357,
+        "pages": [
+          357
+        ],
+        "question": "Is it possible to discharge overboard plastic material from a vessel?",
+        "options": [
+          "It is possible provided the vessel is 12 miles from shore",
+          "It is possible provided the vessel is 3 miles from shore",
+          "It is possible provided the vessel is 12 miles from shore",
+          "No, it is prohibited to discharge"
+        ],
+        "markedOptions": [
+          3
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-3411",
+        "number": 3411,
+        "page": 369,
+        "pages": [
+          369
+        ],
+        "question": "Which hapeen if the seperator oil content exceeds the equipment allowed level?",
+        "options": [
+          "the pump is stopped and an alarm souds",
+          "the discharge is dumped to the bilge",
+          "a visible alarm",
+          "an audible alarm"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-3430",
+        "number": 3430,
+        "page": 371,
+        "pages": [
+          371
+        ],
+        "question": "The drainage from laundry bathroom and washbasin drains but does not include drainage from toilets urinals hospital and animal spaces is called __________.",
+        "options": [
+          "blue water",
+          "greywater",
+          "dishwater",
+          "cutwater"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-3450",
+        "number": 3450,
+        "page": 373,
+        "pages": [
+          373
+        ],
+        "question": "How many hours for a motor-propelled lifeboats are required to have sufficient fuel to operate continuously at 6 knots?",
+        "options": [
+          "18",
+          "6",
+          "12",
+          "24"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-3547",
+        "number": 3547,
+        "page": 385,
+        "pages": [
+          385
+        ],
+        "question": "What should you do with your EPIRB if you are in a life raft during storm conditions?",
+        "options": [
+          "bring it inside the life raft and turn it off until the storm passes",
+          "bring it inside the life raft and leave it on",
+          "bring it inside the life raft and turn it off until the storm passes",
+          "bring it inside the life raft and turn it off until the storm passes"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-3548",
+        "number": 3548,
+        "page": 385,
+        "pages": [
+          385
+        ],
+        "question": "What should you do with your EPIRB if you are in a life raft during storm conditions?",
+        "options": [
+          "bring it inside the life raft and turn it off until the storm passes",
+          "bring it inside the life raft and turn it off until the storm passes",
+          "bring it inside the life raft and turn it off until the storm passes",
+          "bring it inside the life raft and leave it on"
+        ],
+        "markedOptions": [
+          3
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-3726",
+        "number": 3726,
+        "page": 405,
+        "pages": [
+          405
+        ],
+        "question": "Lifejackets should always be stowed in:",
+        "options": [
+          "readily accessible spaces",
+          "the after peak",
+          "the forepeak",
+          "the forepeak"
+        ],
+        "markedOptions": [
+          0
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-3742",
+        "number": 3742,
+        "page": 407,
+        "pages": [
+          407
+        ],
+        "question": "Liferaft shall be so constructed that when it is dropped into the water from a height of _______, the liferaft and its equipment will operate satisfactorily.",
+        "options": [
+          "18 meters",
+          "22 meters",
+          "24 meters",
+          "20 meters"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-3960",
+        "number": 3960,
+        "page": 428,
+        "pages": [
+          428
+        ],
+        "question": "What would be the end result of annealing process?",
+        "options": [
+          "Slammer grains which is stronger but less ductile and increased strength, hardness and toughness.",
+          "Large grains in its structure that is soft, ductile, low in strength, and easily shaped by machining, pressing and bending",
+          "Large grains that is high in strength and hardness but less ductile.",
+          "Very fine small grains that is strong and hard but brittle."
+        ],
+        "markedOptions": [
+          1,
+          2
+        ],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-3964",
+        "number": 3964,
+        "page": 428,
+        "pages": [
+          428,
+          429
+        ],
+        "question": "A kind of PLC which is monolithic in construction.",
+        "options": [
+          "Micro PLC",
+          "Small PLC",
+          "Modular PLC",
+          "Compact PLC"
+        ],
+        "markedOptions": [
+          0,
+          3
+        ],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-4001",
+        "number": 4001,
+        "page": 432,
+        "pages": [
+          432
+        ],
+        "question": "What is the purpose of molybdenum as an alloying element?",
+        "options": [
+          "To increase resistance to corrosion, especially to seawater.",
+          "To increase tensile strength when under load.",
+          "To increase strength, especially for increasing strength at high temperature.",
+          "To increase strength and fatigue resistance."
+        ],
+        "markedOptions": [
+          0,
+          2
+        ],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-4034",
+        "number": 4034,
+        "page": 436,
+        "pages": [
+          436
+        ],
+        "question": "An accidental path of low resistance, allowing passage of abnormal amount of current is known as a/an_______ .",
+        "options": [
+          "polarized ground",
+          "short circuit",
+          "polarized ground",
+          "open circuit"
+        ],
+        "markedOptions": [
+          1
+        ],
+        "reason": [
+          "duplicate options"
+        ]
+      },
+      {
+        "id": "ew-4154",
+        "number": 4154,
+        "page": 448,
+        "pages": [
+          448
+        ],
+        "question": "The dielectric constant of dry air or a vacuum is ___.",
+        "options": [
+          "100",
+          "1000",
+          "1",
+          "10"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-4250",
+        "number": 4250,
+        "page": 457,
+        "pages": [
+          457
+        ],
+        "question": "Voltage generated by most AC generators is fed from machine to the bus by means of __________.",
+        "options": [
+          "Direct connections from the starter",
+          "Brushes on a commutator",
+          "Brushes on slip rings",
+          "Slip rings on a commutator"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-4283",
+        "number": 4283,
+        "page": 460,
+        "pages": [
+          460
+        ],
+        "question": "How should you usually adjust the power factors at which a parallel AC generator is operating?",
+        "options": [
+          "by using a field excitation",
+          "by using a prime mover speed",
+          "",
+          "by using a connected load"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers",
+          "incomplete table text"
+        ]
+      },
+      {
+        "id": "ew-4320",
+        "number": 4320,
+        "page": 464,
+        "pages": [
+          464
+        ],
+        "question": "The ability of charged bodies to exert force on one another is attributed to the existence of",
+        "options": [
+          "protons",
+          "electrons",
+          "electric field",
+          "neutrons"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-4321",
+        "number": 4321,
+        "page": 464,
+        "pages": [
+          464
+        ],
+        "question": "For making a capacitor, it is better to select a dielectric having",
+        "options": [
+          "permittivity slightly more than that of air",
+          "high permittivity",
+          "permittivity same as that of air",
+          "low permittivity"
+        ],
+        "markedOptions": [
+          0,
+          1
+        ],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-4334",
+        "number": 4334,
+        "page": 464,
+        "pages": [
+          464
+        ],
+        "question": "A common method of cooling a power transformer is",
+        "options": [
+          "air blast cooling",
+          "natural air cooling",
+          "oil cooling",
+          "any of the choices"
+        ],
+        "markedOptions": [
+          1,
+          2
+        ],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-4359",
+        "number": 4359,
+        "page": 466,
+        "pages": [
+          466
+        ],
+        "question": "The law that the induced e.m.f. and current always oppose the cause producing them is due to",
+        "options": [
+          "Faraday",
+          "Coulomb",
+          "Lenz",
+          "Newton"
+        ],
+        "markedOptions": [],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      },
+      {
+        "id": "ew-4365",
+        "number": 4365,
+        "page": 466,
+        "pages": [
+          466,
+          467
+        ],
+        "question": "Which circuit element(s) will oppose the change in circuit current ?",
+        "options": [
+          "Inductance and capacitance",
+          "Resistance only",
+          "Inductance only",
+          "Capacitance only"
+        ],
+        "markedOptions": [
+          1,
+          2
+        ],
+        "reason": [
+          "missing or multiple marked answers"
+        ]
+      }
+    ]
+  }
+]
