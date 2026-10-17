@@ -78,6 +78,7 @@ function crewFlaggedView(){const b=reviewBank();const items=b.questions.filter(q
 const crewReviewBefore=reviewView;
 reviewView=function(){if(crewFlagsOpen&&reviewBank())crewFlaggedView();else crewReviewBefore()};
 function crewCompanion(message,mood='happy',action=null,busy=false){
+  if(!state.hubOnboardingCompleted||['welcome','gettingstarted','setup'].includes(page)||document.body.classList.contains('cloud-auth'))return;
   if(typeof document.body.append!=='function')return;
   let panel=document.querySelector('#crewCompanion');
   if(!panel){panel=document.createElement('aside');panel.id='crewCompanion';panel.className='crew-companion';document.body.append(panel)}
@@ -89,10 +90,10 @@ function crewCompanion(message,mood='happy',action=null,busy=false){
   if(!action&&!busy)crewMessageTimer=setTimeout(()=>{if(!panel.contains(document.activeElement))panel.hidden=true},6500);
 }
 const crewToastBefore=toast;
-toast=function(message,action=null){if(typeof document.body.append!=='function'){crewToastBefore(message);return}document.querySelector('#toast')?.classList.add('hidden');crewCompanion(message,/could not|failed|not saved|not synced|retry|full|error/i.test(message)?'careful':'happy',action)};
+toast=function(message,action=null){if(!state.hubOnboardingCompleted||['welcome','gettingstarted','setup'].includes(page)||document.body.classList.contains('cloud-auth')){const status=document.querySelector('#qaProfileStatus')||document.querySelector('#authMessage');if(status)status.textContent=message;return}if(typeof document.body.append!=='function'){crewToastBefore(message);return}document.querySelector('#toast')?.classList.add('hidden');crewCompanion(message,/could not|failed|not saved|not synced|retry|full|error/i.test(message)?'careful':'happy',action)};
 const crewStatusBefore=showWorkspaceStatus;
 let crewWasBusy=false,crewBusyTimer;
-showWorkspaceStatus=function(text,busy=false,error=false){crewStatusBefore(text,busy,error);clearTimeout(crewBusyTimer);if(busy){crewBusyTimer=setTimeout(()=>{crewWasBusy=true;crewCompanion(text,'thinking',null,true)},600)}else if(error||crewWasBusy){crewWasBusy=false;crewCompanion(text,error?'careful':'happy')}};
+showWorkspaceStatus=function(text,busy=false,error=false){clearTimeout(crewBusyTimer);if(!state.hubOnboardingCompleted||['welcome','gettingstarted','setup'].includes(page)||document.body.classList.contains('cloud-auth')){document.querySelector('#workspaceText').textContent=text;workspaceStatus.classList.remove('visible');crewWasBusy=false;return}crewStatusBefore(text,busy,error);if(busy){crewBusyTimer=setTimeout(()=>{crewWasBusy=true;crewCompanion(text,'thinking',null,true)},600)}else if(error||crewWasBusy){crewWasBusy=false;crewCompanion(text,error?'careful':'happy')}};
 function crewSetDock(hidden){
   crewDockHidden=hidden;document.body.classList.toggle('crew-dock-resting',hidden);
   const handle=document.querySelector('#crewDockHandle');if(handle){handle.setAttribute('aria-expanded',String(!hidden));handle.setAttribute('aria-label',hidden?'Open navigation':'Hide navigation')}
