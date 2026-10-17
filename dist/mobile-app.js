@@ -68,4 +68,64 @@ const renderBeforeCrewMobile=render;
 render=function(){renderBeforeCrewMobile();document.body.classList.add('crew-mobile-app');if(page==='setup'&&!state.hubOnboardingCompleted)crewEnhanceSetup();
   const current=document.querySelector('#mobileNav button.active');if(current)current.setAttribute('aria-current','page');
 };
+// Quiet task screens, reversible review actions, and the crew companion.
+let crewFlagsOpen=false,crewMessageTimer,crewDockTimer,crewDockHidden=false;
+const crewAnswerTaskBefore=answerTask;
+answerTask=function(){return crewAnswerTaskBefore().replace(/<h3>([^<]+)<\/h3>(<div class="topic-pick">[\s\S]*?<\/div>)/g,(_,name,topics)=>`<details class="crew-department"><summary><span>${name}</span><b aria-hidden="true">⌄</b></summary>${topics}</details>`)};
+const crewShelfRowsBefore=shelfTopicRows;
+shelfTopicRows=function(){return crewShelfRowsBefore().replace(/<section class="shelf-group"><h2>([^<]+)<\/h2>([\s\S]*?)<\/section>/g,(_,name,topics)=>`<details class="shelf-group crew-library-department" ${shelfTopicQuery?'open':''}><summary><span class="crew-department-icon" aria-hidden="true">${name==='Engine'?'⚙':name==='Deck'?'⚓':name==='Electrical'?'ϟ':'▤'}</span><span>${name}</span><b aria-hidden="true">⌄</b></summary>${topics}</details>`)};
+function crewFlaggedView(){const b=reviewBank();const items=b.questions.filter(q=>state.review.flagged.includes(q.id));app.innerHTML=`<button class="back" data-crew-flags-close="true">← Review sets</button><header class="shelf-heading"><h1>Flagged questions</h1><p>Remove a flag to include that question in future practice again.</p></header><div class="crew-flag-list">${items.map(q=>`<article class="card"><span class="hint">${esc(b.title)} · Q${q.number}</span><h2>${esc(q.question)}</h2><button class="btn quiet" data-review-flag="${q.id}">Remove flag</button></article>`).join('')||'<section class="card crew-empty"><span aria-hidden="true">✓</span><h2>All clear.</h2><p>No flagged questions in this reviewer.</p><button class="btn" data-crew-flags-close="true">Back to review</button></section>'}</div>`}
+const crewReviewBefore=reviewView;
+reviewView=function(){if(crewFlagsOpen&&reviewBank())crewFlaggedView();else crewReviewBefore()};
+function crewCompanion(message,mood='happy',action=null,busy=false){
+  if(typeof document.body.append!=='function')return;
+  let panel=document.querySelector('#crewCompanion');
+  if(!panel){panel=document.createElement('aside');panel.id='crewCompanion';panel.className='crew-companion';document.body.append(panel)}
+  if(!panel.hidden&&panel.dataset.action==='true'&&!action&&mood!=='careful')return;
+  clearTimeout(crewMessageTimer);panel.dataset.mood=mood;panel.dataset.action=String(!!action);
+  panel.innerHTML=`<div class="crew-mascot"><img src="assets/seafarer-mascot.webp" alt=""><span aria-hidden="true">${mood==='thinking'?'🤔':mood==='careful'?'😟':'😄'}</span></div><div class="crew-message"><button class="crew-message-close" type="button" aria-label="Dismiss message">×</button><p role="${mood==='careful'?'alert':'status'}">${busy?'<span class="crew-loading-dot" aria-hidden="true"></span>':''}${esc(message)}</p>${action?'<button type="button" class="crew-message-action"></button>':''}</div>`;
+  panel.hidden=false;panel.querySelector('.crew-message-close').onclick=()=>{panel.hidden=true;clearTimeout(crewMessageTimer)};
+  if(action){const button=panel.querySelector('.crew-message-action');button.textContent=action.label;button.onclick=()=>{panel.hidden=true;action.run()}}
+  if(!action&&!busy)crewMessageTimer=setTimeout(()=>{if(!panel.contains(document.activeElement))panel.hidden=true},6500);
+}
+const crewToastBefore=toast;
+toast=function(message,action=null){if(typeof document.body.append!=='function'){crewToastBefore(message);return}document.querySelector('#toast')?.classList.add('hidden');crewCompanion(message,/could not|failed|not saved|not synced|retry|full|error/i.test(message)?'careful':'happy',action)};
+const crewStatusBefore=showWorkspaceStatus;
+let crewWasBusy=false,crewBusyTimer;
+showWorkspaceStatus=function(text,busy=false,error=false){crewStatusBefore(text,busy,error);clearTimeout(crewBusyTimer);if(busy){crewBusyTimer=setTimeout(()=>{crewWasBusy=true;crewCompanion(text,'thinking',null,true)},600)}else if(error||crewWasBusy){crewWasBusy=false;crewCompanion(text,error?'careful':'happy')}};
+function crewSetDock(hidden){
+  crewDockHidden=hidden;document.body.classList.toggle('crew-dock-resting',hidden);
+  const handle=document.querySelector('#crewDockHandle');if(handle){handle.setAttribute('aria-expanded',String(!hidden));handle.setAttribute('aria-label',hidden?'Open navigation':'Hide navigation')}
+}
+function crewTidyScreen(){
+  if(typeof document.body.append!=='function')return;
+  document.body.classList.add('crew-calm');
+  if(page==='home'&&state.hubOnboardingCompleted){
+    const hero=app.querySelector('.task-hero');
+    if(hero&&!app.querySelector('.crew-greeting'))hero.insertAdjacentHTML('beforebegin',`<div class="crew-greeting"><p>Welcome aboard,</p><h1>${esc(qProfileName().split(' ')[0])} <span aria-hidden="true">👋</span></h1></div>`);
+    const title=hero?.querySelector('h1');if(title)title.textContent=state.contributionMode==='answer'?'Share what you know.':'Let’s find an answer.';
+  }
+  const manageFlags=app.querySelector('[data-crew-flags]');
+  const practiceActions=app.querySelector('.review-journey .review-actions');
+  if(manageFlags&&practiceActions){manageFlags.textContent=`Flagged · ${state.review.flagged.filter(id=>id.startsWith(state.review.track+'-')).length}`;manageFlags.className='btn quiet';practiceActions.append(manageFlags)}
+  let context=document.querySelector('#crewContext');if(!context){context=document.createElement('div');context.id='crewContext';document.body.append(context)}context.replaceChildren();
+  const back=app.querySelector('button.back');
+  if(back){if(page==='setup'){const form=app.querySelector('#qaProfileForm');if(form)form.append(back)}else{const label=back.textContent.trim();back.setAttribute('aria-label',label);back.title=label;back.textContent='←';context.append(back)}}
+  const handle=document.querySelector('#crewDockHandle');
+  if(!handle){const b=document.createElement('button');b.id='crewDockHandle';b.type='button';b.innerHTML=icon('home');b.setAttribute('aria-controls','mobileNav');b.onclick=()=>crewSetDock(!crewDockHidden);document.body.append(b)}
+  const dock=document.querySelector('#mobileNav');if(dock&&!dock.querySelector('.crew-dock-toggle'))dock.insertAdjacentHTML('beforeend','<button type="button" class="crew-dock-toggle" aria-label="Minimize navigation" title="Minimize navigation">⌄</button>');
+  crewSetDock(false);
+}
+const crewRenderCalmBefore=render;
+render=function(){crewRenderCalmBefore();crewTidyScreen()};
+document.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.crewFlags){crewFlagsOpen=true;render();window.scrollTo(0,0)}
+  if(b.dataset.crewFlagsClose){crewFlagsOpen=false;render()}
+  if(b.closest('#mobileNav')){if(b.classList.contains('crew-dock-toggle')){e.preventDefault();crewSetDock(true)}else if(b.dataset.nav)setTimeout(()=>crewSetDock(true),0)}
+},true);
+window.addEventListener('scroll',()=>{if(!state.hubOnboardingCompleted)return;crewSetDock(true);clearTimeout(crewDockTimer);crewDockTimer=setTimeout(()=>{if(!document.activeElement?.matches?.('input,textarea,select'))crewSetDock(false)},550)},{passive:true});
+document.addEventListener('focusin',e=>{if(e.target.closest?.('#mobileNav'))crewSetDock(false);else if(e.target.matches?.('input,textarea,select'))crewSetDock(true)});
+document.addEventListener('focusout',()=>{clearTimeout(crewDockTimer);crewDockTimer=setTimeout(()=>crewSetDock(false),180)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){const p=document.querySelector('#crewCompanion');if(p)p.hidden=true;crewSetDock(false)}});
 render();
