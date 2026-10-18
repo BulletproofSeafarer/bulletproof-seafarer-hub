@@ -2,9 +2,9 @@
 // Presentation layer only: existing profile saves, ownership, and cloud sync stay intact.
 let crewSetupStep=0;
 const crewSetupStages=[
-  ['What should we call you?','Use the name you want the crew to see.',['name']],
+  ['What should we call you?','Add the name you want to use in Toolbox.',['name']],
   ['Your email stays private.','For your account, not your public profile.',['email']],
-  ['Where do you serve?','Your role helps others understand your experience.',['department','rank']],
+  ['Where do you serve?','Your department and rank personalise your learning profile.',['department','rank']],
   ['Make it yours.','A photo and a few words are optional. You can add them later.',['experience','country','bio']]
 ];
 function crewProfileStageFor(name){return crewSetupStages.findIndex(s=>s[2].includes(name))}

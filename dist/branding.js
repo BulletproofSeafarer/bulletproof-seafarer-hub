@@ -1,7 +1,7 @@
 'use strict';
 function hubApplyBrand(){
   if(typeof document.body.append!=='function')return;
-  document.title='Toolbox | Seafarer Q&A & Review';
+  document.title='Toolbox | Review & Learning Journal';
   const header=document.querySelector('.topbar');
   if(header&&!header.querySelector('.hub-brand-home'))header.insertAdjacentHTML('afterbegin','<button type="button" class="hub-brand-home" data-nav="home" aria-label="Toolbox home"><img src="assets/hub-logo.svg" alt="" width="42" height="42"></button>');
   const sidebar=document.querySelector('.brand .mark');if(sidebar&&!sidebar.querySelector('img'))sidebar.innerHTML='<img src="assets/hub-logo.svg" width="44" height="44" alt="Toolbox">';
