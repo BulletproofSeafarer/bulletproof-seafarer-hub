@@ -69,7 +69,7 @@ render=function(){renderBeforeCrewMobile();document.body.classList.add('crew-mob
   const current=document.querySelector('#mobileNav button.active');if(current)current.setAttribute('aria-current','page');
 };
 // Quiet task screens, reversible review actions, and the crew companion.
-let crewFlagsOpen=false,crewMessageTimer,crewDockHidden=false;
+let crewFlagsOpen=false,crewMessageTimer,crewDockHidden=false,crewStatusMessage='',crewStatusError=false,crewStatusBusy=false;
 const crewAnswerTaskBefore=answerTask;
 answerTask=function(){return crewAnswerTaskBefore().replace(/<h3>([^<]+)<\/h3>(<div class="topic-pick">[\s\S]*?<\/div>)/g,(_,name,topics)=>`<details class="crew-department"><summary><span>${name}</span><b aria-hidden="true">⌄</b></summary>${topics}</details>`)};
 const crewShelfRowsBefore=shelfTopicRows;
@@ -78,25 +78,14 @@ function crewFlaggedView(){const b=reviewBank();const items=b.questions.filter(q
 const crewReviewBefore=reviewView;
 reviewView=function(){if(crewFlagsOpen&&reviewBank())crewFlaggedView();else crewReviewBefore()};
 function crewCompanion(message,mood='happy',action=null,busy=false){
-  // Interrupt only for important errors; routine activity stays quiet.
-  if(mood!=='careful'||busy)return;
-  if(!state.hubOnboardingCompleted||['welcome','gettingstarted','setup'].includes(page)||document.body.classList.contains('cloud-auth'))return;
-  if(typeof document.body.append!=='function')return;
-  let panel=document.querySelector('#crewCompanion');
-  if(!panel){panel=document.createElement('aside');panel.id='crewCompanion';panel.className='crew-companion';document.body.append(panel)}
-  if(!panel.hidden&&panel.dataset.action==='true'&&!action&&mood!=='careful')return;
-  if(panel.dataset.message===message&&Date.now()-Number(panel.dataset.shownAt||0)<60000)return;
-  clearTimeout(crewMessageTimer);panel.dataset.mood=mood;panel.dataset.action=String(!!action);panel.dataset.message=message;panel.dataset.shownAt=String(Date.now());
-  panel.innerHTML=`<div class="crew-message"><button class="crew-message-close" type="button" aria-label="Dismiss notification">×</button><p role="alert">${esc(message)}</p>${action?'<button type="button" class="crew-message-action"></button>':''}</div>`;
-  panel.hidden=false;panel.querySelector('.crew-message-close').onclick=()=>{panel.hidden=true;clearTimeout(crewMessageTimer)};
-  if(action){const button=panel.querySelector('.crew-message-action');button.textContent=action.label;button.onclick=()=>{panel.hidden=true;action.run()}}
-  if(!action&&!busy)crewMessageTimer=setTimeout(()=>{if(!panel.contains(document.activeElement))panel.hidden=true},6500);
+  crewStatusMessage=message;crewStatusError=mood==='careful';crewStatusBusy=busy;
+  if(typeof cloudSyncNotice==='function')cloudSyncNotice();
 }
 const crewToastBefore=toast;
 toast=function(message,action=null){document.querySelector('#toast')?.classList.add('hidden');if(!state.hubOnboardingCompleted||['welcome','gettingstarted','setup'].includes(page)||document.body.classList.contains('cloud-auth')){const status=document.querySelector('#qaProfileStatus')||document.querySelector('#authMessage');if(status)status.textContent=message;return}if(/could not|cannot|failed|not saved|not synced|retry|storage.*full|error/i.test(message))crewCompanion(message,'careful',action)};
 const crewStatusBefore=showWorkspaceStatus;
 let crewWasBusy=false,crewBusyTimer;
-showWorkspaceStatus=function(text,busy=false,error=false){clearTimeout(crewBusyTimer);clearTimeout(statusTimer);document.querySelector('#workspaceText').textContent=text;workspaceStatus.classList.remove('visible');crewWasBusy=false;if(error&&!busy)crewCompanion(text,'careful')};
+showWorkspaceStatus=function(text,busy=false,error=false){clearTimeout(crewBusyTimer);clearTimeout(statusTimer);document.querySelector('#workspaceText').textContent=text;workspaceStatus.classList.remove('visible');crewWasBusy=false;crewStatusMessage=text;crewStatusError=error;crewStatusBusy=busy;if(typeof cloudSyncNotice==='function')cloudSyncNotice()};
 function crewSetDock(hidden){
   crewDockHidden=false;document.body.classList.remove('crew-dock-resting');
 }
