@@ -69,7 +69,7 @@ render=function(){renderBeforeCrewMobile();document.body.classList.add('crew-mob
   const current=document.querySelector('#mobileNav button.active');if(current)current.setAttribute('aria-current','page');
 };
 // Quiet task screens, reversible review actions, and the crew companion.
-let crewFlagsOpen=false,crewMessageTimer,crewDockTimer,crewDockHidden=false;
+let crewFlagsOpen=false,crewMessageTimer,crewDockHidden=false;
 const crewAnswerTaskBefore=answerTask;
 answerTask=function(){return crewAnswerTaskBefore().replace(/<h3>([^<]+)<\/h3>(<div class="topic-pick">[\s\S]*?<\/div>)/g,(_,name,topics)=>`<details class="crew-department"><summary><span>${name}</span><b aria-hidden="true">⌄</b></summary>${topics}</details>`)};
 const crewShelfRowsBefore=shelfTopicRows;
@@ -98,8 +98,7 @@ const crewStatusBefore=showWorkspaceStatus;
 let crewWasBusy=false,crewBusyTimer;
 showWorkspaceStatus=function(text,busy=false,error=false){clearTimeout(crewBusyTimer);clearTimeout(statusTimer);document.querySelector('#workspaceText').textContent=text;workspaceStatus.classList.remove('visible');crewWasBusy=false;if(error&&!busy)crewCompanion(text,'careful')};
 function crewSetDock(hidden){
-  crewDockHidden=hidden;document.body.classList.toggle('crew-dock-resting',hidden);
-  const handle=document.querySelector('#crewDockHandle');if(handle){handle.setAttribute('aria-expanded',String(!hidden));handle.setAttribute('aria-label',hidden?'Open navigation':'Hide navigation')}
+  crewDockHidden=false;document.body.classList.remove('crew-dock-resting');
 }
 function crewTidyScreen(){
   if(typeof document.body.append!=='function')return;
@@ -115,9 +114,7 @@ function crewTidyScreen(){
   let context=document.querySelector('#crewContext');if(!context){context=document.createElement('div');context.id='crewContext';document.body.append(context)}context.replaceChildren();
   const back=app.querySelector('button.back');
   if(back){if(page==='setup'){const form=app.querySelector('#qaProfileForm');if(form)form.append(back)}else{const label=back.textContent.trim();back.setAttribute('aria-label',label);back.title=label;back.textContent='←';context.append(back)}}
-  const handle=document.querySelector('#crewDockHandle');
-  if(!handle){const b=document.createElement('button');b.id='crewDockHandle';b.type='button';b.innerHTML=icon('home');b.setAttribute('aria-controls','mobileNav');b.onclick=()=>crewSetDock(!crewDockHidden);document.body.append(b)}
-  const dock=document.querySelector('#mobileNav');if(dock&&!dock.querySelector('.crew-dock-toggle'))dock.insertAdjacentHTML('beforeend','<button type="button" class="crew-dock-toggle" aria-label="Minimize navigation" title="Minimize navigation">⌄</button>');
+  document.querySelector('#crewDockHandle')?.remove();
   crewSetDock(false);
 }
 const crewRenderCalmBefore=render;
@@ -126,10 +123,6 @@ document.addEventListener('click',e=>{
   const b=e.target.closest('button');if(!b)return;
   if(b.dataset.crewFlags){crewFlagsOpen=true;render();window.scrollTo(0,0)}
   if(b.dataset.crewFlagsClose){crewFlagsOpen=false;render()}
-  if(b.closest('#mobileNav')){if(b.classList.contains('crew-dock-toggle')){e.preventDefault();crewSetDock(true)}else if(b.dataset.nav)setTimeout(()=>crewSetDock(true),0)}
 },true);
-window.addEventListener('scroll',()=>{if(!state.hubOnboardingCompleted)return;crewSetDock(true);clearTimeout(crewDockTimer);crewDockTimer=setTimeout(()=>{if(!document.activeElement?.matches?.('input,textarea,select'))crewSetDock(false)},550)},{passive:true});
-document.addEventListener('focusin',e=>{if(e.target.closest?.('#mobileNav'))crewSetDock(false);else if(e.target.matches?.('input,textarea,select'))crewSetDock(true)});
-document.addEventListener('focusout',()=>{clearTimeout(crewDockTimer);crewDockTimer=setTimeout(()=>crewSetDock(false),180)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){const p=document.querySelector('#crewCompanion');if(p)p.hidden=true;crewSetDock(false)}});
 render();

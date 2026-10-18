@@ -1,0 +1,158 @@
+/* Stable navigation and compact selection screens, from 320px phones to desktop. */
+.crew-calm .mobile-nav,.crew-calm.crew-dock-resting .mobile-nav{
+  transform:translateX(-50%);opacity:1;pointer-events:auto;transition:none;
+  bottom:0;width:100%;max-width:800px;border-radius:0;border:0;border-top:1px solid var(--line);
+  padding:6px 8px calc(6px + env(safe-area-inset-bottom));background:var(--surface);
+}
+.crew-calm .mobile-nav button{min-height:52px;animation:none;transform:none!important;transition:background-color .12s,color .12s}
+.crew-calm .mobile-nav button.active{background:var(--orange-soft);color:var(--teal);box-shadow:none}
+.crew-calm .crew-dock-toggle,#crewDockHandle{display:none!important}
+.crew-calm #crewContext{left:16px;bottom:calc(74px + env(safe-area-inset-bottom));height:40px}
+.crew-calm #crewContext .hub-history-back{min-height:40px;height:40px;min-width:76px;border-radius:12px;font-size:13px;padding:0 12px;box-shadow:0 2px 8px #213e2a0a}
+.crew-calm #crewContext button:disabled{opacity:.45;cursor:default}
+.hub-compact .content{padding:14px 16px calc(126px + env(safe-area-inset-bottom))}
+.hub-compact .topbar{flex-wrap:nowrap;min-height:64px;gap:7px;padding:calc(8px + env(safe-area-inset-top)) 16px 8px;background:var(--surface)}
+.hub-compact .topbar .eyebrow{display:none}
+.hub-compact .topbar strong{font-size:15px;line-height:1.2}
+.hub-compact .topbar>div:has(#sectionName){flex:1;min-width:0}
+.hub-compact .global-search-button,.hub-compact #cloudRefreshButton{order:0;flex:0 0 40px;min-width:40px;min-height:44px;padding:8px!important}
+.hub-compact .global-search-button span,.hub-compact .global-search-button:after{display:none!important}
+.hub-compact .global-search-button svg{height:21px;width:21px}
+.hub-compact #cloudRefreshButton{display:none} /* Refresh remains available in Account. */
+.hub-compact .ui-profile-shortcut{width:38px;height:38px;min-width:38px;flex:0 0 38px}
+.hub-help-button{flex:0 0 40px;width:40px;height:44px;border:0;border-radius:12px;background:var(--orange-soft);color:var(--teal);font-size:20px;font-weight:750}
+.hub-compact .hub-brand-home{width:38px;flex-basis:38px}
+.hub-compact .hub-brand-home img{width:36px;height:36px}
+.hub-compact .task-hero{min-height:0;padding:0;background:none!important;border:0;box-shadow:none;color:var(--ink);margin:4px 0 14px;border-radius:0}
+.hub-compact .task-hero:before,.hub-compact .task-hero:after{display:none}
+.hub-compact .task-hero h1{color:var(--ink)}
+.hub-compact .task-hero h1,.hub-task-heading h1,.hub-compact .shelf-heading h1,.hub-compact .qa-head h1,.hub-compact .ui-page-head h1{font-size:24px;line-height:1.2;letter-spacing:-.5px;margin:0 0 8px}
+.hub-task-heading{margin:4px 0 16px}
+.hub-task-heading p{margin:0;color:var(--muted);font-size:14px}
+.hub-compact .shelf-heading,.hub-compact .ui-page-head,.hub-compact .qa-head{margin:0 0 16px;padding:0}
+.hub-compact .shelf-heading .eyebrow,.hub-compact .qa-greeting,.hub-compact .ui-page-head .eyebrow{display:none}
+.hub-compact .card{padding:16px;border-radius:16px;margin-bottom:12px}
+.hub-compact .mode-switch{margin:8px 0 14px;padding:4px}
+.hub-compact .mode-switch button{min-height:44px;font-size:15px}
+.hub-compact .btn{min-height:44px;font-size:14px;padding:10px 14px;border-radius:12px}
+.hub-compact .search{margin:12px 0;padding:9px 12px;min-height:44px;border-radius:12px}
+.hub-compact .search input{font-size:16px;min-width:0}
+.hub-compact .empty{padding:18px 12px;font-size:13px}
+.hub-compact .topic-picker{padding:12px 14px;margin:0 0 12px}
+.hub-compact .topic-picker>summary{font-size:14px;min-height:32px}
+.hub-compact .crew-department{margin-top:8px;border-radius:12px}
+.hub-compact .crew-department summary,.hub-compact .crew-library-department>summary{padding:12px;min-height:48px;font-size:15px}
+.hub-compact .topic-pick{gap:6px;padding:8px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.hub-compact .topic-pick button{font-size:13px;padding:9px;min-height:44px;overflow-wrap:anywhere}
+.hub-department-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}
+.hub-department-grid>button{min-height:62px;padding:12px;display:flex;gap:10px;align-items:center;text-align:left;border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);font-size:14px;font-weight:700}
+.hub-department-grid>button>span{color:var(--teal);font-size:22px}.hub-department-grid>button>b{margin-left:auto;color:var(--muted)}
+.hub-department-grid>button.active{border-color:var(--teal);background:var(--orange-soft)}
+.hub-topic-select .btn,.hub-answer-picker>.btn{width:100%}
+.hub-picker-fields{display:grid;grid-template-columns:1fr;gap:0}
+.hub-compact .hub-answer-picker .field{margin:0 0 12px}
+.hub-compact .task-options{font-size:12px;gap:8px;margin:10px 0;flex-wrap:wrap}
+.hub-compact .chips{flex-wrap:wrap;overflow:visible}
+.hub-compact .review-read-options{font-size:14px;line-height:1.5}.hub-compact .review-read-options li{padding:6px}
+.hub-compact .shelf-columns{gap:8px;margin-top:12px}
+.hub-compact .shelf-group{padding:0;border-radius:12px}
+.hub-compact .shelf-topic{min-height:52px;padding:9px 12px;font-size:14px}
+.hub-compact .shelf-topic small{font-size:11px}
+.hub-compact .shelf-topic .shelf-book{width:30px;height:34px}
+.hub-compact .shelf-footer,.hub-compact .qa-support{font-size:11px;margin:14px 0 0;line-height:1.45}
+.hub-compact .ask-path h2{font-size:18px;margin:0 0 12px}
+.hub-compact .ask-path>.btn{width:100%}
+.hub-compact .field{font-size:13px;gap:6px;margin:12px 0}
+.hub-compact .field input,.hub-compact .field select{min-height:44px;padding:10px 12px;font-size:16px}
+.hub-compact .qa-hero{padding:18px;min-height:0;margin-bottom:12px}
+.hub-compact .qa-hero h2{font-size:22px;margin:6px 0}
+.hub-compact .qa-hero p{font-size:13px;margin:6px 0 12px}
+.hub-compact .qa-hero .mascot{width:86px;max-height:110px;object-fit:contain}
+.hub-compact .qa-hero .medal{font-size:25px}
+.hub-compact .qa-hero .eyebrow{font-size:9px}
+.hub-compact .qa-metrics{gap:8px;margin-bottom:12px}
+.hub-compact .qa-metric{padding:12px}
+.hub-compact .qa-metric strong{font-size:25px}
+.hub-compact .profile-summary{padding:18px}
+.hub-compact .profile-action{padding:12px 0}
+.hub-compact .profile-settings>p,.hub-compact .ui-page-head>p{display:none}
+/* Reviewer selection uses one native set selector, never a tall grid of every set. */
+.hub-compact .review-track-grid{grid-template-columns:1fr;gap:12px;margin:12px 0}
+.hub-compact .review-track{padding:18px;gap:6px;border-radius:16px;position:relative;transform:none;box-shadow:var(--shadow-sm,0 2px 8px #213e2a08)}
+.hub-compact .review-track strong{font-size:23px}
+.hub-compact .review-track span:not(.review-track-icon){font-size:13px}
+.hub-compact .review-track b{margin:4px 0 0;font-size:13px}
+.hub-compact .review-track-icon{position:absolute;right:16px;top:18px;font-size:24px;padding:8px 12px}
+.review-track-switch{display:flex;gap:6px;padding:4px;background:var(--orange-soft);border-radius:12px;margin-bottom:12px}
+.review-track-switch button{flex:1;min-height:44px;border:0;border-radius:9px;background:none;font-size:14px;color:var(--teal);font-weight:650}
+.review-track-switch button.active{background:var(--surface);box-shadow:0 2px 6px #213e2a0c}
+.hub-compact .review-journey{background:var(--surface);color:var(--ink);padding:12px 14px;margin:0 0 12px}
+.hub-inline-stat{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;line-height:1.4;margin:0 0 9px}
+.hub-inline-stat>span{color:var(--muted)}
+.hub-compact progress{height:6px;border:0;border-radius:99px;width:100%;display:block;accent-color:var(--teal)}
+.hub-compact .review-set-picker .field{margin:0 0 10px}
+.hub-compact .review-set-picker .search{margin:10px 0 14px}
+.hub-compact .review-actions{margin-top:14px;gap:8px}
+.hub-compact .review-set-picker .review-actions .btn{flex:1;white-space:normal}
+.hub-resume{width:100%;margin:0 0 12px}
+.review-quick-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.review-quick-actions .btn{font-size:12px}
+.review-quick-actions .text-button{padding:0 8px;min-height:44px}
+.hub-key-note{display:block;font-size:11px!important;line-height:1.45;color:var(--muted);margin:12px 0 0}
+/* Question is dominant; answers and feedback are smaller, readable, and touchable. */
+.hub-compact .review-round-meta{font-size:12px;margin:0 0 10px;align-items:center}
+.hub-compact .review-round-progress{margin:0 0 14px}
+.hub-compact .review-question{padding:16px}
+.hub-compact .review-question h1{font-size:18px;line-height:1.4;margin:10px 0 16px;letter-spacing:0}
+.hub-compact .review-options{gap:8px}
+.hub-compact .review-option{font-size:14px;line-height:1.4;gap:9px;padding:10px;min-height:48px;border-width:1.5px;border-radius:10px}
+.hub-compact .review-option b{min-width:26px;height:26px;font-size:12px;border-radius:7px}
+.hub-compact .review-option.correct{border-color:#2e7d48;background:#eaf5ed;color:#153d23}
+.hub-compact .review-option.incorrect{border-color:#b34b3a;background:#fff0ed;color:#702b21}
+.hub-compact .review-feedback{font-size:13px;line-height:1.45;padding:10px 12px;margin-top:12px;border-radius:10px}
+.hub-compact .review-feedback>strong{font-size:13px}
+.hub-compact .review-feedback p,.hub-compact .review-feedback p:last-child{font-size:13px;margin:5px 0 0}
+.hub-compact .review-question>.review-actions .btn{width:100%}
+.hub-compact .review-question-foot{margin-top:10px;gap:8px}
+.hub-compact .review-question-foot .review-source{margin:0;font-size:11px;min-height:36px;display:inline-flex;align-items:center}
+.hub-compact .review-question-foot .text-button{font-size:12px;min-height:44px}
+.hub-compact .review-result{padding:20px}
+.hub-compact .review-result img{height:80px}
+.hub-compact .review-result h1{font-size:24px;margin:10px 0}
+.hub-compact .review-score{font-size:46px}
+.hub-compact .review-result>p{font-size:13px}
+.hub-review-progress h2{font-size:18px!important}
+.hub-review-score{display:flex;align-items:center;gap:16px;margin:10px 0 14px}
+.hub-review-score>strong{font-size:34px;color:var(--teal);line-height:1.1}
+.hub-review-score small{font-size:17px;color:var(--muted)}
+.hub-review-score>span{font-size:12px;line-height:1.5;color:var(--muted)}
+.hub-review-stats{display:flex;gap:20px;margin:14px 0;font-size:12px;color:var(--muted)}
+.hub-review-stats b{display:block;font-size:20px;color:var(--ink)}
+/* User-opened help sheet. No automatic tour or overlay. */
+#hubQuickHelp{width:calc(100% - 28px);max-width:460px;max-height:80dvh;overflow:auto;padding:20px;border:1px solid var(--line);border-radius:20px;background:var(--surface);color:var(--ink);box-shadow:0 20px 60px #17392c25}
+#hubQuickHelp::backdrop{background:#112b2444}
+.hub-help-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hub-help-head h2{font-size:18px;margin:0}
+.hub-help-head button{width:44px;height:44px;border:0;background:var(--bg);border-radius:12px;font-size:24px}
+.hub-help-checklist{display:grid;gap:12px;margin:16px 0}
+.hub-help-checklist label,.hub-help-hide{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.5;min-height:44px}
+.hub-help-checklist input,.hub-help-hide input{width:20px;height:20px;flex:0 0 20px;margin:3px 0;accent-color:var(--teal)}
+.hub-help-hide{font-size:12px;padding-top:14px;border-top:1px solid var(--line)}
+#hubQuickHelp .review-actions{justify-content:flex-end}
+[data-theme=dark] .hub-compact .review-option.correct{background:#21452c;color:#eaf7ee;border-color:#82bd8e}
+[data-theme=dark] .hub-compact .review-option.incorrect{background:#512e28;color:#ffeae4;border-color:#df8d7d}
+@media(min-width:600px){.hub-compact .review-track-grid{grid-template-columns:1fr 1fr}.hub-compact .topic-pick{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:600px){.hub-department-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.hub-topic-select{max-width:680px}.hub-picker-fields{grid-template-columns:1fr 1fr;gap:14px}}
+@media(min-width:900px){
+  .hub-compact .mobile-nav,.crew-calm.crew-dock-resting .mobile-nav{display:none}
+  .hub-compact .content{max-width:1060px;padding:24px 32px 90px}
+  .hub-compact .topbar{padding:14px 32px;min-height:76px}
+  .hub-compact #crewContext{left:max(255px,calc(50% - 455px));bottom:22px}
+  .hub-compact .global-search-button{flex:0 1 190px}
+  .hub-compact .global-search-button span{display:inline!important}
+  .hub-compact .review-set-picker,.hub-compact .review-journey,.hub-compact .hub-resume,.hub-compact .review-track-switch,.hub-compact .review-quick-actions{max-width:680px}
+  .hub-compact .review-question{max-width:760px}
+  .hub-compact .shelf-columns{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-height:720px) and (max-width:899px){.hub-compact .content{padding-top:10px}.hub-compact .hub-task-heading{margin-bottom:10px}.hub-compact .review-track{padding:14px}.hub-compact .review-set-picker{padding:12px}}
+@media(prefers-reduced-motion:reduce){.hub-compact button{transition:none!important}}
