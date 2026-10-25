@@ -1,7 +1,9 @@
 'use strict';
 // Supabase boundary. Unconfigured builds remain an explicitly labeled local preview.
 const hubConfig=window.HubConfig||{};
-const cloudEnabled=!!(hubConfig.supabaseUrl&&hubConfig.publishableKey);
+// Offline is the default even when the host has Supabase configuration.
+// Existing cloud access is an explicit device choice, not an automatic upgrade.
+const cloudEnabled=!!(hubConfig.supabaseUrl&&hubConfig.publishableKey)&&(()=>{try{return localStorage.getItem('toolbox-cloud-choice-v1')==='enabled'}catch{return false}})();
 let hubClient=null,cloudUser=null,cloudQuestions=[],cloudVersion=0,cloudReady=false,cloudBusy=false,cloudError='',cloudRecovery=false,cloudAuthMode='signin',cloudConflict=false,cloudPending=false,cloudSeq=0,cloudTimer,cloudSavePromise=null,cloudRestorePromise=null,cloudReturning=!cloudEnabled&&!!state.hubOnboardingCompleted,cloudWelcomeDismissed=false,cloudRole=null;
 let cloudAuthChecking=cloudEnabled,cloudAuthError='',cloudAuthCheckVersion=0,cloudAuthPromise=null;
 const cloudRenderBefore=render,cloudNavBefore=nav,cloudPersistBefore=persist,cloudSaveViewBefore=saveLastView,cloudProfileLinksBefore=profileLinks,cloudPrivacyBefore=privacyView,cloudAccessBefore=accessUI,cloudFeedbackBefore=feedbackView,cloudLeaderboardBefore=leaderboardView;
