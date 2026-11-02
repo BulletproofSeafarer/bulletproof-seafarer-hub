@@ -89,3 +89,13 @@ nav button{font-size:21px;min-width:45px;color:#283b35}nav small{font-size:10px}
 
 /* Phase 2.2.1 document tracker */
 .docs-record-list{display:grid;gap:10px;margin:14px 0}.docs-record{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;border:1px solid #dce8e2;border-radius:14px;background:white;padding:14px;color:#163f32}.docs-record span:first-child{min-width:0;display:grid;gap:4px}.docs-record small{font-size:12px;color:#64766f}.docs-record-status{white-space:nowrap;font-size:11px;font-weight:700;border-radius:20px;padding:6px 8px;background:#eef1ef}.docs-record-status.valid{color:#18734d;background:#e6f5ec}.docs-record-status.expiring{color:#8a5c05;background:#fff1c7}.docs-record-status.expired{color:#a33838;background:#ffe6e6}.docs-record-status.no-expiry{color:#5d6c68}.field select{display:block;width:100%;min-height:44px;padding:10px;border:1px solid #cad9d1;border-radius:10px;background:white;font:inherit}
+
+/* Phase 2.2.2: local test attachment picker */
+.doc-photo-picker{border:1px solid #c8ddd2;border-radius:14px;padding:14px;margin:12px 0;background:#f5faf7}.doc-photo-picker strong{display:block;margin-bottom:9px;color:#124c3d}.doc-photo-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.doc-photo-actions button{border:1px solid #96b6a5;background:white;color:#125743;border-radius:10px;min-height:48px;padding:7px 4px;font-size:12px;font-weight:650}.doc-photo-picker .btn{margin:5px 5px 0 0}@media(max-width:340px){.doc-photo-actions{grid-template-columns:1fr}}
+/* Phase 2.2.3: separate sides for ID cards and full-page documents */
+.doc-side-card{border:1px solid #d8e8df;border-radius:16px;padding:12px;margin:12px 0;background:#f7fbf8}
+.doc-side-card strong{display:block;margin-bottom:9px;color:#164b3b}
+.doc-side-card .doc-photo-actions{display:flex;flex-wrap:wrap;gap:7px}
+.doc-side-card .doc-photo-actions button{min-height:42px}
+.doc-side-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.doc-side-actions button{flex:1;min-width:110px}
