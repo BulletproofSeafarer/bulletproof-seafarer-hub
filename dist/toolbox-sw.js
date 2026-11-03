@@ -1,5 +1,5 @@
 /* Toolbox offline shell. No personal records or third-party/API responses are cached. */
-const VERSION='toolbox-shell-2.3.9';
+const VERSION='toolbox-shell-2.3.10';
 const CORE=['./toolbox2.html','./toolbox2.css','./toolbox2.js','./toolbox-onboarding.css','./toolbox-onboarding.js','./toolbox-print.js','./toolbox-career.js','./toolbox-utilities.css','./toolbox-utilities.js','./toolbox-offline.js','./assets/toolbox-icon-192.png'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{
  const cache=await caches.open(VERSION);
@@ -21,8 +21,8 @@ self.addEventListener('fetch',event=>{
  event.respondWith((async()=>{
  const cache=await caches.open(VERSION);
  if(isEntry){try{const response=await fetch(req);if(response.ok)await cache.put('./toolbox2.html',response.clone());return response}catch{return await cache.match('./toolbox2.html')||Response.error()}}
- const cached=await cache.match(url.pathname)||await cache.match(req,{ignoreSearch:true});
- if(cached)return cached;
- try{const response=await fetch(req);if(response.ok)await cache.put(req,response.clone());return response}catch{return Response.error()}
+ // Network-first while connected: prevents a stale Home bundle after deployment.
+ try{const response=await fetch(req,{cache:'no-store'});if(response.ok){await cache.put(req,response.clone());return response}}catch(e){}
+ return await cache.match(req,{ignoreSearch:true})||await cache.match(url.pathname)||Response.error();
  })());
 });
