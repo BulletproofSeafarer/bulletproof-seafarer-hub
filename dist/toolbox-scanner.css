@@ -1,0 +1,14 @@
+/* Toolbox document image editor */
+.tbscan-open{margin-top:8px;width:100%;border:1px solid #b4d6c6;background:#eef8f2;color:#12563f;border-radius:12px;padding:11px;font-weight:700;cursor:pointer}
+.tbscan-dialog{border:0;border-radius:22px;padding:0;max-width:min(95vw,520px);width:100%;max-height:92dvh;overflow:auto;background:#fff;color:#183f32;box-shadow:0 22px 80px #0006}
+.tbscan-dialog::backdrop{background:#061c17c9}
+.tbscan-shell{padding:18px;display:grid;gap:13px}
+.tbscan-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.tbscan-head h2{font-size:20px;margin:0}.tbscan-x{border:0;background:#edf3ef;border-radius:10px;padding:8px 13px;font-size:20px}
+.tbscan-canvas-wrap{background:#e7ede9;border-radius:14px;padding:10px;display:grid;place-items:center;overflow:hidden}
+.tbscan-canvas{max-width:100%;max-height:42dvh;touch-action:none;cursor:crosshair;background:#fff}
+.tbscan-controls{display:grid;gap:10px}.tbscan-controls label{display:grid;gap:4px;font-size:13px;font-weight:600}
+.tbscan-controls input[type=range]{width:100%;accent-color:#087254}
+.tbscan-row{display:flex;gap:8px;flex-wrap:wrap}.tbscan-row button{flex:1;min-width:95px;padding:11px;border-radius:10px;border:1px solid #a6c5b5;background:#f4faf6;color:#15583e;font-weight:650}
+.tbscan-row .tbscan-apply{background:#087254;color:white;border-color:#087254}
+.tbscan-note{font-size:12px;color:#667d72;margin:0}.tbscan-status{font-size:12px;color:#a33;margin:0;min-height:1em}
