@@ -129,3 +129,28 @@ nav .plus{background:linear-gradient(150deg,#12936d,#07573f 65%,#03402f);border:
 button:focus-visible,a:focus-visible{outline:3px solid #2fb889;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){nav button,.btn{transition:none!important}}
 @media(max-width:360px){.home-banner{min-height:150px}.home-mascot{width:137px;height:148px}.greeting{max-width:61%}.greeting h1{font-size:26px}}
+
+/* Phase 2.3.1a — precisely centered five-slot mobile dock. */
+.app > nav[aria-label="Main navigation"]{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  align-items:center;
+  justify-items:stretch;
+  justify-content:initial;
+  gap:0;
+  padding:8px 8px max(9px,env(safe-area-inset-bottom));
+}
+.app > nav[aria-label="Main navigation"] > button{
+  width:100%;min-width:0;min-height:48px;
+  margin:0;padding:2px 0;
+  justify-self:stretch;justify-content:center;
+  text-align:center;
+}
+.app > nav[aria-label="Main navigation"] > button.plus{
+  width:52px;height:52px;min-height:52px;
+  margin:-19px auto 0;padding:0;
+  justify-self:center;align-self:center;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:row;
+}
+.app > nav[aria-label="Main navigation"] > button.plus .tb-icon{margin:0 auto}
