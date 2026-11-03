@@ -154,3 +154,43 @@ button:focus-visible,a:focus-visible{outline:3px solid #2fb889;outline-offset:3p
   flex-direction:row;
 }
 .app > nav[aria-label="Main navigation"] > button.plus .tb-icon{margin:0 auto}
+
+/* Phase 2.3.2 — premium Documents surface; layout-only, existing storage untouched. */
+.docs-page{padding-bottom:30px}
+.docs-hero{position:relative;isolation:isolate;display:flex;align-items:center;min-height:187px;overflow:hidden;margin:8px 0 17px;padding:23px 19px;border:1px solid #ffffff38;border-radius:24px;color:#fff;background:radial-gradient(circle at 90% 12%,#4bb49b80,transparent 48%),linear-gradient(125deg,#073f39 0%,#09684f 65%,#05483d 100%);box-shadow:0 16px 32px #0a4e3d30,inset 0 1px #ffffff55}
+.docs-hero:after{content:"";position:absolute;inset:auto -30px -100px 35%;height:155px;border-radius:50%;background:#9ee6c126;filter:blur(23px);pointer-events:none;z-index:-1}
+.docs-hero-content{position:relative;z-index:2;max-width:66%}
+.docs-hero-kicker{display:block;color:#b4f4dc;font-size:9px;letter-spacing:.16em;font-weight:850}
+.docs-hero h1{color:#fff;font-size:30px;letter-spacing:-.8px;margin:9px 0 7px;line-height:1.05}
+.docs-hero p{color:#e0f5eb;font-size:11px;line-height:1.55;margin:0 0 13px}
+.docs-hero-chip{display:inline-flex;border:1px solid #ffffff4a;border-radius:100px;padding:6px 9px;background:#ffffff18;color:#e8fff3;font-size:8px;font-weight:800;letter-spacing:.06em}
+.docs-hero-art{position:absolute;right:-12px;top:2px;width:49%;height:100%;display:grid;place-items:center;filter:drop-shadow(0 13px 10px #002f2a55);pointer-events:none}
+.docs-hero-art svg{width:100%;height:100%;max-height:185px}
+.docs-status{gap:10px}
+.docs-status-tile{position:relative;overflow:hidden;gap:6px;border-radius:18px;padding:16px 4px 15px;border:1px solid #fff;box-shadow:0 8px 19px #143e3018,inset 0 1px #ffffffec}
+.docs-status-tile:after{content:"";position:absolute;width:62px;height:62px;top:-38px;right:-25px;border-radius:50%;background:#ffffff8c;pointer-events:none}
+.docs-status-tile.valid{background:linear-gradient(145deg,#f1fff5,#d8f5e5)}
+.docs-status-tile.soon{background:linear-gradient(145deg,#fffaf0,#ffebc8)}
+.docs-status-tile.expired{background:linear-gradient(145deg,#fff7f5,#ffe2df)}
+.docs-status-tile b{font-size:29px;line-height:1.1;letter-spacing:-1px}
+.docs-status-tile span{font-size:10px}
+.docs-page>.btn.full,.docs-page>#addDocRecord{border-radius:16px;min-height:50px;font-weight:800;box-shadow:0 9px 18px #075c4630,inset 0 1px #ffffff6b}
+.docs-section-title{margin-top:25px;margin-bottom:12px}
+.docs-section-title h2{font-size:18px;letter-spacing:-.35px;color:#143d31}
+.docs-links{border:1px solid #fff;border-radius:21px;box-shadow:0 11px 25px #173d2c16,inset 0 1px #fff;overflow:hidden;background:#fff}
+.docs-link{min-height:75px;padding:13px 15px;gap:13px;background:linear-gradient(105deg,#fff,#fbfefd);transition:background .16s,transform .16s}
+.docs-link:active{background:#eef9f3;transform:scale(.995)}
+.docs-link-icon{width:44px;height:44px;flex-basis:44px;border-radius:14px;color:#0c765a;background:linear-gradient(145deg,#f2fff8,#d9f2e7);box-shadow:0 5px 11px #0d61481a,inset 0 1px #fff;font-size:22px}
+.docs-link strong{font-size:13px}.docs-link small{font-size:11px;line-height:1.4}
+.docs-arrow{font-size:23px}
+.quick-id-grid{gap:11px}
+.quick-id{position:relative;overflow:hidden;min-height:136px;border:1px solid #fff;border-radius:19px;padding:15px 13px;background:linear-gradient(150deg,#fff,#e9f7f0);box-shadow:0 8px 18px #143c2b14,inset 0 1px #fff;transition:transform .15s}
+.quick-id:active{transform:scale(.98)}
+.quick-id:after{content:"";position:absolute;top:-22px;right:-24px;width:70px;height:70px;border-radius:50%;border:1px solid #b8e4d1;pointer-events:none}
+.quick-id-symbol{display:grid;place-items:center;width:35px;height:35px;border-radius:11px;background:#d8f0e4;font-size:20px}
+.docs-privacy{border:1px solid #d9ebe1;border-radius:15px;background:linear-gradient(145deg,#f4faf6,#e8f4ec);padding:14px}
+.docs-note{line-height:1.6}
+.docs-head:not(.docs-hero){padding:16px 17px;border:1px solid #fff;border-radius:19px;background:linear-gradient(130deg,#fff,#e9f7f0);box-shadow:0 8px 19px #153f2b12}
+.docs-interim,.doc-photo-picker{border-radius:18px;box-shadow:0 8px 18px #123e2b13}
+@media(max-width:360px){.docs-hero{min-height:174px;padding:18px 15px}.docs-hero h1{font-size:26px}.docs-hero-content{max-width:69%}.docs-hero-art{width:45%;right:-17px}.docs-status{gap:6px}.docs-status-tile b{font-size:25px}}
+@media(prefers-reduced-motion:reduce){.docs-link,.quick-id{transition:none}}
