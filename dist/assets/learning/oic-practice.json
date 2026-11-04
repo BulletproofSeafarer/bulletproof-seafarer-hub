@@ -1,0 +1,133 @@
+{
+  "notice": "Original practice questions, NOT transcriptions of MARINA guide questionnaires or official answer keys. Educator review pending.",
+  "questions": [
+    {
+      "id": "practice-001",
+      "track": "deck",
+      "topic": "Navigation & COLREGs",
+      "question": "When two power-driven vessels are meeting on reciprocal courses with risk of collision, what action is generally required?",
+      "options": [
+        "Both alter course to starboard",
+        "Both alter course to port",
+        "Stand on without action",
+        "Both stop immediately"
+      ],
+      "answer": 0,
+      "explanation": "COLREG Rule 14: each vessel should alter course to starboard to pass port-to-port.",
+      "source": "Toolbox original practice (not an official MARINA question)",
+      "reviewStatus": "educator-review-pending"
+    },
+    {
+      "id": "practice-002",
+      "track": "deck",
+      "topic": "Navigation & COLREGs",
+      "question": "In restricted visibility, which action is generally appropriate when radar detects another vessel and risk of collision exists?",
+      "options": [
+        "Make an early avoiding action in accordance with Rule 19",
+        "Maintain course and speed regardless",
+        "Rely on visual sight alone",
+        "Switch off radar to reduce clutter"
+      ],
+      "answer": 0,
+      "explanation": "COLREG Rule 19 requires safe speed and appropriate avoiding action; assess the specific encounter.",
+      "source": "Toolbox original practice (not an official MARINA question)",
+      "reviewStatus": "educator-review-pending"
+    },
+    {
+      "id": "practice-003",
+      "track": "deck",
+      "topic": "Watchkeeping",
+      "question": "What is the primary responsibility of an officer keeping a navigational watch?",
+      "options": [
+        "Maintain a safe navigational watch",
+        "Prepare crew payroll",
+        "Approve engine overhauls",
+        "Manage vessel catering"
+      ],
+      "answer": 0,
+      "explanation": "STCW watchkeeping principles require a safe navigational watch.",
+      "source": "Toolbox original practice (not an official MARINA question)",
+      "reviewStatus": "educator-review-pending"
+    },
+    {
+      "id": "practice-004",
+      "track": "deck",
+      "topic": "Chartwork",
+      "question": "What does a charted depth ordinarily refer to?",
+      "options": [
+        "Depth below the chart datum",
+        "Height above the bridge deck",
+        "Distance from vessel keel",
+        "Depth above mean sea level in all charts"
+      ],
+      "answer": 0,
+      "explanation": "Charted depths are referenced to the chart datum stated on the chart.",
+      "source": "Toolbox original practice (not an official MARINA question)",
+      "reviewStatus": "educator-review-pending"
+    },
+    {
+      "id": "practice-005",
+      "track": "engine",
+      "topic": "Engineering Watch",
+      "question": "What should an engineer do when an abnormal machinery alarm occurs?",
+      "options": [
+        "Assess and respond according to approved procedures",
+        "Silence and ignore it",
+        "Disable all monitoring",
+        "Wait until the next watch regardless"
+      ],
+      "answer": 0,
+      "explanation": "Watchkeepers must investigate and respond appropriately to alarms under approved procedures.",
+      "source": "Toolbox original practice (not an official MARINA question)",
+      "reviewStatus": "educator-review-pending"
+    },
+    {
+      "id": "practice-006",
+      "track": "engine",
+      "topic": "Pollution Prevention",
+      "question": "What is the appropriate response to a suspected oil discharge incident?",
+      "options": [
+        "Follow the vessel SOPEP and reporting procedures",
+        "Discharge more water to dilute oil",
+        "Erase the oil record book entry",
+        "Wait until arriving at the next port"
+      ],
+      "answer": 0,
+      "explanation": "Follow the shipboard oil pollution emergency plan and applicable reporting requirements.",
+      "source": "Toolbox original practice (not an official MARINA question)",
+      "reviewStatus": "educator-review-pending"
+    },
+    {
+      "id": "practice-007",
+      "track": "engine",
+      "topic": "Machinery Systems",
+      "question": "Why is lubricating oil pressure monitored on operating machinery?",
+      "options": [
+        "To identify inadequate lubrication conditions",
+        "To determine paint thickness",
+        "To measure vessel draft",
+        "To calculate cargo density"
+      ],
+      "answer": 0,
+      "explanation": "Low lubrication pressure can indicate conditions that risk machinery damage.",
+      "source": "Toolbox original practice (not an official MARINA question)",
+      "reviewStatus": "educator-review-pending"
+    },
+    {
+      "id": "practice-008",
+      "track": "engine",
+      "topic": "Safety & Emergency",
+      "question": "Before entering an enclosed space, what must be done?",
+      "options": [
+        "Follow the enclosed-space entry permit and atmospheric testing procedure",
+        "Enter alone for a quick inspection",
+        "Rely on smell to check oxygen",
+        "Assume ventilation is always sufficient"
+      ],
+      "answer": 0,
+      "explanation": "Enclosed-space entry requires risk assessment, atmosphere checks, permits, and safeguards per approved procedures.",
+      "source": "Toolbox original practice (not an official MARINA question)",
+      "reviewStatus": "educator-review-pending"
+    }
+  ]
+}
