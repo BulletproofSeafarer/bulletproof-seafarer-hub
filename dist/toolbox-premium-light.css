@@ -70,3 +70,14 @@ dialog[open]{animation:tb-dialog-enter .23s cubic-bezier(.2,.8,.2,1) both}
 }
 @media(min-width:700px){#modal{border-radius:22px;width:min(520px,90vw);max-height:85vh}#modal .toolbox-modal-body{padding:25px}#modal .toolbox-modal-body::before{display:none}}
 @media(prefers-reduced-motion:reduce){#modal[open]{animation:none!important}}
+
+/* 2.7.1 — Footer integration and responsive calendar controls */
+.tb-profile-page .tb-account-credit{background:transparent!important;isolation:isolate}
+.tb-profile-page .tb-account-credit img{background:transparent!important;mix-blend-mode:multiply;max-width:165px!important;height:auto!important;object-fit:contain}
+.tb-profile-page .tb-account-credit .tb-footer-tagline{display:block;margin-top:3px;font-size:12px;letter-spacing:.015em;color:#506A5D;line-height:1.45}
+.tr-calendar-toggle{touch-action:manipulation!important;cursor:pointer;transition:transform .12s ease,background-color .12s ease!important;will-change:auto}
+.tr-calendar-toggle:active{transform:scale(.93)!important}
+.tr-calendar.tr-open{display:block!important;opacity:1!important;visibility:visible!important}
+.tr-day,.tr-month button{touch-action:manipulation;transition:background-color .12s ease,transform .12s ease}
+.tr-day:active,.tr-month button:active{transform:scale(.94)}
+@media(prefers-reduced-motion:reduce){.tr-calendar-toggle,.tr-day,.tr-month button{transition:none!important}}
