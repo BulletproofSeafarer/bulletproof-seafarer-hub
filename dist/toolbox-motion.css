@@ -1,0 +1,18 @@
+/* Toolbox 2.6.1: battery-smart decorative motion. Operational progress spinners remain active. */
+/* Marquee is a manually swipeable horizontal shelf instead of a permanent animation. */
+.utility-track{animation:none!important;transform:none!important;width:max-content!important}
+.utility-marquee{overflow-x:auto!important;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+/* Decorative idle movement pauses; one gentle entrance on first viewport exposure. */
+.tb-intro-art img,.crew-companion[data-mood="thinking"] .crew-mascot,.cloud-boat{
+ animation:none!important;
+}
+.tb-intro-art img.motion-enter,.crew-companion[data-mood="thinking"] .crew-mascot.motion-enter,.cloud-boat.motion-enter{
+ animation:toolbox-motion-hello .55s ease-out 1 both!important;
+}
+@keyframes toolbox-motion-hello{from{opacity:.8;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+/* Touch/click feedback without permanent CPU activity. */
+.tb-intro-art img.motion-tap,.crew-mascot.motion-tap,.cloud-boat.motion-tap{
+ animation:toolbox-motion-tap .35s ease-out 1!important;
+}
+@keyframes toolbox-motion-tap{50%{transform:scale(1.035)}100%{transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.motion-enter,.motion-tap{animation:none!important;transition:none!important}}
