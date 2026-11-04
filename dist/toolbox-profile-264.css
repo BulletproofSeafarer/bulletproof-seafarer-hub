@@ -3,3 +3,13 @@
 
 /* Show preferred-name field only on its own onboarding slide. */
 .tb-intro-name[hidden]{display:none!important}
+
+/* 2.6.6: mascot presents the optional Cloud card without continuous animation. */
+.tb-profile-page .tb-cloud-invite{position:relative;isolation:isolate;overflow:visible;display:flex;align-items:center;min-height:185px;padding:20px 18px 20px clamp(124px,34%,186px);border:1px solid #70c5a6;background:linear-gradient(115deg,#e5f6eb,#f5fbf6 65%)!important;color:#153b30!important;box-shadow:0 9px 24px #112d2220}
+.tb-cloud-invite-art{position:absolute;left:-12px;bottom:-6px;width:clamp(138px,38%,200px);height:calc(100% + 38px);z-index:2;display:flex;align-items:flex-end;pointer-events:none}
+.tb-cloud-invite-art img{width:100%;max-height:100%;object-fit:contain;object-position:bottom;filter:drop-shadow(2px 8px 9px #14352b3a)}
+.tb-cloud-invite-copy{position:relative;z-index:1;min-width:0}.tb-cloud-invite-copy h2{font-size:clamp(18px,4.5vw,23px);line-height:1.17;margin:5px 0 8px;color:inherit}.tb-cloud-invite-copy p{margin:0 0 11px;font-size:13px;line-height:1.5;color:#345e50!important}.tb-cloud-eyebrow{font-size:10px;letter-spacing:.09em;font-weight:800;color:#237255}.tb-cloud-soon{display:inline-block;font-size:11px;font-weight:700;line-height:1.45;color:#176246;background:#d1f0d9;border-radius:9px;padding:7px 9px}
+html[data-toolbox-theme="dark"] .tb-profile-page .tb-cloud-invite{background:linear-gradient(125deg,#193b32,#234a40)!important;border-color:#4ca788;color:#f0fff6!important}html[data-toolbox-theme="dark"] .tb-cloud-invite-copy p{color:#cee9de!important}html[data-toolbox-theme="dark"] .tb-cloud-eyebrow{color:#a7e4c7}html[data-toolbox-theme="dark"] .tb-cloud-soon{background:#275844;color:#d8f6e7}
+@media(prefers-color-scheme:dark){html[data-toolbox-theme="system"] .tb-profile-page .tb-cloud-invite{background:linear-gradient(125deg,#193b32,#234a40)!important;border-color:#4ca788;color:#f0fff6!important}html[data-toolbox-theme="system"] .tb-cloud-invite-copy p{color:#cee9de!important}html[data-toolbox-theme="system"] .tb-cloud-eyebrow{color:#a7e4c7}html[data-toolbox-theme="system"] .tb-cloud-soon{background:#275844;color:#d8f6e7}}
+@media(max-width:380px){.tb-profile-page .tb-cloud-invite{padding-left:120px}.tb-cloud-invite-art{width:143px;left:-16px}.tb-cloud-invite-copy p{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.tb-cloud-invite-art,.tb-cloud-invite-art img{animation:none!important;transition:none!important}}
