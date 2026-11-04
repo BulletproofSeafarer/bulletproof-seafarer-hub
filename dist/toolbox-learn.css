@@ -22,3 +22,15 @@
 @keyframes tl-card-appear{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}@keyframes tl-case-enter{from{opacity:.7;transform:scale(.985)}to{opacity:1;transform:scale(1)}}@keyframes tl-file-slide{from{transform:translateY(20px) rotate(-2deg);opacity:.5}to{transform:translateY(0) rotate(0);opacity:1}}@keyframes tl-scene-reveal{from{opacity:0;clip-path:inset(0 50% 0 50%)}to{opacity:1;clip-path:inset(0)}}
 @media(min-width:620px){.tl-shortcuts{grid-template-columns:repeat(4,minmax(0,1fr))}.tl-missions{grid-template-columns:repeat(3,minmax(0,1fr))}.tl-mission-art{height:160px}}
 @media(prefers-reduced-motion:reduce){.tl-root *, .tl-root *:before,.tl-root *:after{animation:none!important;transition:none!important}}
+
+/* Learn 2.7.0: factual local progress, consistent light UI and tactile controls */
+.tl-local-progress{margin:2px 0 15px;padding:16px 17px;background:#fff;border:1px solid #dbe8df;border-radius:18px;box-shadow:0 4px 16px #152f2410;color:#19392b}
+.tl-local-progress>strong{display:block;font-size:15px;margin-bottom:12px}
+.tl-local-progress-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.tl-local-progress-stats span{min-width:0;display:flex;flex-direction:column;gap:3px;padding:9px 7px;background:#f1f7f2;border-radius:11px;font-size:11px;line-height:1.35;color:#4c6d5d}
+.tl-local-progress-stats b{font-size:21px;color:#13684d}
+.tl-local-progress>small{display:block;margin-top:11px;color:#61776a;font-size:11px}
+.tl-root button{transition:transform .14s ease,background-color .18s ease,border-color .18s ease,box-shadow .18s ease}
+.tl-root button:active{transform:scale(.975)}
+.tl-root button:focus-visible{outline:3px solid #62b693;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.tl-root button{transition:none!important}}
