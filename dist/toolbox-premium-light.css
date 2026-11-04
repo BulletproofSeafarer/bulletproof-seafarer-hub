@@ -54,3 +54,19 @@ dialog[open]{animation:tb-dialog-enter .23s cubic-bezier(.2,.8,.2,1) both}
 @media(prefers-reduced-motion:no-preference){#view> :first-child{animation:tb-page-enter .23s ease-out both}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 @media(min-width:760px){.app{max-width:780px}nav{width:min(780px,100%)}}
+
+/* 2.6.9 — Apple-inspired contextual bottom sheet for existing Toolbox dialogs. */
+#modal{background:#fff;color:#172e27;border:1px solid #dce8df;border-radius:26px 26px 0 0;padding:0;box-shadow:0 -12px 40px #10261e24;overflow:hidden;overscroll-behavior:contain}
+#modal::backdrop{background:rgba(13,31,23,.40)}
+#modal .toolbox-modal-body{padding:24px 19px max(20px,env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain;max-height:inherit}
+#modal .toolbox-modal-body::before{content:"";display:block;width:40px;height:5px;margin:-12px auto 18px;border-radius:99px;background:#d7dfda}
+#modal h2{margin:8px 0 14px;letter-spacing:-.02em;color:#1c3429}
+#modal .field input,#modal .field select,#modal .field textarea{background:#fff;color:#1c3429;min-height:42px;border-color:#c9dbd0}
+#modal .close{float:right;position:relative;z-index:2;width:36px;height:36px;border-radius:50%;background:#f0f4f1;color:#304e3c;font-size:25px}
+#modal[open]{animation:tb-sheet-up .27s cubic-bezier(.21,.9,.25,1) both}
+@keyframes tb-sheet-up{from{opacity:.85;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:699px){
+ #modal[open]{position:fixed!important;inset:auto 0 0!important;margin:0!important;max-width:none!important;width:100%!important;max-height:min(88dvh,var(--tb-sheet-height,88dvh))!important}
+}
+@media(min-width:700px){#modal{border-radius:22px;width:min(520px,90vw);max-height:85vh}#modal .toolbox-modal-body{padding:25px}#modal .toolbox-modal-body::before{display:none}}
+@media(prefers-reduced-motion:reduce){#modal[open]{animation:none!important}}
