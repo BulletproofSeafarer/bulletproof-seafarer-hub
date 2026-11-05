@@ -81,3 +81,25 @@ dialog[open]{animation:tb-dialog-enter .23s cubic-bezier(.2,.8,.2,1) both}
 .tr-day,.tr-month button{touch-action:manipulation;transition:background-color .12s ease,transform .12s ease}
 .tr-day:active,.tr-month button:active{transform:scale(.94)}
 @media(prefers-reduced-motion:reduce){.tr-calendar-toggle,.tr-day,.tr-month button{transition:none!important}}
+
+/* Toolbox 2.8.0 — Secure Vault readiness, Apple's calm action-driven motion */
+.tb-vault-status{display:grid;gap:16px}
+.tb-vault-state{display:flex;gap:12px;align-items:flex-start}
+.tb-vault-indicator{flex:0 0 12px;height:12px;border-radius:50%;background:#bd8534;margin-top:5px;box-shadow:0 0 0 4px #bd853422}
+.tb-vault-state strong{font-size:15px;color:#253f30}
+.tb-vault-state p,.tb-vault-check p{font-size:13px;line-height:1.55;color:#556d5e;margin:7px 0}
+.tb-vault-status-grid{display:grid;gap:8px}
+.tb-vault-status-grid>div{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#f3f7f3;padding:12px;border-radius:12px}
+.tb-vault-status-grid strong{font-size:12px}
+.tb-vault-status-grid small{font-size:11px;color:#825924;font-weight:700}
+.tb-vault-check{padding:14px;border:1px solid #dce9df;border-radius:15px}
+.tb-vault-check>strong{font-size:14px}
+.tb-vault-check button{min-height:46px}
+#tbVaultPreflightStatus{font-size:12px;line-height:1.5;margin:12px 0 0;color:#4e6658}
+#tbVaultPreflightStatus[data-state="passed"]{color:#176b4e}
+#tbVaultPreflightStatus[data-state="failed"]{color:#9d4537}
+.account-cta,.tb-vault-check button{transition:transform .14s ease,background-color .16s ease}
+.account-cta:active,.tb-vault-check button:active{transform:scale(.975)}
+#view:has(.account-page),#view:has(.account-subhead){animation:tb-account-enter .21s cubic-bezier(.24,.83,.25,1) both}
+@keyframes tb-account-enter{from{opacity:.75;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){#view:has(.account-page),#view:has(.account-subhead){animation:none!important}.account-cta,.tb-vault-check button{transition:none!important}}
