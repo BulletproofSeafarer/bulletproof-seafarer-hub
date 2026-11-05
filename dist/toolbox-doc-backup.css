@@ -1,1 +1,9 @@
 .tb-backup-panel{margin:22px 0;padding:20px;border:1px solid #b6d5c9;border-radius:18px;background:linear-gradient(145deg,#f5fbf8,#e9f5ee);color:#123f32}.tb-backup-panel h2{font-size:1.1rem;margin:0 0 8px}.tb-backup-panel p{line-height:1.5;font-size:.87rem}.tb-backup-actions{display:flex;flex-wrap:wrap;gap:10px}.tb-backup-actions button{flex:1 1 140px}.tb-backup-warning{color:#8a4c19}.tb-backup-panel #tbBackupStatus{font-weight:600;min-height:1.3em;overflow-wrap:anywhere}
+/* 2.8.2 — offline encrypted backup form */
+.tb-backup-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px;margin:14px 0}
+.tb-backup-fields label{display:grid;gap:6px;color:#2b5542;font-size:12px;font-weight:700}
+.tb-backup-fields input{box-sizing:border-box;width:100%;min-height:46px;border:1px solid #c3d9cc;border-radius:12px;background:#fff;padding:11px 12px;font:inherit;color:#173b2b}
+.tb-backup-fields input:focus-visible{outline:2px solid #19734e;outline-offset:2px}
+.tb-backup-panel button{min-height:45px;touch-action:manipulation}
+.tb-backup-panel button:active{transform:scale(.985)}
+@media(prefers-reduced-motion:reduce){.tb-backup-panel button{transition:none!important}}
