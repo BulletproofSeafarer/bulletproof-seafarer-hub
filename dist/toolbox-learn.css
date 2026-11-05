@@ -50,3 +50,12 @@
 .tl-hero-with-mascot .tl-hero-kicker,.tl-hero-with-mascot h1,.tl-hero-with-mascot p{position:relative;z-index:2}
 @media(max-width:390px){.tl-hero-with-mascot{padding-right:108px}.tl-hero-with-mascot .tl-home-mascot{width:120px}}
 @media(prefers-reduced-motion:reduce){.tl-home-mascot{animation:none!important;transition:none!important}}
+
+/* Learn 2.7.3 — resumable practice session, no continuous movement */
+.tl-resume{display:grid;gap:12px;margin:0 0 15px;padding:17px;background:#e8f3ea;border:1px solid #b8d9c4;border-radius:19px;color:#183b2c;box-shadow:0 5px 16px #13392510}
+.tl-resume strong{font-size:16px}.tl-resume p{font-size:12px;color:#466d58;line-height:1.45;margin:5px 0 0}
+.tl-resume-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.tl-resume-actions button{min-height:43px;padding:11px 16px;border-radius:12px;border:1px solid #b9d7c2;background:#fff;color:#176849;font-weight:700;font-size:13px}
+.tl-resume-actions .tl-primary{border-color:#126b4d;color:#fff;background:#126b4d}
+.tl-resume-actions button:active{transform:scale(.975)}
+@media(prefers-reduced-motion:reduce){.tl-resume-actions button{transition:none!important}}
