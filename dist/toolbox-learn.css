@@ -96,3 +96,17 @@
 .tl-option[aria-pressed="true"]{outline:2px solid #147b52;outline-offset:-2px}
 .tl-root button:disabled{opacity:.48;cursor:not-allowed;transform:none}
 @media(prefers-reduced-motion:reduce){.tl-session-track i,.tl-history-review{transition:none!important}}
+
+/* Learn 2.7.6 — index vs interactive CBT: honest, discoverable navigation */
+.tl-olp-practice,.tl-olp-detail{background:#fff;border:1px solid #dae8df;border-radius:18px;padding:17px;color:#193b2c;box-shadow:0 5px 15px #132c210d}
+.tl-olp-practice{margin:0 0 16px}
+.tl-olp-practice>strong,.tl-olp-related>strong{font-size:16px}
+.tl-olp-practice p,.tl-olp-detail p{font-size:13px;line-height:1.6;color:#587465;margin:9px 0 14px}
+.tl-olp-practice .tl-primary,.tl-olp-related .tl-primary{display:block;width:100%;min-height:46px;border-radius:12px}
+.tl-olp-topic{cursor:pointer;min-height:64px;touch-action:manipulation}
+.tl-olp-topic:active{transform:scale(.985)}
+.tl-olp-detail-row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid #e5eee7;font-size:13px}
+.tl-olp-detail-row span{color:#647b6c}.tl-olp-detail-row strong{color:#173c2b}
+.tl-olp-related{margin:16px 0;padding:14px;background:#f0f8f2;border-radius:14px}
+.tl-olp-unavailable{padding:12px;background:#f5f7f4;border-radius:12px}
+.tl-olp-all-cbt{width:100%;min-height:45px;background:#fff;color:#126c4f;border:1px solid #bdd9c7;border-radius:12px;font-size:13px;font-weight:750}
