@@ -21,7 +21,7 @@ document.addEventListener('click',async e=>{
  const button=e.target.closest('[data-vault-preflight]');if(!button)return;
  const status=document.getElementById('tbVaultPreflightStatus');if(!status)return;
  button.disabled=true;status.textContent='Testing encryption support…';status.dataset.state='running';
- try{status.textContent=await preflight();status.dataset.state='passed'}catch(err){status.textContent='Check failed: '+(err?.message||'Crypto unavailable');status.dataset.state='failed'}
+ try{status.textContent=await preflight();status.dataset.state='passed'}catch(_err){status.textContent='The security check could not complete on this device. Please try again in a secure browser.';status.dataset.state='failed'}
  finally{button.disabled=false}
 });
 })();
