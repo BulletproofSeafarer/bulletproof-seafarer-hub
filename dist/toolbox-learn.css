@@ -34,3 +34,19 @@
 .tl-root button:active{transform:scale(.975)}
 .tl-root button:focus-visible{outline:3px solid #62b693;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){.tl-root button{transition:none!important}}
+
+/* Learn 2.7.2 — contextual recent activity and mascot, no idle animation */
+.tl-recent{margin:0 0 15px;padding:15px 16px;background:#fff;border:1px solid #dfe8e1;border-radius:17px;box-shadow:0 4px 14px #132d2110;color:#19392b}
+.tl-recent-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:9px}
+.tl-recent-head strong{font-size:15px}.tl-recent-head>span{font-size:11px;color:#61786b}
+.tl-recent-item{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid #e8efe9;padding:11px 0}
+.tl-recent-item span{display:grid;gap:4px;min-width:0}
+.tl-recent-item strong{font-size:13px;color:#183a2b}
+.tl-recent-item small{font-size:11px;color:#60776b}
+.tl-recent-item>b{font-size:12px;white-space:nowrap;font-weight:750;color:#176c4f}
+.tl-recent-empty{margin:7px 0 2px;color:#597365;font-size:12px;line-height:1.5}
+.tl-hero-with-mascot{padding-right:130px;min-height:160px}
+.tl-hero-with-mascot .tl-home-mascot{position:absolute;right:-8px;bottom:-10px;width:145px;max-height:175px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 5px 9px #09271a48);pointer-events:none;z-index:1}
+.tl-hero-with-mascot .tl-hero-kicker,.tl-hero-with-mascot h1,.tl-hero-with-mascot p{position:relative;z-index:2}
+@media(max-width:390px){.tl-hero-with-mascot{padding-right:108px}.tl-hero-with-mascot .tl-home-mascot{width:120px}}
+@media(prefers-reduced-motion:reduce){.tl-home-mascot{animation:none!important;transition:none!important}}
