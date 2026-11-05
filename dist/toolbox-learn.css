@@ -84,3 +84,15 @@
 .tl-result-item .tl-result-explanation{background:#f1f6f2;padding:10px;border-radius:10px;color:#365a47}
 @media(max-width:370px){.tl-result-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){.tl-result-actions button{transition:none!important}}
+
+/* Learn 2.7.5 — final interaction polish: reviewer progress and saved result access */
+.tl-session-progress{display:grid;grid-template-columns:1fr auto;align-items:center;gap:7px 12px;margin:8px 0 16px;color:#315c47;font-size:12px;font-weight:700}
+.tl-session-track{grid-column:1/-1;height:6px;border-radius:20px;background:#e1eee5;overflow:hidden}
+.tl-session-track i{display:block;height:100%;border-radius:20px;background:#19815a;transition:width .2s ease-out}
+.tl-recent-item{flex-wrap:wrap}
+.tl-history-review{width:100%;padding:9px 12px;min-height:42px;border:1px solid #b9d7c6;border-radius:10px;background:#f0f7f2;color:#146748;text-align:center;font-size:12px;font-weight:750}
+.tl-history-review:active{transform:scale(.98)}
+.tl-mode button[aria-pressed="true"]{box-shadow:inset 0 0 0 1px #278763}
+.tl-option[aria-pressed="true"]{outline:2px solid #147b52;outline-offset:-2px}
+.tl-root button:disabled{opacity:.48;cursor:not-allowed;transform:none}
+@media(prefers-reduced-motion:reduce){.tl-session-track i,.tl-history-review{transition:none!important}}
