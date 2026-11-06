@@ -1,0 +1,25 @@
+/* Toolbox 2.9 visual refinement: Home, Quick Create, Profile.
+   Styling only: does not change user data, navigation or security. */
+.voyage-card .voyage-count{display:inline-flex;align-items:center;max-width:100%;padding:9px 12px;margin:2px 0 12px;border:1px solid rgba(220,255,234,.32);border-radius:12px;background:rgba(0,31,24,.28);color:#fff;font-size:15px;font-weight:800;line-height:1.35;letter-spacing:.01em;text-shadow:none;overflow-wrap:anywhere}
+.voyage-card .voyage-count:not(.voyage-count--named){font-size:12px;font-weight:650}
+.voyage-card .muted{color:#f0fff7;font-size:12px;line-height:1.5}
+.voyage-card .hero-top{align-items:flex-start;gap:10px}
+.voyage-card .grow{min-width:0}
+.voyage-card h2{font-weight:800;letter-spacing:-.02em}
+.create-menu{padding:6px 1px 10px}
+.create-menu-head{padding:12px 13px 16px;border-radius:18px;background:linear-gradient(135deg,#e7f5ee,#f6faf8);margin:0 0 14px}
+.create-menu-head h2{font-size:22px;font-weight:800;letter-spacing:-.03em}
+.create-actions{gap:10px}
+.create-action{min-height:72px;padding:13px 12px;border:1px solid #dce9e2;border-radius:17px;box-shadow:0 3px 12px rgba(8,55,38,.045);transition:background .15s,border-color .15s,transform .15s}
+.create-action:active{transform:scale(.99);background:#f1f9f5}
+.create-action strong{font-size:15px;font-weight:800;letter-spacing:-.01em}
+.create-action small{font-size:12px;color:#526e61}
+.create-action-icon{width:48px;height:48px;flex-basis:48px;border-radius:15px}
+.create-footnote{font-size:11px;line-height:1.6}
+.account-hero{border-radius:22px;min-height:118px;padding:22px 18px;box-shadow:0 8px 24px rgba(3,53,39,.13)}
+.account-hero h1{font-size:25px;line-height:1.2;overflow-wrap:anywhere;letter-spacing:-.03em}
+.account-avatar{border-radius:19px;background:#e2f6e9;border:1px solid rgba(255,255,255,.45)}
+.tb-profile-card,.account-detail{border-radius:19px}
+.account-link{min-height:64px}
+@media(max-width:360px){.voyage-card .voyage-count{font-size:13px}.create-action{padding:10px}.create-action strong{font-size:14px}.account-hero h1{font-size:21px}}
+@media(prefers-reduced-motion:reduce){.create-action{transition:none}}
