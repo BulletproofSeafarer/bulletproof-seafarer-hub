@@ -5,9 +5,11 @@
 async function prepare({plan,values,store,crypto,passphrase,staging,verification}){
  verification.validatePlan(plan);
  if(!values||typeof values!=='object'||!staging||typeof staging.stageRecord!=='function')throw Error('Migration preparation unavailable');
- const staged=[];
  for(const item of plan){
   if(!Object.prototype.hasOwnProperty.call(values,item.id))throw Error('Missing source item: '+item.id);
+ }
+ const staged=[];
+ for(const item of plan){
   const value=values[item.id];
   await staging.stageRecord({store,crypto,passphrase,id:item.id,value});
   staged.push(item.id);
