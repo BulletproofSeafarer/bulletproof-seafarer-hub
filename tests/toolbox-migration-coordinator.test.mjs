@@ -22,7 +22,7 @@ test('complete dummy migration stages and verifies without legacy writes',async(
 test('missing source attachment fails before reporting readiness',async()=>{
  const store=memory();
  await assert.rejects(prepare({plan,values:{'doc:demo':values['doc:demo']},store,crypto,passphrase,staging,verification}),/Missing source/);
- assert.equal(store.rows.size,1);
+ assert.equal(store.rows.size,0);
 });
 test('duplicate staging never overwrites a previous encrypted record',async()=>{
  const store=memory(),args={plan,values,store,crypto,passphrase,staging,verification};
