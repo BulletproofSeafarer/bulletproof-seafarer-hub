@@ -4,7 +4,7 @@
 'use strict';
 const PREFIX='toolbox-stage-v1:';
 function validateId(id){if(typeof id!=='string'||!/^[A-Za-z0-9][A-Za-z0-9:_-]{0,119}$/.test(id))throw Error('Invalid staging identifier')}
-function validateStore(store){if(!store||!['get','put'].every(k=>typeof store[k]==='function'))throw Error('Staging store unavailable')}
+function validateStore(store){if(!store||!['get','add'].every(k=>typeof store[k]==='function'))throw Error('Staging store unavailable')}
 async function stageRecord({store,crypto,passphrase,id,value}){
  validateId(id);validateStore(store);
  if(!crypto||typeof crypto.sealJSON!=='function'||typeof crypto.openJSON!=='function')throw Error('Vault encryption unavailable');
@@ -13,7 +13,7 @@ async function stageRecord({store,crypto,passphrase,id,value}){
  const envelope=await crypto.sealJSON(value,passphrase,key);
  const verified=await crypto.openJSON(envelope,passphrase,key);
  if(JSON.stringify(verified)!==JSON.stringify(value))throw Error('Encrypted staging verification failed');
- await store.put(key,envelope);
+ await store.add(key,envelope);
  const saved=await store.get(key);
  if(!saved)throw Error('Staging persistence failed');
  const reread=await crypto.openJSON(saved,passphrase,key);
