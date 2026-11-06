@@ -22,5 +22,7 @@ jobs:
           node --check dist/toolbox-vault-indexeddb.cjs
           node --check dist/toolbox-migration-preflight.cjs
           node --check dist/toolbox-attachment-preflight.cjs
+          node --check dist/toolbox-migration-verify.cjs
+          node --check dist/toolbox-migration-coordinator.cjs
       - name: Run full automated test suite
         run: npm test
