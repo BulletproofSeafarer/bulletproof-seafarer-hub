@@ -18,3 +18,12 @@ html[data-toolbox-theme="dark"] .tb-profile-page .tb-cloud-invite{background:lin
 .learn-head.tb-mascot-hero{position:relative;isolation:isolate;display:flex;align-items:center;min-height:166px;overflow:visible;padding:22px 150px 20px 20px;border-radius:20px;background:linear-gradient(120deg,#e4f5e9,#f3faf5);color:#14392e;box-shadow:0 8px 22px #133d2520}.tb-mascot-hero-copy{position:relative;z-index:1}.learn-head.tb-mascot-hero h1{color:inherit}.learn-head.tb-mascot-hero p{color:#37614e;line-height:1.45}.tb-mascot-hero>img{position:absolute;bottom:-7px;right:-10px;width:clamp(128px,36%,188px);max-height:calc(100% + 28px);object-fit:contain;object-position:bottom;pointer-events:none;filter:drop-shadow(0 7px 9px #173b2930)}.docs-hero-art.tb-docs-mascot{position:relative;overflow:visible}.docs-hero-art.tb-docs-mascot img{width:100%;height:100%;min-width:115px;max-height:220px;object-fit:contain;filter:drop-shadow(0 8px 8px #032c2644)}.docs-hero-art.tb-docs-mascot svg[hidden]{display:none!important}
 html[data-toolbox-theme="dark"] .learn-head.tb-mascot-hero{background:linear-gradient(120deg,#193a30,#284e40);color:#f2fff6}html[data-toolbox-theme="dark"] .learn-head.tb-mascot-hero p{color:#d1eadd}@media(prefers-color-scheme:dark){html[data-toolbox-theme="system"] .learn-head.tb-mascot-hero{background:linear-gradient(120deg,#193a30,#284e40);color:#f2fff6}html[data-toolbox-theme="system"] .learn-head.tb-mascot-hero p{color:#d1eadd}}
 @media(max-width:390px){.learn-head.tb-mascot-hero{padding-right:125px;min-height:145px}.tb-mascot-hero>img{width:145px}}@media(prefers-reduced-motion:reduce){.tb-mascot-hero img,.tb-docs-mascot img{animation:none!important;transition:none!important}}
+
+.tb-settings-group{margin:20px 0}
+.tb-settings-group h2{font-size:1rem;margin:0 12px 8px}
+.tb-settings-group .account-link{min-height:54px;text-align:left;gap:12px}
+.tb-settings-group .account-link-copy{flex:1;min-width:0}
+.tb-settings-group .tb-icon{flex-shrink:0}
+.tb-faq details+details{border-top:1px solid #a9bfb6}
+.tb-faq summary{padding:14px 0;cursor:pointer;font-weight:600}
+.tb-letter p{line-height:1.6}
