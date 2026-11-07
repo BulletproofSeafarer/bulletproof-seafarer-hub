@@ -28,7 +28,7 @@ const ToolboxScreens=(()=>{
  function refresh(){
   if(busy)return;
   busy=true;indicator.hidden=false;
-  setTimeout(()=>{busy=false;indicator.hidden=true},5000);
+  setTimeout(()=>{busy=false;indicator.hidden=true},2500);
   state.voyage=load();render();
   if(navigator.onLine&&navigator.serviceWorker){
    navigator.serviceWorker.getRegistration().then(reg=>reg?.update()).catch(()=>{});
