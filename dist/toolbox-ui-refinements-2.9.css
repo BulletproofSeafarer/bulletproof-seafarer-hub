@@ -23,3 +23,12 @@
 .account-link{min-height:64px}
 @media(max-width:360px){.voyage-card .voyage-count{font-size:13px}.create-action{padding:10px}.create-action strong{font-size:14px}.account-hero h1{font-size:21px}}
 @media(prefers-reduced-motion:reduce){.create-action{transition:none}}
+
+#view .home-banner{background:#07583e!important}
+#view .home-banner .greeting :is(span,h1,p){color:#fff!important}
+#view .hero.voyage-card{background:#fff!important;color:#103c2c!important}
+#view .hero.voyage-card :is(h2,.muted,.voyage-count){color:#103c2c!important;text-shadow:none!important}
+#view .hero.voyage-card .muted{font-weight:700}
+#view .hero.voyage-card .voyage-count{background:#e1efe7!important}
+#view #editVoyage{display:block;margin:10px auto 0;padding:7px 12px;font-size:.88rem;background:transparent;color:#205640;box-shadow:none}
+.create-menu .create-action-icon{background:#e5f2ea;color:#125740}

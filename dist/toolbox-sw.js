@@ -2,11 +2,18 @@
 importScripts('./offline-assets.js');
 const VERSION='toolbox-shell-'+toolboxOfflineAssets.version+'-'+toolboxOfflineAssets.studyVersion;
 const CORE=[...toolboxOfflineAssets.core,...toolboxOfflineAssets.extra].filter(path=>
- /^(toolbox|assets\/toolbox|assets\/learning\/[^/]+\.json$)/.test(path)
+ path==='review-bank.js'||path==='assets/bulletproof-seafarer-official.png'||/^(assets\/review\/.+\.pdf$|toolbox|assets\/toolbox|assets\/learning\/[^/]+\.json$)/.test(path)
 );
 self.addEventListener('install',event=>event.waitUntil((async()=>{
  const cache=await caches.open(VERSION);
- await cache.addAll(CORE.map(path=>new Request(new URL(path,self.registration.scope),{cache:'reload'})));
+ const files=CORE.filter(path=>!path.endsWith('.cjs'));
+ async function cacheFile(path){
+  const response=await fetch(new URL(path,self.registration.scope),{cache:'reload'});
+  if(!response.ok)throw Error('Unable to cache '+path);
+  // Clean-URL hosts redirect the HTML entry. Offline navigations need a direct response.
+  await cache.put(path,response.redirected?new Response(response.body,{headers:response.headers,status:response.status}):response);
+ }
+ for(let i=0;i<files.length;i+=6)await Promise.all(files.slice(i,i+6).map(cacheFile));
  await self.skipWaiting();
 })()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{
@@ -19,7 +26,7 @@ self.addEventListener('fetch',event=>{
  const scope=new URL(self.registration.scope);
  if(!url.pathname.startsWith(scope.pathname))return;
  const isCore=CORE.some(p=>new URL(p,scope).pathname===url.pathname);
- const isEntry=url.pathname===scope.pathname||url.pathname===new URL('./index.html',scope).pathname;
+ const isEntry=url.pathname===new URL('./toolbox2',scope).pathname||url.pathname===scope.pathname||url.pathname===new URL('./index.html',scope).pathname;
  if(!isCore&&!isEntry)return;
  event.respondWith((async()=>{
  const cache=await caches.open(VERSION);

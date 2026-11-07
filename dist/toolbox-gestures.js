@@ -66,7 +66,7 @@ const ToolboxScreens=(()=>{
  });
  document.addEventListener('click',event=>{
   if(index<1||document.querySelector('dialog[open]'))return;
-  if(!event.target.closest('button.back,button.tl-back,[data-utility-back],[data-account-back]'))return;
+  if(!event.target.closest('button.back,[data-utility-back],[data-account-back]'))return;
   event.preventDefault();event.stopImmediatePropagation();move(-1);
  },true);
  return {visit,remember};
