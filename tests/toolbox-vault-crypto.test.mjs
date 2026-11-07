@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {webcrypto} from 'node:crypto';
 import {createRequire} from 'node:module';
 const require=createRequire(import.meta.url);
-globalThis.crypto=webcrypto;
+if (!globalThis.crypto) Object.defineProperty(globalThis, 'crypto', {value:webcrypto, configurable:true});
 const vault=require('../dist/toolbox-vault-crypto.cjs');
 test('vault seals and opens JSON',async()=>{const value={title:'Dummy passport',expiry:'2030-01-01'};const envelope=await vault.sealJSON(value,'a-long-test-passphrase','doc-1');assert.deepEqual(await vault.openJSON(envelope,'a-long-test-passphrase','doc-1'),value);assert.equal(envelope.format,'toolbox-local-vault-v1');assert.ok(!JSON.stringify(envelope).includes('Dummy passport'))});
 test('wrong passphrase, changed id and tampering fail',async()=>{const envelope=await vault.sealJSON({dummy:1},'a-long-test-passphrase','doc-1');await assert.rejects(vault.openJSON(envelope,'wrong-passphrase-long','doc-1'));await assert.rejects(vault.openJSON(envelope,'a-long-test-passphrase','doc-2'));const damaged=Buffer.from(envelope.data,'base64');damaged[0]^=1;const altered={...envelope,data:damaged.toString('base64')};await assert.rejects(vault.openJSON(altered,'a-long-test-passphrase','doc-1'))});
