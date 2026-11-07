@@ -16,7 +16,7 @@ function fixture(){
  }}};queueMicrotask(()=>req.onsuccess());return req}};
  function reopen(){
   const ctx=vm.createContext({crypto:webcrypto,Blob,Uint8Array,navigator:{locks:{request:(_,fn)=>fn()}},
-   ToolboxDocumentVault:{createVault:()=>createVault({idb,crypto:cryptoEngine})},
+   ToolboxDocumentLock:{key:async()=>'sample recovery passphrase'},ToolboxDocumentVault:{createVault:()=>createVault({idb,crypto:cryptoEngine})},
    docRecords:()=>structuredClone(state.records),saveDocRecords:records=>{if(state.fail)return false;state.records=records;return true},
    legacyPhoto:async(key,action)=>action==='read'?legacy.get(key):legacy.delete(key)});
   vm.runInContext(read('toolbox-document-files.js'),ctx);
@@ -33,7 +33,7 @@ test('saving migrates an unsuffixed legacy page and reopens both encrypted attac
  assert.equal(f.legacy.size,0);
  const reader=f.reopen();
  for(const side of ['page','front'])assert.equal(await (await reader.photoOperation('doc-test::'+side,'read')).text(),'synthetic page');
- reader.documentPassphrase=async()=>'incorrect passphrase';
+ reader.ToolboxDocumentLock.key=async()=>'incorrect passphrase';
  await assert.rejects(reader.photoOperation('doc-test::page','read'));
  assert.doesNotMatch(JSON.stringify([...f.cipher.values()]),/synthetic page/);
 });

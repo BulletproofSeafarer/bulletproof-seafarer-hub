@@ -4,10 +4,15 @@
  const style=document.createElement('style');style.textContent=CSS;document.head.append(style);
  const badge=document.createElement('span');badge.id='tb-connection';badge.setAttribute('role','status');badge.setAttribute('aria-live','polite');badge.title='Online status does not guarantee fresh data or successful synchronization';
  const header=document.querySelector('.app header');if(header){const alerts=header.querySelector('#alerts');header.insertBefore(badge,alerts||null)}
- function render(){const offline=!navigator.onLine;badge.dataset.offline=String(offline);badge.textContent=offline?'Offline · saved data':'Online · local data';badge.title=offline?'Offline: locally saved records and cached app screens remain available. External marine forecasts and rates will not refresh.':'Connected: records remain on this device. Live feeds and cloud sync are not yet configured.'}
+ let ready=false,failed=false;function render(){const offline=!navigator.onLine;badge.dataset.offline=String(offline);badge.textContent=ready?(offline?'Offline':'Ready offline'):failed?'Offline setup failed':'Preparing offline…';badge.title=offline?'Offline: locally saved records and cached app screens remain available. External marine forecasts and rates will not refresh.':'Connected: records remain on this device. Live feeds and cloud sync are not yet configured.'}
  addEventListener('online',render);addEventListener('offline',render);render();
- if(!('serviceWorker'in navigator)||!isSecureContext)return;
- addEventListener('load',()=>{navigator.serviceWorker.register('./toolbox-sw.js',{scope:'./'}).then(reg=>{
-   if(reg.waiting)reg.waiting.postMessage({type:'CHECK_VERSION'});
- }).catch(err=>console.warn('Toolbox offline setup unavailable:',err));});
+ async function setup(){
+  try{
+   const reg=await navigator.serviceWorker.register('./toolbox-sw.js',{scope:'./',updateViaCache:'none'});
+   const worker=reg.installing||reg.waiting||reg.active;
+   function check(){ready=worker?.state==='activated';failed=!worker||worker.state==='redundant';render()}
+   worker?.addEventListener('statechange',check);check();
+  }catch{failed=true;render()}
+ }
+ setup();
 })();

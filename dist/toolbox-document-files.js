@@ -1,7 +1,7 @@
 /* Attachment references change only after all new copies have been reopened. */
 async function documentPassphrase(confirmNew=false){
  const dialog=document.createElement('dialog');
- dialog.innerHTML='<form method="dialog"><h2>Attachment passphrase</h2><p>Use your attachment passphrase to reopen this file. Keep a copy somewhere safe.</p><label class="field">Passphrase<input type="password" required minlength="12" autocomplete="off"></label>'+
+ dialog.innerHTML='<form method="dialog"><h2>Unlock older attachment</h2><p>Enter the security password you used when you saved this file.</p><label class="field">Security password<input type="password" required minlength="12" autocomplete="off"></label>'+
  (confirmNew?'<label class="field">Confirm passphrase<input type="password" required minlength="12" autocomplete="off"></label>':'')+
  '<button value="ok">Continue</button><button value="cancel" formnovalidate>Cancel</button></form>';
  document.body.append(dialog);
@@ -35,12 +35,12 @@ async function saveVaultDocument(details,changes,isNew,restorePass){
   }
   try{
    const writes=Object.values(changes).some(blob=>blob instanceof Blob);
-   const pass=writes?(restorePass||await documentPassphrase(true)):'';
+   const pass=writes?(restorePass||await ToolboxDocumentLock.key()):'';
    for(const [side,blob] of Object.entries(changes)){
     if(refs[side])obsolete.push([refs[side],side]);
     delete refs[side];
     if(!blob)continue;
-    const ref=crypto.randomUUID();
+    const ref='device-'+crypto.randomUUID();
     staged.push([ref,side]);
     await vault.save(ref,side,blob,pass);
     const restored=await vault.read(ref,side,pass);
