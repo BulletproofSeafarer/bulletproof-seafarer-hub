@@ -1,6 +1,6 @@
 /* Toolbox offline shell. No personal records or third-party/API responses are cached. */
-const VERSION='toolbox-shell-2.4.6';
-const CORE=['./toolbox2.html','./toolbox2.css','./toolbox2.js','./toolbox-onboarding.css','./toolbox-onboarding.js','./toolbox-print.js','./toolbox-career.js','./toolbox-utilities.css','./toolbox-utilities.js','./toolbox-offline.js','./toolbox-learn.js','./toolbox-learn.css','./toolbox-interactive.js','./toolbox-interactive.css','./assets/learning/maritime-study.json','./assets/learning/toolbox-cbt.json','./assets/learning/oic-practice.json','./assets/learning/articulation-presence.json','./assets/toolbox-icon-192.png'];
+const VERSION='toolbox-shell-2.9-vault';
+const CORE=['./toolbox2.html','./toolbox2.css','./toolbox2.js','./toolbox-vault-crypto.js','./toolbox-document-vault.js','./toolbox-document-files.js','./toolbox-onboarding.css','./toolbox-onboarding.js','./toolbox-print.js','./toolbox-career.js','./toolbox-utilities.css','./toolbox-utilities.js','./toolbox-offline.js','./toolbox-learn.js','./toolbox-learn.css','./toolbox-interactive.js','./toolbox-interactive.css','./assets/learning/maritime-study.json','./assets/learning/toolbox-cbt.json','./assets/learning/oic-practice.json','./assets/learning/articulation-presence.json','./assets/toolbox-icon-192.png'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{
  const cache=await caches.open(VERSION);
  await Promise.all(CORE.map(async path=>{try{const res=await fetch(path,{cache:'reload'});if(res.ok)await cache.put(path,res)}catch(e){/* missing optional resource should not block installation */}}));
