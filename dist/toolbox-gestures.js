@@ -4,13 +4,13 @@ const ToolboxScreens=(()=>{
  let index=0,restoring=false,start=null,axis='',busy=false;
  const reduced=()=>document.documentElement.classList.contains('toolbox-reduced-motion')||matchMedia('(prefers-reduced-motion: reduce)').matches;
  function slide(sign){
-  if(!reduced())view.animate([{transform:'translateX('+sign*32+'px)',opacity:.82},{transform:'translateX(0)',opacity:1}],{duration:190,easing:'ease-out'});
+  if(!reduced())view.animate([{transform:'translateX('+sign*100+'%)',opacity:.82},{transform:'translateX(0)',opacity:1}],{duration:225,easing:'ease-out'});
  }
  function visit(id,show){
   if(restoring)return;
   if(entries[index]?.id===id){entries[index].show=show;return}
   entries.splice(index+1);entries.push({id,show,y:0});index=entries.length-1;
-  slide(1);
+  if(index>0)slide(1);
  }
  function move(step){
   const next=entries[index+step];if(!next)return;
@@ -47,7 +47,7 @@ const ToolboxScreens=(()=>{
   if(e.touches.length!==1){cancel();return}
   const t=e.touches[0],dx=t.clientX-start.x,dy=t.clientY-start.y;
   if(!axis&&Math.max(Math.abs(dx),Math.abs(dy))>10){
-   axis=Math.abs(dx)>1.5*Math.abs(dy)?'x':dy>0&&start.top&&Math.abs(dx)*1.5<dy&&['home','documents','account','learn'].includes(start.page)&&!view.querySelector('.tl-back,.utility-screen')?'pull':'scroll';
+   axis=dx>1.5*Math.abs(dy)&&index>0?'x':dy>0&&start.top&&Math.abs(dx)*1.5<dy&&['home','documents','account','learn'].includes(start.page)&&!view.querySelector('.tl-back,.utility-screen')?'pull':'scroll';
    for(let el=e.target;el&&el!==view;el=el.parentElement){
     if(axis==='x'&&el.scrollWidth>el.clientWidth+2&&['scroll','auto'].includes(getComputedStyle(el).overflowX))axis='scroll';
    }
@@ -59,7 +59,7 @@ const ToolboxScreens=(()=>{
   if(!start)return;
   const t=e.changedTouches[0],dx=t.clientX-start.x,dy=t.clientY-start.y,gesture=axis;cancel();
   if(gesture==='pull'&&dy>=75)refresh();
-  if(gesture==='x'&&Math.abs(dx)>=75&&Math.abs(dx)>1.5*Math.abs(dy))move(dx>0?-1:1);
+  if(gesture==='x'&&dx>=75&&dx>1.5*Math.abs(dy))move(-1);
  });
  document.addEventListener('click',event=>{
   if(index<1||document.querySelector('dialog[open]'))return;
