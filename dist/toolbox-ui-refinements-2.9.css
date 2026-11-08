@@ -32,3 +32,43 @@
 #view .hero.voyage-card .voyage-count{background:#e1efe7!important}
 #view #editVoyage{display:block;margin:10px auto 0;padding:7px 12px;font-size:.88rem;background:transparent;color:#205640;box-shadow:none}
 .create-menu .create-action-icon{background:#e5f2ea;color:#125740}
+
+/* Keep the document editor fitted to the sheet, including native iOS date fields. */
+#modal[open]:has(#docTitle) {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+#modal:has(#docTitle) .toolbox-modal-body {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y pinch-zoom;
+}
+#modal:has(#docTitle) :is(#modalContent, .field, input, select, .doc-photo-picker, .doc-side-card) {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+#modal:has(#docTitle) :is(.field input, .field select) {
+  width: 100%;
+  font-size: max(16px, 1em);
+}
+#modal:has(#docTitle) .doc-side-card {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  html:has(#modal[open] #docTitle),
+  body:has(#modal[open] #docTitle) {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+  #modal[open]:has(#docTitle) {
+    height: min(88svh, var(--tb-sheet-height, 88svh));
+  }
+  #modal:has(#docTitle) .toolbox-modal-body {
+    height: 100%;
+  }
+}
