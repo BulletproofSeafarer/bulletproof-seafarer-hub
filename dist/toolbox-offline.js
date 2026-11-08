@@ -7,6 +7,7 @@
  let ready=false,failed=false;function render(){const offline=!navigator.onLine;badge.dataset.offline=String(offline);badge.textContent=ready?(offline?'Offline':'Ready offline'):failed?'Retry offline setup':'Preparing offline…';badge.title=offline?'Offline: locally saved records and cached app screens remain available. External marine forecasts and rates will not refresh.':'Connected: records remain on this device. Live feeds and cloud sync are not yet configured.'}
  addEventListener('online',render);addEventListener('offline',render);render();
  async function setup(){
+  if(window.Capacitor?.isNativePlatform?.()){ready=true;render();return}
   try{
    const reg=await navigator.serviceWorker.register('./toolbox-sw.js',{scope:'./',updateViaCache:'none'});
    if(!reg.active&&!reg.installing&&!reg.waiting)await reg.update();

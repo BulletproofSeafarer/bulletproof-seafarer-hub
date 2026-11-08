@@ -1,0 +1,8 @@
+{
+  "appId": "com.bulletproofseafarer.toolbox",
+  "appName": "Toolbox",
+  "webDir": "dist",
+  "server": {
+    "appStartPath": "/toolbox2.html"
+  }
+}
