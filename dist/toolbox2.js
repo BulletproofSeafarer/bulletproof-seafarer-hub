@@ -70,11 +70,11 @@ function voyageSections(p){
 }
 function sectionRow(id,label){const p=state.voyage;return `<div class="row" role="button" tabindex="0" data-open="${id}"><span style="font-size:24px;color:#007454">${toolboxGlyph({requirements:'documents',packing:'bag',embarkation:'travel',disembarkation:'voyage'}[id])}</span><span class="grow"><b>${label}</b><div class="muted">${p[id].filter(x=>x.done).length} of ${p[id].length} completed</div></span>${ring(progress(p[id]))}<span>›</span></div>`}
 const serviceGroups=[
- {title:'Maritime Services',items:[['MARINA','⚓','https://marina.gov.ph'],['MISMO','▣',null],['Online Appointment','▦',null]]},
- {title:'PEME Clinics',items:[['SuperCare','✚',null],['YGEIA','✚',null],['Nordic','✚',null]]},
- {title:'OFW Services',items:[['DMW','▤','https://dmw.gov.ph'],['OWWA','✦','https://owwa.gov.ph'],['PhilHealth','✚','https://www.philhealth.gov.ph'],['SSS','▥','https://www.sss.gov.ph'],['Pag-IBIG','⌂','https://www.pagibigfund.gov.ph'],['OFBank','₱',null]]},
- {title:'Training Centers',items:[['CREST','⚙',null],['EXACT','⚙',null]]},
- {title:'Manning Agencies',items:[['Pascor','⚓',null],['Capital Shipping','⚓',null],['BSM','⚓',null],['JPhil','⚓',null],['Knutsen','⚓',null]]},
+ {title:'Maritime Services',items:[['MARINA','⚓','https://marina.gov.ph'],['MISMO','▣','https://online-appointment.marina.gov.ph/'],['SID / SRB appointment (eGovPH)','▦','https://e.gov.ph/']]},
+ {title:'PEME Clinics',items:[['SuperCare','✚','https://supercare.com.ph/SMSI/'],['YGEIA','✚','https://www.ygeiamedicalcenter.com/'],['Nordic','✚','https://nordicmedicalclinic.com/customer-portal/']]},
+ {title:'OFW Services',items:[['DMW','▤','https://dmw.gov.ph'],['OWWA','✦','https://owwa.gov.ph'],['PhilHealth','✚','https://www.philhealth.gov.ph'],['SSS','▥','https://www.sss.gov.ph'],['Pag-IBIG','⌂','https://www.pagibigfund.gov.ph'],['OFBank','₱','https://ofbank.com.ph/']]},
+ {title:'Training Centers',items:[['CREST','⚙','https://www.crestmaritime.ph/index.html'],['EXACT','⚙','https://exact-center.com/']]},
+ {title:'Manning Agencies',items:[['Pascor','⚓','https://pacific-ace.com/pascor/about-us/'],['Capital Shipping','⚓','https://www.capitalshipmanning.ph/'],['BSM','⚓','https://bsm-csc.ph/'],['JPhil','⚓','https://www.jphilmarine.com/about'],['Knutsen','⚓','https://knutsenphilippines.com/']]},
  {title:'Document Services',items:[['Passport','▣','https://www.passport.gov.ph'],['NBI Clearance','▤','https://clearance.nbi.gov.ph'],['PSA','▥','https://psa.gov.ph']]}];
 const categoryIcons=['voyage','health','profile','learn','voyage','documents'].map(toolboxGlyph);
 function servicesMarkup(){return `<div class="directory-heading"><h2>Seafarer Services</h2><span class="muted">Swipe to explore →</span></div><div class="category-scroll" aria-label="Service categories">${serviceGroups.map((g,gi)=>`<button class="category-tile" data-directory="${gi}" aria-label="Open ${escapeHTML(g.title)}"><span class="category-icon color-${gi}">${categoryIcons[gi]}</span><span class="category-name">${escapeHTML(g.title)}</span></button>`).join('')}</div>`}
