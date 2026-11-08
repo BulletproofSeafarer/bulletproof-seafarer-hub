@@ -156,12 +156,83 @@ function clearDocPreviewUrls(){docPreviewUrls.forEach(url=>URL.revokeObjectURL(u
 const docSides={id:['front','back'],passport:['page'],seamans:['page'],other:['page']};
 function docAttachmentKind(title){const t=title.toLowerCase();return t.includes('passport')?'passport':t.includes('seaman')||t.includes('seafarer book')?'seamans':/\bid\b|license|licence|card/.test(t)?'id':'other'}
 function docPhotoSlots(){const kind=document.getElementById('docAttachmentType')?.value||'other';return docSides[kind]||['page']}
-function updateDocSlots(){clearDocPreviewUrls();const sides=docPhotoSlots(),box=document.getElementById('docPhotoSlots');if(!box)return;const cameraIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M8 9h2l1-1h3l1 1h2v8H8z"/><circle cx="12.5" cy="13" r="2"/></svg>';const photoIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8" cy="9" r="1.5"/><path d="m4 17 5-5 3 3 3-4 5 6"/></svg>';box.innerHTML=sides.map(side=>`<div class="doc-side-card doc-side-card--compact"><div class="doc-side-heading">${side==='front'?'Front of ID':side==='back'?'Back of ID':'Document image'} <span class="doc-optional">(optional)</span></div><div class="doc-photo-actions doc-photo-actions--compact"><button type="button" class="doc-camera-tile" data-pick-doc-photo="camera" data-photo-side="${side}" aria-label="Take photo of ${side}">${cameraIcon}</button><button type="button" class="doc-gallery-tile" data-pick-doc-photo="gallery" data-photo-side="${side}">${photoIcon}<span>Choose from photos</span></button></div><button type="button" class="doc-file-link" data-pick-doc-photo="files" data-photo-side="${side}">Or choose a file / PDF</button><div class="doc-photo-preview" id="docPhotoPreview-${side}"></div><p class="muted doc-photo-info" id="docPhotoInfo-${side}">${pendingDocPhotos[side] instanceof Blob?'Selected: '+escapeHTML(pendingDocPhotos[side].name||'image'):'No new attachment selected'}</p><div class="doc-side-actions"><button type="button" class="btn secondary" data-view-doc-side="${side}">View saved</button><button type="button" class="btn secondary" data-remove-doc-side="${side}">Remove</button></div></div>`).join('');for(const side of sides){if(pendingDocPhotos[side] instanceof Blob)showPhotoSelection(pendingDocPhotos[side],side)}}
+function updateDocSlots(){clearDocPreviewUrls();const sides=docPhotoSlots(),box=document.getElementById('docPhotoSlots');if(!box)return;const cameraIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M8 9h2l1-1h3l1 1h2v8H8z"/><circle cx="12.5" cy="13" r="2"/></svg>';const photoIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8" cy="9" r="1.5"/><path d="m4 17 5-5 3 3 3-4 5 6"/></svg>';box.innerHTML=sides.map(side=>`<div class="doc-side-card doc-side-card--compact"><div class="doc-side-heading">${side==='front'?'Front of ID':side==='back'?'Back of ID':'Document image'} <span class="doc-optional">(optional)</span></div><div class="doc-photo-actions doc-photo-actions--compact"><button type="button" class="doc-camera-tile" data-pick-doc-photo="camera" data-photo-side="${side}" aria-label="Take photo of ${side}">${cameraIcon}</button><button type="button" class="doc-gallery-tile" data-pick-doc-photo="gallery" data-photo-side="${side}">${photoIcon}<span>Choose from photos</span></button></div><button type="button" class="doc-file-link" data-pick-doc-photo="files" data-photo-side="${side}">Or choose a file / PDF</button><div class="doc-photo-preview" id="docPhotoPreview-${side}"></div><p class="muted doc-photo-info" id="docPhotoInfo-${side}">${pendingDocPhotos[side] instanceof Blob?'Selected: '+escapeHTML(pendingDocPhotos[side].name||'image'):'No new attachment selected'}</p></div>`).join('');for(const side of sides){if(pendingDocPhotos[side] instanceof Blob)showPhotoSelection(pendingDocPhotos[side],side)}}
 function chooseDocumentPhoto(source,side){activeDocSide=side||'page';const input=document.getElementById('docPhotoInput');if(!input)return;input.value='';input.accept=source==='files'?'image/*,application/pdf':'image/*';if(source==='camera')input.setAttribute('capture','environment');else input.removeAttribute('capture');input.click()}
 function showPhotoSelection(file,side=activeDocSide){const info=document.getElementById('docPhotoInfo-'+side),preview=document.getElementById('docPhotoPreview-'+side);if(info)info.textContent=file?file.name+' · '+Math.round(file.size/1024)+' KB (pending save)':'No attachment selected';if(!preview)return;preview.replaceChildren();if(file?.type?.startsWith('image/')&&!['image/heic','image/heif'].includes(file.type)){const url=URL.createObjectURL(file);docPreviewUrls.push(url);const img=document.createElement('img');img.src=url;img.alt='Selected document preview';img.className='doc-selected-thumbnail';preview.append(img)}else if(file?.type==='application/pdf'){preview.textContent='PDF selected · Preview after saving'}}
 function openAttachmentBlob(blob){const url=URL.createObjectURL(blob),win=window.open(url,'_blank','noopener,noreferrer');if(!win){const a=document.createElement('a');a.href=url;a.download=blob.type==='application/pdf'?'document.pdf':'document-image';a.click()}setTimeout(()=>URL.revokeObjectURL(url),60000)}
 async function viewDocumentPhoto(id,side){try{const blob=pendingDocPhotos[side] instanceof Blob?pendingDocPhotos[side]:await photoOperation(id+'::'+side,'read')||(side==='page'?await photoOperation(id,'read'):null);if(!blob){alert('No saved attachment for this side.');return}openAttachmentBlob(blob)}catch(e){alert('Unable to open this attachment. Please try again.')}}
 function docRecordEditor(id){clearDocPreviewUrls();pendingDocPhotos={};docFormatManuallySet=!!id;const record=docRecords().find(x=>x.id===id)||{category:'personal',title:'',issued:'',expiry:''};const kind=record.attachmentKind||docAttachmentKind(record.title);openModal(`<h2>${id?'Edit':'Add'} Document</h2><p class="muted">Use sample documents during testing. Saving moves older attachments into the encrypted vault. Document names and dates stay in the local tracker.</p><label class="field">Category<select id="docCategory">${documentSections.filter(x=>['personal','certificates','medical'].includes(x[0])).map(x=>`<option value="${x[0]}" ${record.category===x[0]?'selected':''}>${x[1]}</option>`).join('')}</select></label><label class="field">Document name<input id="docTitle" maxlength="80" placeholder="e.g. Passport" value="${escapeHTML(record.title)}"></label><label class="field">Issue date (optional)<input id="docIssued" type="date" value="${escapeHTML(record.issued||'')}"></label><label class="field">Expiry date (optional)<input id="docExpiry" type="date" value="${escapeHTML(record.expiry||'')}"></label><div class="doc-photo-picker doc-photo-picker--compact"><label class="field doc-format-field">Photo format <span class="doc-auto-hint">(suggested from document name)</span><select id="docAttachmentType"><option value="id" ${kind==='id'?'selected':''}>ID card — front and back</option><option value="passport" ${kind==='passport'?'selected':''}>Passport — full page</option><option value="seamans" ${kind==='seamans'?'selected':''}>Seaman's Book — full page</option><option value="other" ${kind==='other'?'selected':''}>Other — full page</option></select></label><div id="docPhotoSlots"></div><input id="docPhotoInput" type="file" accept="image/*,application/pdf" hidden></div><p class="muted" id="docEditorError" role="alert"></p><button type="button" class="btn full" data-save-doc="${escapeHTML(id||'new')}">Save Document</button>${id?`<button type="button" class="btn secondary full" data-delete-doc="${escapeHTML(id)}">Delete Document</button>`:''}`);updateDocSlots()}
+function openSavedDocument(id){
+ const record=docRecords().find(item=>item.id===id);
+ if(!record)return;
+ const kind=record.attachmentKind||docAttachmentKind(record.title);
+ const sides=[...new Set([...(docSides[kind]||['page']),...attachmentSides.filter(side=>record.vaultFiles?.[side])])];
+ openModal(`<section class="saved-document"><h2>${escapeHTML(record.title)}</h2>
+  <div class="saved-sides" aria-label="Document side"></div>
+  <div class="saved-photo" aria-live="polite"></div>
+  <div class="saved-actions"><button type="button" class="btn secondary" data-remove-photo>Remove</button>
+  <button type="button" class="btn secondary" data-print-doc-side="page" data-print-record="${escapeHTML(id)}">Print preview</button>
+  <button type="button" class="btn secondary" data-change-photo>Change photo</button></div>
+  <input type="file" hidden accept="image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf">
+  <p class="muted" role="status"></p></section>`);
+ const root=document.querySelector('#modal .saved-document');
+ const frame=root.querySelector('.saved-photo'),status=root.querySelector('[role=status]');
+ const remove=root.querySelector('[data-remove-photo]'),print=root.querySelector('[data-print-record]');
+ const change=root.querySelector('[data-change-photo]'),input=root.querySelector('input');
+ let side=sides[0],revision=0;
+ const dialog=root.closest('dialog');
+ dialog.addEventListener('close',()=>{revision++;clearDocPreviewUrls();frame.replaceChildren()},{once:true});
+ function busy(value){root.querySelectorAll('button').forEach(button=>button.disabled=value)}
+ async function show(next){
+  const request=++revision;
+  side=next;
+  clearDocPreviewUrls();
+  status.textContent='';
+  frame.textContent='Loading…';
+  busy(true);
+  try{
+   const blob=await photoOperation(id+'::'+side,'read')||(side==='page'&&await photoOperation(id,'read'));
+   if(request!==revision||!root.isConnected||!dialog.open)return;
+   busy(false);
+   root.querySelectorAll('[data-side]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.side===side)));
+   change.textContent=blob?'Change photo':'Add photo';
+   remove.disabled=print.disabled=!blob;
+   if(!blob){frame.textContent='No saved photo';return}
+   const url=URL.createObjectURL(blob);
+   docPreviewUrls.push(url);
+   const pdf=blob.type==='application/pdf';
+   const media=document.createElement(pdf?'iframe':'img');
+   media.title=record.title;
+   if(!pdf){media.alt=record.title+' · '+side;media.onerror=()=>{frame.textContent='This image format cannot be previewed on this device.'}}
+   media.src=url;
+   frame.replaceChildren(media);
+  }catch(error){
+   if(request!==revision)return;
+   busy(false);remove.disabled=print.disabled=true;
+   frame.textContent=error.message||'Could not open the attachment.';
+  }
+ }
+ async function update(file){
+  busy(true);status.textContent='Saving…';
+  try{await saveVaultDocument({id},{[side]:file},false);if(root.isConnected&&dialog.open)await show(side)}
+  catch(error){busy(false);status.textContent=error.message||'Could not update the photo.'}
+ }
+ if(sides.length>1)for(const key of sides){
+  const button=document.createElement('button');
+  button.type='button';button.dataset.side=key;
+  button.textContent=key[0].toUpperCase()+key.slice(1);
+  button.onclick=()=>show(key);root.querySelector('.saved-sides').append(button);
+ }
+ remove.onclick=()=>{if(confirm('Remove this photo from '+record.title+'?'))update(null)};
+ change.onclick=()=>{input.value='';input.click()};
+ input.onchange=()=>{
+  const file=input.files[0];if(!file)return;
+  if(!input.accept.split(',').includes(file.type)){status.textContent='Choose a JPG, PNG, WebP, HEIC or PDF file.';return}
+  if(file.size>8*1024*1024){status.textContent='Maximum attachment size is 8 MB.';return}
+  update(file);
+ };
+ show(side);
+}
 function docRecordsMarkup(category){const rows=docRecords().filter(x=>x.category===category);return `<div class="docs-record-list">${rows.length?rows.map(x=>`<button type="button" class="docs-record" data-edit-doc="${escapeHTML(x.id)}"><span><strong>${escapeHTML(x.title)}</strong><small>${x.expiry?'Expires '+escapeHTML(x.expiry):'No expiry date'}</small></span><span class="docs-record-status ${docStatus(x)}">${({valid:'Valid',expiring:'Renew within 1 year',expired:'Expired','no-expiry':'No expiry'})[docStatus(x)]}</span></button>`).join(''):'<p class="muted">No documents recorded in this category yet.</p>'}</div>`}
 
 const documentSections=[
@@ -214,7 +285,7 @@ function render(){let page=state.page;document.getElementById('view').innerHTML=
 function openModal(html){document.getElementById('modalContent').innerHTML=html;document.getElementById('modal').showModal()}
 function closeModal(){clearDocPreviewUrls();document.getElementById('modal').close()}
 document.getElementById('closeToolboxModal').addEventListener('click',closeModal);
-document.addEventListener('click',async e=>{const pick=e.target.closest('[data-pick-doc-photo]');if(pick){chooseDocumentPhoto(pick.dataset.pickDocPhoto,pick.dataset.photoSide);return}const view=e.target.closest('[data-view-doc-side]');if(view){viewDocumentPhoto(document.querySelector('[data-save-doc]').dataset.saveDoc,view.dataset.viewDocSide);return}const remove=e.target.closest('[data-remove-doc-side]');if(remove){const side=remove.dataset.removeDocSide;pendingDocPhotos[side]=null;const info=document.getElementById('docPhotoInfo-'+side);if(info)info.textContent='Marked for removal when saved';return}const add=e.target.closest('[data-add-doc-category]');if(add){docRecordEditor();document.getElementById('docCategory').value=add.dataset.addDocCategory;return}if(e.target.id==='addDocRecord'){docRecordEditor();return}const edit=e.target.closest('[data-edit-doc]');if(edit){docRecordEditor(edit.dataset.editDoc);return}const del=e.target.closest('[data-delete-doc]');if(del){if(!confirm('Delete this document tracker entry?'))return;try{await deleteVaultDocument(del.dataset.deleteDoc);closeModal();render()}catch(error){alert(error.message)}return}const saveButton=e.target.closest('[data-save-doc]');if(saveButton){if(saveButton.disabled)return;const title=document.getElementById('docTitle').value.trim(),issued=document.getElementById('docIssued').value,expiry=document.getElementById('docExpiry').value,category=document.getElementById('docCategory').value,err=document.getElementById('docEditorError');if(!title){err.textContent='Enter a document name.';return}if(issued&&expiry&&issued>expiry){err.textContent='Expiry date must not be before issue date.';return}const id=saveButton.dataset.saveDoc==='new'?'doc-'+Date.now()+'-'+Math.random().toString(36).slice(2,7):saveButton.dataset.saveDoc;const attachmentKind=document.getElementById('docAttachmentType').value;saveButton.disabled=true;saveButton.setAttribute('aria-busy','true');saveButton.textContent='Saving…';
+document.addEventListener('click',async e=>{const pick=e.target.closest('[data-pick-doc-photo]');if(pick){chooseDocumentPhoto(pick.dataset.pickDocPhoto,pick.dataset.photoSide);return}const view=e.target.closest('[data-view-doc-side]');if(view){viewDocumentPhoto(document.querySelector('[data-save-doc]').dataset.saveDoc,view.dataset.viewDocSide);return}const remove=e.target.closest('[data-remove-doc-side]');if(remove){const side=remove.dataset.removeDocSide;pendingDocPhotos[side]=null;const info=document.getElementById('docPhotoInfo-'+side);if(info)info.textContent='Marked for removal when saved';return}const add=e.target.closest('[data-add-doc-category]');if(add){docRecordEditor();document.getElementById('docCategory').value=add.dataset.addDocCategory;return}if(e.target.id==='addDocRecord'){docRecordEditor();return}const edit=e.target.closest('[data-edit-doc]');if(edit){openSavedDocument(edit.dataset.editDoc);return}const del=e.target.closest('[data-delete-doc]');if(del){if(!confirm('Delete this document tracker entry?'))return;try{await deleteVaultDocument(del.dataset.deleteDoc);closeModal();render()}catch(error){alert(error.message)}return}const saveButton=e.target.closest('[data-save-doc]');if(saveButton){if(saveButton.disabled)return;const title=document.getElementById('docTitle').value.trim(),issued=document.getElementById('docIssued').value,expiry=document.getElementById('docExpiry').value,category=document.getElementById('docCategory').value,err=document.getElementById('docEditorError');if(!title){err.textContent='Enter a document name.';return}if(issued&&expiry&&issued>expiry){err.textContent='Expiry date must not be before issue date.';return}const id=saveButton.dataset.saveDoc==='new'?'doc-'+Date.now()+'-'+Math.random().toString(36).slice(2,7):saveButton.dataset.saveDoc;const attachmentKind=document.getElementById('docAttachmentType').value;saveButton.disabled=true;saveButton.setAttribute('aria-busy','true');saveButton.textContent='Saving…';
  try{await saveVaultDocument({id,title,category,issued,expiry,attachmentKind},{...pendingDocPhotos},saveButton.dataset.saveDoc==='new');pendingDocPhotos={};closeModal();render()}
  catch(error){err.textContent=error.message||'Could not save. Try again.'}
  finally{saveButton.disabled=false;saveButton.removeAttribute('aria-busy');saveButton.textContent='Save Document'}
