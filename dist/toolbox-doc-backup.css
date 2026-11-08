@@ -7,3 +7,11 @@
 .tb-backup-panel button{min-height:45px;touch-action:manipulation}
 .tb-backup-panel button:active{transform:scale(.985)}
 @media(prefers-reduced-motion:reduce){.tb-backup-panel button{transition:none!important}}
+.docs-page .docs-disclosure{margin:12px 0;padding:0 16px;border:1px solid #c6dcd2;border-radius:16px;background:#f4f9f6;color:#173f32}
+.docs-disclosure>summary{display:flex;align-items:center;gap:12px;min-height:48px;list-style:none;font-weight:700;cursor:pointer}
+.docs-disclosure>summary::-webkit-details-marker{display:none}
+.docs-disclosure>summary::before{content:"";width:12px;height:2px;flex:none;background:currentColor;transform:rotate(-90deg)}
+.docs-disclosure[open]>summary::before{transform:none}
+.docs-disclosure[open]{padding-bottom:16px}
+.docs-disclosure>summary:focus-visible{outline:2px solid #167654;outline-offset:2px}
+.tb-backup-actions .tb-icon,.voyage-count .tb-icon{vertical-align:middle;width:1.1em;height:1.1em}
