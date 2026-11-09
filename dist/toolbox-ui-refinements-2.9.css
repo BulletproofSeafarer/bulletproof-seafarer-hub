@@ -95,3 +95,21 @@
 .tb-cloud-plans input { width: auto; flex: none; accent-color: #16704c; }
 .tb-cloud-plans small { display: block; }
 .tb-cloud-plans b { margin-inline-start: auto; white-space: nowrap; }
+
+body, .app, .app > header { background: white !important; }
+#view .tb-cloud-invite {
+  display: grid; grid-template-columns: minmax(60px, 28%) minmax(0, 1fr);
+  gap: 12px; align-items: center; padding: 16px; min-height: 0;
+  background: white !important; box-shadow: none !important;
+}
+#view .tb-cloud-invite-art { position: static; width: 100%; height: auto; }
+#view .tb-cloud-invite-art img { display: block; height: auto; filter: none; }
+.tb-vault-status-grid .status-protected small { color: #126343; }
+.tb-vault-status-grid .status-local small, #view [data-account-page="cloud"] { color: #175796; }
+.tb-vault-status-grid .status-pending small, #view .tb-cloud-eyebrow { color: #825300 !important; }
+.saved-actions [data-remove-photo] { background: #fff0ef; color: #922f29; }
+.saved-actions [data-print-record] { background: #edf4ff; color: #175796; }
+.saved-actions [data-change-photo] { background: #e6f4eb; color: #126343; }
+.saved-actions button:disabled { opacity: .5; }
+.quick-id-choice { display: flex; align-items: center; gap: .6rem; min-height: 44px; }
+.quick-id-choice input[type=checkbox] { width: 1.15rem; height: 1.15rem; flex: none; }

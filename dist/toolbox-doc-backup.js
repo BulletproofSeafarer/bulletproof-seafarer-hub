@@ -37,7 +37,7 @@ async function importAll(file,button){if(!file)return;button.disabled=true;messa
  }
  for(const [i,doc] of payload.documents.entries()){
   const {id,title,category,issued,expiry,attachmentKind}=doc;
-  try{await saveVaultDocument({id,title,category,issued,expiry,attachmentKind},{front:null,back:null,page:null,...files.get(id)},true,restorePass)}
+  try{await saveVaultDocument({id,title,category,issued,expiry,attachmentKind,quickId:doc.quickId===true},{front:null,back:null,page:null,...files.get(id)},true,restorePass)}
   catch(error){throw Error(i+' records restored before interruption. '+error.message)}
  }
  message('Restored '+payload.documents.length+' records and '+restored.length+' attachments.');if(typeof render==='function')render();
