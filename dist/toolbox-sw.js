@@ -4,12 +4,16 @@ const VERSION='toolbox-shell-'+toolboxOfflineAssets.version+'-'+toolboxOfflineAs
 const CORE=[...toolboxOfflineAssets.core,...toolboxOfflineAssets.extra].filter(path=>
  path==='review-bank.js'||path==='assets/bulletproof-seafarer-official.png'||/^(assets\/review\/.+\.pdf$|toolbox|assets\/toolbox|assets\/learning\/[^/]+\.json$)/.test(path)
 );
+// Some static hosts serve their HTML entry with status 200 for a missing asset.
+function usable(response,path){
+ return response.ok && (path.endsWith('.html') || !/text\/html/i.test(response.headers.get('Content-Type')||''));
+}
 self.addEventListener('install',event=>event.waitUntil((async()=>{
  const cache=await caches.open(VERSION);
  const files=CORE.filter(path=>!path.endsWith('.cjs'));
  async function cacheFile(path){
   const response=await fetch(new URL(path,self.registration.scope),{cache:'reload'});
-  if(!response.ok)throw Error('Unable to cache '+path);
+  if(!usable(response,path))throw Error('Unable to cache '+path);
   // Clean-URL hosts redirect the HTML entry. Offline navigations need a direct response.
   await cache.put(path,response.redirected?new Response(response.body,{headers:response.headers,status:response.status}):response);
  }
@@ -32,7 +36,7 @@ self.addEventListener('fetch',event=>{
  const cache=await caches.open(VERSION);
  if(isEntry){try{return await fetch(req)}catch{return await cache.match('./toolbox2.html')||Response.error()}}
  // Network-first while connected: prevents a stale Home bundle after deployment.
- try{const response=await fetch(req,{cache:'no-store'});if(response.ok){await cache.put(req,response.clone());return response}}catch(e){}
+ try{const response=await fetch(req,{cache:'no-store'});if(usable(response,url.pathname)){await cache.put(req,response.clone());return response}}catch(e){}
  return await cache.match(req,{ignoreSearch:true})||await cache.match(url.pathname)||Response.error();
  })());
 });

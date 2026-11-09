@@ -4,7 +4,7 @@
   "private": true,
   "description": "Seafarer community prototype for feedback, with a Cloudflare Pages deployment path.",
   "scripts": {
-    "build": "node scripts/configure.mjs && node scripts/offline-manifest.mjs && node scripts/check.mjs",
+    "build": "node scripts/configure.mjs && node scripts/package-reviewers.mjs && node scripts/offline-manifest.mjs && node scripts/check.mjs",
     "test": "node scripts/check.mjs && node --test tests/*.test.mjs",
     "preview": "python3 -m http.server 8080 --directory dist",
     "android:sync": "npm run build && cap sync android",
