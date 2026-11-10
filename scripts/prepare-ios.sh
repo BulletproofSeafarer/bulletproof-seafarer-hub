@@ -21,4 +21,6 @@ if [[ ! -d ios ]]; then
   npx cap add ios
 fi
 npx cap sync ios
-npx cap open ios
+if [[ "${1:-}" != --no-open ]]; then
+  npx cap open ios
+fi
