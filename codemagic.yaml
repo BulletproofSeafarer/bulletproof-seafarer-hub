@@ -1,0 +1,46 @@
+workflows:
+  ios-build-check:
+    name: Toolbox iOS build check
+    instance_type: mac_mini_m2
+    max_build_duration: 40
+    environment:
+      node: 22.16.0
+      xcode: latest
+    scripts:
+      - &prepare
+        name: Prepare Toolbox for iOS
+        script: bash scripts/prepare-ios.sh --no-open
+      - name: Compile the iPhone app
+        script: |
+          xcodebuild -project ios/App/App.xcodeproj -scheme App -configuration Release \
+            -destination 'generic/platform=iOS' CODE_SIGNING_ALLOWED=NO build
+
+  ios-testflight:
+    name: Toolbox internal TestFlight
+    instance_type: mac_mini_m2
+    max_build_duration: 40
+    integrations:
+      app_store_connect: Toolbox TestFlight
+    environment:
+      node: 22.16.0
+      xcode: latest
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.bulletproofseafarer.toolbox
+    scripts:
+      - *prepare
+      - name: Apply Apple distribution profile
+        script: xcode-project use-profiles
+      - name: Assign a build number and archive Toolbox
+        script: |
+          cd ios/App
+          agvtool new-version -all "$PROJECT_BUILD_NUMBER"
+          xcode-project build-ipa --project App.xcodeproj --scheme App
+    artifacts:
+      - ios/App/build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: false
+        submit_to_app_store: false
