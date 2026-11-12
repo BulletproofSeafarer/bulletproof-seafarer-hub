@@ -37,6 +37,8 @@ function createLearningVoyage(data, escape, repaint, openLibrary) {
   function render() {
     const route=progress.route, items=pool(route), run=progress.routes[route];
     const routes=Object.entries(labels).map(([id,label])=>'<option value="'+id+'" '+(route===id?'selected':'')+'>'+label+'</option>').join('');
+    const art=(name,cls)=>'<img alt="" class="'+cls+'" src="assets/voyage-art/'+name+'.webp">';
+    const destination={deck:'bridge',engine:'engine',speak:'radio',gmdss:'radio',interview:'interview'}[route] || 'classroom';
     const library=button('library','Full reviewer &amp; mock exams');
     if (!route) return '<article class="vy welcome"><img width="110" src="assets/toolbox-mascot-learn.webp" alt=""><h1>Welcome aboard</h1><p>Choose your learning voyage.</p><select aria-label="Choose a route" data-voyage-route><option value="">Choose route</option>'+routes+'</select>'+library+'</article>';
     const total=Math.ceil(items.length/20), level=run.level, count=run.answers.length;
@@ -47,9 +49,9 @@ function createLearningVoyage(data, escape, repaint, openLibrary) {
       const first=Math.max(0,Math.min(level,total-1)-1);
       const stops=Array.from({length:Math.min(4,total-first)},(_,i)=>{
         const n=first+i, q=items[n*20];
-        return button('start',(n<level?'✓ ':n===level?'⚓ ':'')+'Level '+(n+1)+' · '+escape(q.topic || data[route]?.topics?.find(t=>t.id===q.topicId)?.title || title),n===level?'':'disabled');
+        return button('start',art(n<level?'complete':n===level?'current':'locked','vy-marker')+'Level '+(n+1)+' · '+escape(q.topic || data[route]?.topics?.find(t=>t.id===q.topicId)?.title || title),n===level?'':'disabled');
       }).join('');
-      return '<article class="vy">'+warning+'<h1>Learning Voyage</h1><select data-voyage-route aria-label="Learning route">'+routes+'</select><div class="vy-chart"><span class="vy-ship" aria-label="Your ship"><svg viewBox="0 0 96 64" width="82" height="55" aria-hidden="true"><path fill="#124936" d="M8 40h80L72 56H28z"/><path fill="#fff" stroke="#174733" stroke-width="3" d="M30 39V25h15V14h22v25z"/><path fill="#e39149" d="M50 7h10v8H50z"/><path stroke="#508ba0" stroke-width="3" fill="none" d="M4 59q12 6 22 0t22 0t22 0t22 0"/></svg></span>'+stops+'</div>'+milestones+'<p>'+(!total?'Study material is available in the reviewer.':level>=total?'Route completed.':count?'Resume level · '+count+' of 20 answered':'Each level has three rounds of 5, 10 and 5.')+'</p>'+library+'</article>';
+      return '<article class="vy">'+warning+'<h1>Learning Voyage</h1><select data-voyage-route aria-label="Learning route">'+routes+'</select><div class="vy-chart">'+art(destination,'vy-destination')+''+art('ship','vy-boat')+''+stops+'</div>'+milestones+'<p>'+(!total?'Study material is available in the reviewer.':level>=total?'Route completed.':count?'Resume level · '+count+' of 20 answered':'Each level has three rounds of 5, 10 and 5.')+'</p>'+library+'</article>';
     }
     const phase=run.phase, start=phase?ends[phase-1]:0;
     function score(answers) {

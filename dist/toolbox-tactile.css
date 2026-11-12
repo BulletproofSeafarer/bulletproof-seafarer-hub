@@ -5,3 +5,21 @@
 .app :focus-visible,dialog :focus-visible{outline:3px solid #2873bb;outline-offset:2px}
 .vy{max-width:40rem;margin:auto;padding:16px;color:#17392d}.vy select,.vy-button{font:inherit;min-height:46px;padding:10px 16px}.vy select{width:100%;border-radius:12px}.vy-button{display:block;width:100%;margin:10px 0;border:1px solid #bccfc4;color:#17392d;background:#fff;font-weight:650}.vy-button[data-state=chosen]{background:#e8f2ff;border:2px solid #27649d}.vy-button[data-state=correct]{background:#def5e8;border:2px solid #187247;color:#134929;opacity:1}.vy-button[data-state=wrong]{background:#ffebe8;border:2px solid #aa3830;color:#77251e;opacity:1}.vy progress{width:100%;accent-color:#16724e}.vy-chart{background:radial-gradient(ellipse at 82% 60%,#beceb5 0 8%,transparent 9%),repeating-radial-gradient(ellipse at 0% 0%,#d7eeeb 0 25px,#cee4e2 26px 27px);padding:18px;border-radius:24px;margin-top:16px}.vy-chart button{width:78%}.vy-chart button:nth-child(odd){margin-left:auto}.vy-chart button:enabled,.vy-button[data-voyage=advance],.vy-button[data-voyage=check]:enabled{background:#18593e;color:white}.vy-ship{font-size:2.4rem}.vy.welcome{text-align:center}.vy.welcome img{margin:16px auto}.vy details{padding:12px;background:#fff3d9;border-radius:12px}
 @media(prefers-reduced-motion:reduce){.app button:active,dialog button:active{transform:none}}
+
+.app nav [data-tab="home"] svg{background:url("assets/voyage-art/home.webp") center/contain no-repeat}
+.app nav [data-tab="home"] svg>*{visibility:hidden}
+.app nav [data-tab="learn"] svg{background:url("assets/voyage-art/learn.webp") center/contain no-repeat}
+.app nav [data-tab="learn"] svg>*{visibility:hidden}
+.app nav [data-tab="create"] svg{background:url("assets/voyage-art/create.webp") center/contain no-repeat}
+.app nav [data-tab="create"] svg>*{visibility:hidden}
+.app nav [data-tab="documents"] svg{background:url("assets/voyage-art/documents.webp") center/contain no-repeat}
+.app nav [data-tab="documents"] svg>*{visibility:hidden}
+.app nav [data-tab="account"] svg{background:url("assets/voyage-art/profile.webp") center/contain no-repeat}
+.app nav [data-tab="account"] svg>*{visibility:hidden}
+.app #alerts svg{background:url("assets/voyage-art/bell.webp") center/contain no-repeat}
+.app #alerts svg>*{visibility:hidden}
+.vy .vy-chart{position:relative;isolation:isolate;background:#bdded5 url("assets/voyage-art/map.webp") center/cover no-repeat;padding:80px 18px 38px;min-height:300px}
+.vy-chart .vy-marker{width:38px;height:38px;object-fit:contain;vertical-align:middle;margin-right:8px}
+.vy-chart .vy-button:disabled{opacity:1;background:#f7faf5eb;color:#48584f}
+.vy-chart .vy-boat,.vy-chart .vy-destination{position:absolute;top:8px;width:64px;height:64px;object-fit:contain}
+.vy-chart .vy-boat{left:16px}.vy-chart .vy-destination{right:16px}
