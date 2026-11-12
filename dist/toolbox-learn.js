@@ -222,8 +222,14 @@ const voyage=createLearningVoyage(data,esc,paint,()=>{state.screen='review-tools
 root.addEventListener('change',e=>{if(e.target.matches('[data-voyage-route]'))voyage.change(e.target.value)});
 root.addEventListener('click',e=>{const b=e.target.closest('[data-voyage]');if(b&&active())voyage.click(b)});
 function toolsHome(){
- const cards=[['deck','OIC Deck'],['engine','OIC Engine'],['olpindex','OLP / CBT'],['gmdss','GMDSS'],['study','Maritime Study'],['speak','Speaking Practice'],['voyage','Learning Voyage and Interview Practice'],['review-tools','Reviewer Library and Missions']];
- return window.toolboxToolsCards()+'<h2>Lessons and reviewers</h2><div class="tl-grid">'+cards.map(([id,title])=>`<button type="button" class="tl-course" data-open="${id}"><strong>${title}</strong></button>`).join('')+'</div>';
+ const groups=[
+  ['Officer review','bridge',[['deck','OIC Deck'],['engine','OIC Engine']]],
+  ['Technical review','radio',[['olpindex','OLP / CBT'],['gmdss','GMDSS']]],
+  ['Maritime lessons','classroom',[['study','Maritime Study'],['review-tools','Maritime Missions']]],
+  ['Communication','microphone',[['speak','Speaking Practice'],['voyage','Learning Voyage & Interviews']]]
+ ];
+ const cards=groups.map(([title,art,links])=>`<section class="study-card"><img src="assets/voyage-art/${art}.webp" alt=""><h3>${title}</h3>${links.map(([id,label])=>`<button type="button" data-open="${id}">${label} <span aria-hidden="true">›</span></button>`).join('')}</section>`).join('');
+ return `<div class="tools-directory"><h1>Reviewers &amp; lessons</h1><button type="button" class="study-feature" data-open="sources"><span><strong>Reviewer library</strong><small>Browse your review materials</small></span><img src="assets/voyage-art/learn.webp" alt=""></button><div class="study-groups">${cards}</div>${window.toolboxToolsCards()}</div>`;
 }
 function paint(){if(!active()||root.querySelector?.('.utility-screen'))return;
  const snapshot={...state};
