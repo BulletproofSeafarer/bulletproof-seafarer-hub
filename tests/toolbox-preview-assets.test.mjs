@@ -25,6 +25,7 @@ test('Learn recovers both complete OIC tracks when the reviewer script is unavai
     MutationObserver:class{observe(){}},window:{},ToolboxScreens:{visit(){}},toolboxGlyph:()=>'',localStorage:{getItem:()=>null},
     fetch:async path=>({ok:allowBank||!path.match(/oic-(nw|ew)/),json:async()=>JSON.parse(asset(path))})
   };
+  runInNewContext(asset('toolbox-voyage.js'),ctx);
   runInNewContext(asset('toolbox-learn.js'),ctx);
   await new Promise(resolve=>setImmediate(resolve));
   function click(target){return Promise.all(handlers.map(fn=>fn({target,stopImmediatePropagation(){}})))}
@@ -38,4 +39,23 @@ test('Learn recovers both complete OIC tracks when the reviewer script is unavai
     const count=audit.find(row=>row.track===id).included+practice.filter(q=>q.track===track).length;
     assert.ok(root.innerHTML.includes(count+' matching questions'),track);
   }
+});
+
+test('voyage checkpoints survive reopening and award XP once after 5, 10 and 5 tasks',()=>{
+  const store = new Map();
+  const ctx={localStorage:{getItem:k=>store.get(k),setItem:(k,v)=>store.set(k,v)}};
+  runInNewContext(asset('toolbox-voyage.js'),ctx);
+  const create=()=>ctx.createLearningVoyage({},String,()=>{},()=>{});
+  let voyage=create();
+  const tap=action=>voyage.click({dataset:{voyage:action}});
+  voyage.change('interview');
+  tap('start');
+  for (const size of [5,10,5]){
+    for(let i=0;i<size;i++)tap('spoken');
+    voyage=create();
+    tap('start');
+    assert.match(voyage.render(),new RegExp(size+' speaking tasks completed'));
+    tap('advance');
+  }
+  assert.match(voyage.render(),/20 XP/);
 });
