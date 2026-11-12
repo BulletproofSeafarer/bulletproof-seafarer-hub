@@ -23,3 +23,19 @@
 .vy-chart .vy-button:disabled{opacity:1;background:#f7faf5eb;color:#48584f}
 .vy-chart .vy-boat,.vy-chart .vy-destination{position:absolute;top:8px;width:64px;height:64px;object-fit:contain}
 .vy-chart .vy-boat{left:16px}.vy-chart .vy-destination{right:16px}
+
+@keyframes toolbox-brand-launch{
+  0%{opacity:1;background-size:58px}
+  40%{opacity:1;background-size:74px}
+  100%{opacity:0;background-size:72px;visibility:hidden}
+}
+@keyframes toolbox-sheet-in{from{opacity:.5;translate:0 14px}to{opacity:1;translate:0}}
+@keyframes toolbox-confirm{from{scale:.98}to{scale:1}}
+@media(prefers-reduced-motion:no-preference){
+  html:not(.toolbox-reduced-motion) .app::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:500;background:#fff url("assets/toolbox-icon-192.png") center/72px no-repeat;animation:toolbox-brand-launch .65s ease-out forwards}
+  html:not(.toolbox-reduced-motion) :is(.app,dialog) button{transition:scale .09s ease,background-color .14s ease,box-shadow .12s ease}
+  html:not(.toolbox-reduced-motion) :is(.app,dialog) button:active:enabled{scale:.98}
+  html:not(.toolbox-reduced-motion) dialog[open]>.toolbox-modal-body{animation:toolbox-sheet-in .18s ease-out}
+  html:not(.toolbox-reduced-motion) .vy-button[data-state=correct]{animation:toolbox-confirm .2s ease-out}
+}
+:is(.app,dialog) input:user-invalid{outline:2px solid #a6302c;outline-offset:2px}

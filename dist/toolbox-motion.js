@@ -29,3 +29,28 @@
       .observe(document.documentElement,{childList:true,subtree:true});
   }
 })();
+
+// Animate feedback on the control involved, including dynamically mounted forms.
+(function () {
+  const reduced = () => document.documentElement.classList.contains('toolbox-reduced-motion')
+    || matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function animate(element, frames, duration) {
+    if (!element || reduced() || !element.animate) return;
+    element.animate(frames, {duration, easing:'ease-out'});
+  }
+  document.addEventListener('invalid', event => {
+    animate(event.target, [{translate:'0'}, {translate:'-3px'}, {translate:'3px'}, {translate:'0'}], 190);
+  }, true);
+  document.addEventListener('change', event => {
+    if (event.target.matches('input[type="checkbox"]')) {
+      animate(event.target, [{scale:'0.91'}, {scale:'1.06'}, {scale:'1'}], 180);
+    }
+  }, true);
+  document.addEventListener('toggle', event => {
+    const detail = event.target;
+    if (!detail.matches('details[open]')) return;
+    for (const child of detail.children) {
+      if (child.tagName !== 'SUMMARY') animate(child, [{opacity:0,translate:'0 -4px'},{opacity:1,translate:'0 0'}],180);
+    }
+  }, true);
+})();
