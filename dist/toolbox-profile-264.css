@@ -27,11 +27,3 @@ html[data-toolbox-theme="dark"] .learn-head.tb-mascot-hero{background:linear-gra
 .tb-faq details+details{border-top:1px solid #a9bfb6}
 .tb-faq summary{padding:14px 0;cursor:pointer;font-weight:600}
 .tb-letter p{line-height:1.6}
-
-/* Touch navigation uses swipe back. Keyboard focus reveals the same action. */
-@media (hover:none) and (pointer:coarse){
- #view :is(button.back,button.tl-back,[data-utility-back],[data-account-back],[data-voyage="map"]):not(:focus-visible){
-  position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);
- }
- #modal .toolbox-modal-body::before{content:"";display:block;width:36px;height:4px;border-radius:4px;background:#84958e;margin:0 auto 8px}
-}

@@ -60,11 +60,8 @@ const ToolboxScreens=(()=>{
   if(gesture==='pull'&&dy>=75){refresh();spring('Y',1)}
   if(gesture==='scroll'&&dy<=-75&&-dy>1.5*Math.abs(dx))spring('Y',-1);
   if(gesture==='x'&&Math.abs(dx)>=75&&Math.abs(dx)>1.5*Math.abs(dy)){
-   if(dx>0){
-    const local=view.querySelector('[data-voyage="map"],.tl-back');
-    if(local)local.click();else move(-1);
-    spring('X',1);
-   }
+   if(dx>0)move(-1);
+   spring('X',Math.sign(dx));
   }
  });
  document.addEventListener('click',event=>{

@@ -4,32 +4,7 @@
  const modal=document.getElementById('modal');
  if(!modal)return;
  const viewport=window.visualViewport;
- let frame=0, drag=null;
- function dismiss(){
-  // Forms may hold scanner attachments even before any text has been entered.
-  if(modal.querySelector('input,textarea,select,[contenteditable="true"]') &&
-     !window.confirm('Discard changes and go back?'))return;
-  document.getElementById('closeToolboxModal').click();
- }
- modal.addEventListener('click',event=>{
-  if(event.target!==modal)return;
-  const box=modal.getBoundingClientRect();
-  if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)dismiss();
- });
- modal.addEventListener('touchstart',event=>{
-  drag=null;
-  const point=event.touches[0], body=modal.querySelector('.toolbox-modal-body');
-  if(event.touches.length===1 && body && body.contains(event.target) && body.scrollTop<=0 &&
-     point.clientY<=body.getBoundingClientRect().top+48 && !event.target.closest('button,input,textarea,select,a'))
-   drag={x:point.clientX,y:point.clientY};
- },{passive:true});
- modal.addEventListener('touchcancel',()=>{drag=null});
- modal.addEventListener('touchend',event=>{
-  if(!drag)return;
-  const point=event.changedTouches[0],dy=point.clientY-drag.y,dx=point.clientX-drag.x;
-  drag=null;
-  if(dy>65 && dy>1.5*Math.abs(dx))dismiss();
- },{passive:true});
+ let frame=0;
  function layout(){
   frame=0;
   if(!modal.open)return;

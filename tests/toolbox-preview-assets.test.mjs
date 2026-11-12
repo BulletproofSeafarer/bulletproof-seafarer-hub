@@ -25,11 +25,13 @@ test('Learn recovers both complete OIC tracks when the reviewer script is unavai
     MutationObserver:class{observe(){}},window:{},ToolboxScreens:{visit(){}},toolboxGlyph:()=>'',localStorage:{getItem:()=>null},
     fetch:async path=>({ok:allowBank||!path.match(/oic-(nw|ew)/),json:async()=>JSON.parse(asset(path))})
   };
+  runInNewContext(asset('toolbox-utilities.js'),ctx);
   runInNewContext(asset('toolbox-voyage.js'),ctx);
   runInNewContext(asset('toolbox-learn.js'),ctx);
   await new Promise(resolve=>setImmediate(resolve));
   function click(target){return Promise.all(handlers.map(fn=>fn({target,stopImmediatePropagation(){}})))}
   function open(track){return click({closest:s=>s.includes('button[data-open]')?{dataset:{open:track}}:null})}
+  assert.equal((root.innerHTML.match(/data-utility-open=/g)||[]).length,7);
   await open('deck');
   assert.match(root.innerHTML,/Retry reviewer/);
   allowBank=true;
