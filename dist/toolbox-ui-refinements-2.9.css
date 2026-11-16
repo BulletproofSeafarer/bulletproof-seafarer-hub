@@ -87,3 +87,6 @@
     bottom: var(--tb-keyboard-inset, 0px) !important;
   }
 }
+
+/* Keep the original Toolbox header below the iPhone system status area. */
+.app { padding-top: env(safe-area-inset-top, 0px); }
