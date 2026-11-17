@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "Toolbox Preview",
+    "slug": "toolbox-expo-preview",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "platforms": ["ios", "android"]
+  }
+}

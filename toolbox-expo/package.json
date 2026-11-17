@@ -1,0 +1,25 @@
+{
+  "name": "toolbox-expo-go",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start --go",
+    "start:tunnel": "expo start --go --tunnel ngrok",
+    "check": "tsc --noEmit"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "@expo/ngrok": "^4.1.3",
+    "expo": "~58.0.26",
+    "expo-constants": "~58.0.16",
+    "react": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-safe-area-context": "~5.11.1",
+    "react-native-webview": "14.0.1"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/react": "~19.3.0",
+    "typescript": "~6.0.3"
+  }
+}

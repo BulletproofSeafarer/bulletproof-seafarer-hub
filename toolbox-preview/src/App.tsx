@@ -11,7 +11,13 @@ type Dialog = { mode: 'document'; item?: DocumentRecord; kind?: Kind } | { mode:
 const tabs = [{ name: 'Documents', icon: Files }, { name: 'Voyage', icon: Compass }, { name: 'Tools', icon: Wrench }, { name: 'Profile', icon: UserRound }] as const;
 const kinds = Object.keys(types) as Kind[];
 const allStatuses = ['Valid', 'Expiring Soon', 'Expired', 'No Expiry Recorded'];
-const id = () => crypto.randomUUID();
+function id() {
+  // Expo Go's local network preview uses HTTP, where randomUUID is unavailable.
+  if (typeof crypto.randomUUID === 'function') return crypto.randomUUID();
+  return Array.from(crypto.getRandomValues(new Uint8Array(16)), byte =>
+    byte.toString(16).padStart(2, '0')
+  ).join('');
+}
 const field = (form: FormData, name: string) => String(form.get(name) || '').trim();
 const formatted = (date: string) => date ? new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(date + 'T12:00:00Z')) : '—';
 type Legacy = Window & { navigate?: (path: string) => void; toolboxToolDirectory?: () => string; toolboxUtilityPage?: (path: string) => string };
