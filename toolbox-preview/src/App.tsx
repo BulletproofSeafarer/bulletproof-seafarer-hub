@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { Anchor, ArrowDownToLine, ArrowRight, Bell, Check, ChevronDown, ChevronRight, CircleAlert, Compass, FileCheck2, FileText, Files, FolderClosed, LayoutGrid, List, LockKeyhole, Pencil, Plus, Search, Settings, Share, Ship, ShieldCheck, UploadCloud, UserRound, Wrench, X } from 'lucide-react';
 import { assembleCV } from './cv';
+import { Tools } from './Tools';
 import { readiness, status } from './readiness';
 import { reminders } from './reminders';
 import { categories, storage, types, type Data, type DocumentRecord, type Kind } from './storage';
@@ -61,7 +62,7 @@ function Attachment({ file, report }: { file: File; report: (message: string) =>
 
 export function App() {
   const [data, setData] = useState<Data>();
-  const [tab, setTab] = useState<Tab>('Documents');
+  const [tab, setTab] = useState<Tab>(() => new URLSearchParams(location.search).get('tab') === 'tools' ? 'Tools' : 'Documents');
   const [dialog, setDialog] = useState<Dialog>();
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('All documents');
@@ -340,10 +341,7 @@ export function App() {
         {tab === 'Voyage' && voyagePage()}
         {tab === 'Reminders' && reminderPage()}
         {tab === 'Profile' && profilePage()}
-        {tab === 'Tools' && (utility ? <div className="panel legacy" dangerouslySetInnerHTML={{ __html: legacy.toolboxUtilityPage?.(utility) || '' }} /> : <>
-          {heading('Tools', 'Quick access to your everyday maritime utilities.')}
-          <div className="legacy-directory" dangerouslySetInnerHTML={{ __html: legacy.toolboxToolDirectory?.() || '' }} />
-        </>)}
+        {tab === 'Tools' && (utility ? <div className="panel legacy" dangerouslySetInnerHTML={{ __html: legacy.toolboxUtilityPage?.(utility) || '' }} /> : <Tools utilityDirectory={legacy.toolboxToolDirectory?.() || ''} />)}
         <footer className="content-foot"><ShieldCheck size={16} /> Toolbox preview <span>·</span> Use sample documents</footer>
       </main>
     </div>

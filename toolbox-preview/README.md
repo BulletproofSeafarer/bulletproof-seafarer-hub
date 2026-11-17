@@ -29,3 +29,7 @@ Open http://localhost:4173. To try offline use, open the production preview onli
 - The original seven utility implementations and app icon come from `toolbox-documents-first` at commit `6851b7afe37e221b334fa9ad870e065649f17a1c`. The preview builds a new voyage screen for a single active voyage and reimplements the career screens around the shared records. Legacy voyage history and the learning library are outside this preview.
 - Use fictional documents. This browser preview does not provide the existing app’s encrypted vault or migrate its records. Authentication, cross-device sync, and TestFlight publishing are outside this build.
 - The static output can serve as a Capacitor web directory. A native iOS package is outside this deliverable. On a physical iPhone, verify the Files and Photos pickers, PDF preview, share sheet, print export, safe areas, and offline storage before a TestFlight release. iOS notifications require separate integration.
+
+## Seafarer Services
+
+Open **Tools** and use a task shortcut, category, or search. The directory retains the 22 links from the existing Toolbox source. For providers with physical locations, **Find on map** opens a provider-name search in Apple Maps or Google Maps. These searches can return multiple branches. Confirm the branch with the provider before travelling. The app lists services offline, but external sites and maps require connectivity.

@@ -193,3 +193,37 @@ dd { overflow-wrap: anywhere; margin: 3px 0 0; }
   .item-line .item-main > span:first-child { flex-basis: 100%; }
   .item-line .item-main > svg { display: none; }
 }
+
+.services-banner { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: center; min-height: 174px; border-radius: 16px; padding: 24px 28px; background: linear-gradient(120deg,#142c44,#225363); color: #f4f8f3; }
+.services-banner h2 { margin: 9px 0; font-size: clamp(1.75rem, 4vw, 2.65rem); }
+.services-banner p { max-width: 42ch; color: #dae8e8; font-size: 14px; }
+.services-kicker { display: flex; align-items: center; gap: 6px; color: #f5cf90; font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+.services-compass { position: absolute; right: 6%; top: 50%; transform: translateY(-50%) rotate(-20deg); z-index: -1; color: #efcb8c; opacity: .55; }
+.service-guides { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; margin: 12px 0 24px; }
+.service-guides button { display: flex; gap: 9px; align-items: center; justify-content: space-between; text-align: left; padding: 11px; min-height: 72px; background: #fff; border: 1px solid var(--color-line); border-radius: 10px; }
+.service-guides button:hover { border-color: #3e787d; background: #f4f9f8; }
+.service-guides button > span:nth-child(2) { flex: 1; }
+.service-guide-icon { display: grid; place-items: center; flex-shrink: 0; width: 36px; height: 36px; border-radius: 8px; color: #185463; background: #e4eff0; }
+.service-guides strong, .service-row strong { display: block; font-size: 14px; font-weight: 650; }
+.service-guides small, .service-row small { display: block; margin-top: 3px; color: var(--color-muted); font-size: 12px; line-height: 1.35; }
+.service-guides button > svg, .service-links svg { flex-shrink: 0; }
+.service-count { margin: 0 0 9px; color: var(--color-muted); font-size: 12px; }
+.service-groups { display: grid; gap: 12px; grid-template-columns: repeat(2,minmax(0,1fr)); align-items: start; }
+.service-group { border: 1px solid var(--color-line); border-radius: 12px; background: white; }
+.service-group h3 { display: flex; align-items: center; gap: 8px; padding: 12px; border-radius: 12px 12px 0 0; color: #1a4d5a; background: #ebf3f4; font-size: 14px; font-weight: 700; }
+.service-row { padding: 12px 12px 5px; border-top: 1px solid var(--color-line); }
+.service-links { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 4px 8px; }
+.service-links a, .service-links summary { display: inline-flex; gap: 5px; align-items: center; min-height: 44px; padding: 3px 8px; border-radius: 7px; color: #1a5160; font-size: 12px; font-weight: 650; }
+.service-links summary { cursor: pointer; list-style: none; }
+.service-links summary::-webkit-details-marker { display: none; }
+.service-links a:hover, .service-links summary:hover { background: #ebf5f5; }
+.map-options { display: flex; flex-wrap: wrap; padding: 4px; border-radius: 8px; background: #eff5f6; }
+.map-options small { flex-basis: 100%; padding-inline: 5px; }
+.utilities-section { margin-top: 28px; scroll-margin-top: 16px; }
+.service-directory { scroll-margin-top: 16px; }
+@media (max-width: 650px) {
+  .service-guides, .service-groups { grid-template-columns: 1fr; }
+  .service-guides button { min-height: 58px; }
+  .services-banner { padding: 20px; }
+  .services-compass { right: -20px; opacity: .24; }
+}
