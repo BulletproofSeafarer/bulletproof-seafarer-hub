@@ -1,11 +1,11 @@
-import { ArrowRight, CalendarDays, CircleAlert, Clock3, FileCheck2, Ship } from 'lucide-react';
+import { ArrowRight, CalendarDays, CircleAlert, Clock3, FileCheck2, ShieldCheck, Ship } from 'lucide-react';
 import { status } from './readiness';
 import { dateOffset, type DocumentRecord, type Voyage } from './storage';
 
 const metrics = [
-  { status: 'Valid', label: 'Valid', tone: 'ready' },
-  { status: 'Expiring Soon', label: 'Expiring', tone: 'due' },
-  { status: 'Expired', label: 'Expired', tone: 'late' }
+  { status: 'Valid', label: 'Valid', tone: 'ready', icon: ShieldCheck },
+  { status: 'Expiring Soon', label: 'Expiring', tone: 'due', icon: Clock3 },
+  { status: 'Expired', label: 'Expired', tone: 'late', icon: CircleAlert }
 ] as const;
 
 const day = (date: string) => Date.parse(date + 'T00:00:00Z');
@@ -53,16 +53,17 @@ export function Dashboard({ firstName, rank, voyage, documents, reminderDays, me
     </section>
     <div className="home-voyage-stats">
       <button onClick={onVoyage}><Clock3 size={19} /><strong>{countdown(voyage.joining, 'join')}</strong><span>Sign-on countdown</span></button>
-      <button onClick={onVoyage}><FileCheck2 size={19} /><strong>{met} / {total}</strong><span>Required documents ready</span></button>
+      <button onClick={onVoyage}><FileCheck2 size={19} /><strong>{met} / {total}</strong><span>Required documents ready</span><progress aria-hidden="true" max={total || 1} value={met} /></button>
     </div>
     <section className="home-documents">
       <div className="section-heading"><h2>Document status</h2><button className="text-action" onClick={() => onDocuments('')}>Open documents <ArrowRight size={15} /></button></div>
       <div className="home-metrics">
-        {metrics.map(metric => <button key={metric.status} className={metric.tone} onClick={() => onDocuments(metric.status)}>
-          <strong>{documents.filter(document => status(document, reminderDays) === metric.status).length}</strong><span>{metric.label}</span>
+        {metrics.map(({ status: filter, tone, icon: Icon, label }) => <button key={filter} className={tone} onClick={() => onDocuments(filter)}>
+          <Icon size={16} aria-hidden="true" />
+          <strong>{documents.filter(document => status(document, reminderDays) === filter).length}</strong><span>{label}</span>
         </button>)}
       </div>
-      {next && <button className="home-renewal" onClick={() => onDocument(next)}>
+      {next && <button className="home-renewal" data-status={status(next, reminderDays)} onClick={() => onDocument(next)}>
         <span className="home-renewal-icon"><CircleAlert size={20} /></span>
         <span><strong>{next.title}</strong><small>{next.expiry < dateOffset() ? 'Expired ' : 'Expires '}{dateLabel(next.expiry)}</small></span>
         <span className="renewal-time">{countdown(next.expiry, 'expiry')} <ArrowRight size={15} /></span>

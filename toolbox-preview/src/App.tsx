@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
-import { Anchor, ArrowDownToLine, Bell, Check, ChevronDown, ChevronRight, Clock3, Compass, ArrowUpRight, FileCheck2, FileText, Files, FolderClosed, LayoutGrid, House, List, Pencil, Plus, Search, Settings, Share, Ship, ShieldCheck, UploadCloud, UserRound, Wrench, X } from 'lucide-react';
+import { Anchor, ArrowDownToLine, Bell, Check, ChevronDown, ChevronRight, Clock3, Compass, ArrowUpRight, CircleAlert, LoaderCircle, Minus, FileCheck2, FileText, Files, FolderClosed, LayoutGrid, House, List, Pencil, Plus, Search, Settings, Share, Ship, ShieldCheck, UploadCloud, UserRound, Wrench, X } from 'lucide-react';
 import { Account, type AccountPage } from './Account';
 import { assembleCV, formatDate as formatted } from './cv';
 import { Dashboard } from './Dashboard';
-import { Tools } from './Tools';
+import { Tools, type UtilityItem } from './Tools';
 import { ServiceCategories, ServiceDirectory, type ExternalDestination } from './Services';
 import type { ServiceGroup } from './services';
 import { readiness, status } from './readiness';
@@ -17,11 +17,14 @@ const kinds = Object.keys(types) as Kind[];
 const allStatuses = ['Valid', 'Expiring Soon', 'Expired', 'No Expiry Recorded'];
 const id = () => crypto.randomUUID();
 const field = (form: FormData, name: string) => String(form.get(name) || '').trim();
-type Legacy = Window & { navigate?: (path: string) => void; toolboxToolDirectory?: () => string; toolboxUtilityPage?: (path: string) => string };
+type Legacy = Window & { navigate?: (path: string) => void; toolboxUtilityItems?: () => UtilityItem[]; toolboxUtilityPage?: (path: string) => string };
 
 function Badge({ value }: { value: string }) {
   const tone = ['Valid', 'Met', 'Voyage Ready'].includes(value) ? 'green' : ['Expired', 'Missing'].includes(value) ? 'red' : ['Expiring Soon', 'Expiring Before Join', 'Needs Review'].includes(value) ? 'amber' : 'gray';
-  return <span className={'badge ' + tone}><span />{value}</span>;
+  return <span className={'badge ' + tone}>
+    {tone === 'green' ? <Check size={13} aria-hidden="true" /> : tone === 'amber' ? <Clock3 size={13} aria-hidden="true" /> : tone === 'red' ? <CircleAlert size={13} aria-hidden="true" /> : <Minus size={13} aria-hidden="true" />}
+    {value}
+  </span>;
 }
 
 function Modal({ children, title, close }: { children: ReactNode; title: string; close: () => void }) {
@@ -80,13 +83,17 @@ export function App() {
   const [notice, setNotice] = useState('');
   const [loading, setLoading] = useState(true);
   const saving = useRef(false);
+  const [isSaving, setIsSaving] = useState(false);
   const legacy = window as Legacy;
 
   useEffect(() => {
     storage.load().then(setData).catch(() => setError('Could not open this device’s storage. Reload to try again.')).finally(() => setLoading(false));
   }, []);
   useEffect(() => {
-    legacy.navigate = path => setUtility(path.startsWith('utility-') ? path.slice(8) : '');
+    legacy.navigate = path => {
+      setUtility(path.startsWith('utility-') ? path.slice(8) : '');
+      window.scrollTo(0, 0);
+    };
     return () => { delete legacy.navigate; };
   }, [legacy]);
   useEffect(() => { document.title = 'Toolbox · ' + tab; }, [tab]);
@@ -94,6 +101,7 @@ export function App() {
   async function save(next: Data, message = 'Changes saved', close = true) {
     if (saving.current) return;
     saving.current = true;
+    setIsSaving(true);
     setError('');
     try {
       await storage.save(next);
@@ -102,7 +110,7 @@ export function App() {
       setNotice(message);
     } catch {
       setError('Could not save changes to this device. Check available storage and try again.');
-    } finally { saving.current = false; }
+    } finally { saving.current = false; setIsSaving(false); }
   }
 
   function navigate(next: Tab) {
@@ -114,7 +122,12 @@ export function App() {
     window.scrollTo(0, 0);
   }
 
-  if (!data) return <main className="p-8">{loading ? 'Opening Toolbox…' : <p role="alert">{error}</p>}</main>;
+  if (!data) return <main className="content startup">
+    {loading ? <>
+      <div className="startup-status" role="status"><LoaderCircle className="spinner" size={21} aria-hidden="true" /> Opening Toolbox…</div>
+      <div className="startup-preview" aria-hidden="true"><span /><span /><span /></div>
+    </> : <p className="error" role="alert">{error}</p>}
+  </main>;
 
   const voyage = data.voyage;
   const requirements = readiness(voyage, data.documents);
@@ -346,7 +359,7 @@ export function App() {
         break;
       }
     }
-    return <Modal title={title} close={close}><form key={title} className="editor" onSubmit={submit}>{fields}{error && <p role="alert" className="error">{error}</p>}<div className="form-actions"><button type="button" className="secondary" onClick={close}>Cancel</button><button className="primary" type="submit">{dialog.mode === 'document' ? 'Save document' : 'Save changes'}</button></div></form></Modal>;
+    return <Modal title={title} close={close}><form key={title} className="editor" onSubmit={submit}>{fields}{error && <p role="alert" className="error">{error}</p>}<div className="form-actions"><button type="button" className="secondary" onClick={close}>Cancel</button><button className="primary" type="submit" disabled={isSaving}>{isSaving && <LoaderCircle className="spinner" size={16} aria-hidden="true" />}{isSaving ? 'Saving…' : dialog.mode === 'document' ? 'Save document' : 'Save changes'}</button></div></form></Modal>;
   }
 
   return <>
@@ -358,10 +371,14 @@ export function App() {
         <button className="toolbox-brand" onClick={() => navigate('Home')} aria-label="Toolbox home"><span><Anchor size={20} /></span> Toolbox</button>
         <div className="top-actions">
           {(tab === 'Home' || tab === 'Voyage' || tab === 'Reminders') && <button className="screen-action" onClick={() => navigate(tab === 'Home' ? 'Voyage' : tab === 'Reminders' ? remindersOrigin : 'Home')}><Compass size={17} />{tab === 'Home' ? 'Voyage Ready' : tab === 'Reminders' && remindersOrigin === 'Account' ? 'Account' : 'Overview'}</button>}
-          {tab === 'Documents' && <button className="screen-action" onClick={() => { setStatusFilter('Expiring Soon'); setCategory('All documents'); setQuery(''); }}><Clock3 size={17} /> Expiring</button>}
+          {tab === 'Documents' && <button className="screen-action" aria-pressed={statusFilter === 'Expiring Soon'} onClick={() => {
+            setStatusFilter(statusFilter === 'Expiring Soon' ? '' : 'Expiring Soon');
+            setCategory('All documents');
+            setQuery('');
+          }}><Clock3 size={17} /> Expiring</button>}
           {tab === 'Account' && <div className="account-actions" role="group" aria-label="Profile actions">
             <button aria-label="Edit profile" title="Edit profile" onClick={() => open({ mode: 'profile' })}><Pencil size={17} /><span>Edit</span></button>
-            <button aria-label="Download Maritime CV" title="Download Maritime CV" disabled={exportingCV} onClick={() => void exportCV()}><ArrowDownToLine size={17} /><span>CV</span></button>
+            <button aria-label="Download Maritime CV" title="Download Maritime CV" disabled={exportingCV} onClick={() => void exportCV()}>{exportingCV ? <LoaderCircle className="spinner" size={17} /> : <ArrowDownToLine size={17} />}<span>CV</span></button>
             <button aria-label="Settings" title="Settings" onClick={() => open({ mode: 'settings' })}><Settings size={17} /><span>Settings</span></button>
           </div>}
           {tab !== 'Reminders' && tab !== 'Account' && <button className="icon-button notification" aria-label="Open reminders" onClick={() => navigate('Reminders')}><Bell size={19} />{queue.length > 0 && <i />}</button>}
@@ -369,6 +386,7 @@ export function App() {
       </header>
       <main className="content">
         {error && !dialog && <p className="error" role="alert">{error}</p>}
+        <div className="screen-content" key={JSON.stringify([tab, serviceCategory?.id, utility, accountPage])}>
         {tab === 'Home' && (serviceCategory
           ? <ServiceDirectory group={serviceCategory} onBack={() => returnToServices(serviceCategory)} onExternal={destination => open({ mode: 'external', destination })} />
           : <><Dashboard firstName={firstName} rank={data.profile.rank} voyage={voyage} documents={data.documents} reminderDays={data.reminderDays}
@@ -383,9 +401,11 @@ export function App() {
           onPage={openAccountPage} onReminders={() => navigate('Reminders')}
           onService={id => open({ mode: 'service', id })} onDownload={() => void exportCV()}
           onCertificate={id => void save({ ...data, cvIds: data.cvIds.includes(id) ? data.cvIds.filter(key => key !== id) : [...data.cvIds, id] }, 'CV updated')} />}
-        {tab === 'Tools' && <Tools utilityDirectory={legacy.toolboxToolDirectory?.() || ''}
+        {tab === 'Tools' && <Tools utilities={legacy.toolboxUtilityItems?.() ?? []}
+          onUtility={id => { setUtility(id); window.scrollTo(0, 0); }}
           utilityPage={utility ? legacy.toolboxUtilityPage?.(utility) ?? '' : undefined}
           onExternal={destination => open({ mode: 'external', destination })} />}
+        </div>
         <footer className="content-foot"><ShieldCheck size={16} /> Toolbox preview <span>·</span> Use sample documents</footer>
       </main>
     </div>
