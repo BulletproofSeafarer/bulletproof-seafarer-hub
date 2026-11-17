@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { Anchor, ArrowDownToLine, Bell, Check, ChevronDown, ChevronRight, Clock3, Compass, FileCheck2, FileText, Files, FolderClosed, LayoutGrid, House, List, Pencil, Plus, Search, Settings, Share, Ship, ShieldCheck, UploadCloud, UserRound, Wrench, X } from 'lucide-react';
-import { assembleCV } from './cv';
+import { Account, type AccountPage } from './Account';
+import { assembleCV, formatDate as formatted } from './cv';
 import { Dashboard } from './Dashboard';
 import { Tools } from './Tools';
 import { readiness, status } from './readiness';
@@ -14,7 +15,6 @@ const kinds = Object.keys(types) as Kind[];
 const allStatuses = ['Valid', 'Expiring Soon', 'Expired', 'No Expiry Recorded'];
 const id = () => crypto.randomUUID();
 const field = (form: FormData, name: string) => String(form.get(name) || '').trim();
-const formatted = (date: string) => date ? new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(date + 'T12:00:00Z')) : '—';
 type Legacy = Window & { navigate?: (path: string) => void; toolboxToolDirectory?: () => string; toolboxUtilityPage?: (path: string) => string };
 
 function Badge({ value }: { value: string }) {
@@ -70,6 +70,9 @@ export function App() {
   const [statusFilter, setStatusFilter] = useState('');
   const [grid, setGrid] = useState(false);
   const [utility, setUtility] = useState('');
+  const [accountPage, setAccountPage] = useState<AccountPage>('overview');
+  const [remindersOrigin, setRemindersOrigin] = useState<'Home' | 'Account'>('Home');
+  const [exportingCV, setExportingCV] = useState(false);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
   const [loading, setLoading] = useState(true);
@@ -100,8 +103,10 @@ export function App() {
   }
 
   function navigate(next: Tab) {
+    if (next === 'Reminders') setRemindersOrigin(tab === 'Account' ? 'Account' : 'Home');
     setTab(next);
     setUtility('');
+    setAccountPage('overview');
     window.scrollTo(0, 0);
   }
 
@@ -118,6 +123,24 @@ export function App() {
     [item.title, item.kind, item.issuer].some(value => value.toLowerCase().includes(query.trim().toLowerCase())));
   const cv = assembleCV(data);
   const firstName = data.profile.name.trim().split(/\s+/)[0];
+  const dockTab = tab === 'Voyage' ? 'Home' : tab === 'Reminders' ? remindersOrigin : tab;
+
+  async function exportCV() {
+    if (exportingCV) return;
+    setExportingCV(true);
+    setError('');
+    try {
+      const { downloadCV } = await import('./cvPdf');
+      await downloadCV(cv);
+    } catch {
+      setError('Could not download the CV. Please try again.');
+    } finally { setExportingCV(false); }
+  }
+
+  function openAccountPage(page: AccountPage) {
+    setAccountPage(page);
+    window.scrollTo(0, 0);
+  }
 
   function focusRequirement(row: typeof requirements[number]) {
     setDialog(row.document ? { mode: 'detail', item: row.document } : { mode: 'document', kind: row.requirement.kind });
@@ -161,6 +184,7 @@ export function App() {
         break;
       }
       case 'profile':
+        if (!field(form, 'name')) { setError('Enter your name.'); return; }
         next.profile = { name: field(form, 'name'), rank: field(form, 'rank'), email: field(form, 'email'), summary: field(form, 'summary') };
         break;
       case 'settings':
@@ -242,20 +266,6 @@ export function App() {
     </>;
   }
 
-  function profilePage() {
-    return <>
-      {heading('Account', 'Profile, sea service, and Maritime CV.')}
-      <section className="panel"><div className="section-heading"><div><h2>{data!.profile.name || 'Your profile'}</h2><p>{data!.profile.rank}</p></div><button className="secondary" onClick={() => open({ mode: 'profile' })}>Edit profile</button></div><p>{data!.profile.summary}</p></section>
-      <section className="panel"><div className="section-heading"><div><h2>Sea Service</h2><p>{data!.services.length} service records</p></div><button className="secondary" onClick={() => open({ mode: 'service' })}><Plus size={17} /> Add service</button></div>
-        {cv.services.map(item => <button className="item-main reminder-row" key={item.id} onClick={() => open({ mode: 'service', id: item.id })}><span><strong>{item.vessel} · {item.role}</strong><small>{formatted(item.start)} – {item.end ? formatted(item.end) : 'Present'}</small></span><ChevronRight size={17} /></button>)}
-      </section>
-      <section className="panel"><div className="section-heading"><div><h2>Maritime CV</h2><p>Select certificates to include in your CV.</p></div><button className="primary" onClick={() => window.print()}>Print / Save PDF</button></div>
-        {data!.documents.filter(item => types[item.kind] === 'Certificates').map(item => <label className="cv-choice" key={item.id}><input type="checkbox" checked={data!.cvIds.includes(item.id)} onChange={() => void save({ ...data!, cvIds: data!.cvIds.includes(item.id) ? data!.cvIds.filter(key => key !== item.id) : [...data!.cvIds, item.id] }, 'CV updated')} />{item.title}</label>)}
-        <article id="cv-preview" className="cv-preview"><h2>{cv.profile.name}</h2><p>{cv.profile.rank} · {cv.profile.email}</p><p>{cv.profile.summary}</p><h3>Sea Service</h3>{cv.services.map(item => <p key={item.id}>{item.vessel} · {item.role} · {formatted(item.start)} – {item.end ? formatted(item.end) : 'Present'}</p>)}<h3>Certificates</h3>{cv.certificates.map(item => <p key={item.id}>{item.title} · {item.issuer || 'Issuer not recorded'} · {item.verification}{item.expiry && ' · Expires ' + formatted(item.expiry)}</p>)}</article>
-      </section>
-    </>;
-  }
-
   function renderDialog() {
     if (!dialog) return;
     const close = () => { setDialog(undefined); setError(''); };
@@ -314,18 +324,22 @@ export function App() {
   }
 
   return <>
-    <nav className="toolbox-dock" aria-label="Main navigation" data-active={tab === 'Voyage' || tab === 'Reminders' ? 'Home' : tab}>
-      {tabs.map(({ name, icon: Icon }) => <button key={name} aria-current={tab === name || (name === 'Home' && (tab === 'Voyage' || tab === 'Reminders')) ? 'page' : undefined} onClick={() => navigate(name)}><Icon size={21} /><span>{name}</span></button>)}
+    <nav className="toolbox-dock" aria-label="Main navigation" data-active={dockTab}>
+      {tabs.map(({ name, icon: Icon }) => <button key={name} aria-current={dockTab === name ? 'page' : undefined} onClick={() => navigate(name)}><Icon size={21} /><span>{name}</span></button>)}
     </nav>
     <div className="workspace">
       <header className="topbar">
         <button className="toolbox-brand" onClick={() => navigate('Home')} aria-label="Toolbox home"><span><Anchor size={20} /></span> Toolbox</button>
         <div className="top-actions">
-          {(tab === 'Home' || tab === 'Voyage' || tab === 'Reminders') && <button className="screen-action" onClick={() => navigate(tab === 'Home' ? 'Voyage' : 'Home')}><Compass size={17} />{tab === 'Home' ? 'Voyage Ready' : 'Overview'}</button>}
+          {(tab === 'Home' || tab === 'Voyage' || tab === 'Reminders') && <button className="screen-action" onClick={() => navigate(tab === 'Home' ? 'Voyage' : tab === 'Reminders' ? remindersOrigin : 'Home')}><Compass size={17} />{tab === 'Home' ? 'Voyage Ready' : tab === 'Reminders' && remindersOrigin === 'Account' ? 'Account' : 'Overview'}</button>}
           {tab === 'Documents' && <button className="screen-action" onClick={() => { setStatusFilter('Expiring Soon'); setCategory('All documents'); setQuery(''); }}><Clock3 size={17} /> Expiring</button>}
           {tab === 'Tools' && !utility && <a className="screen-action" href="#utilities"><Wrench size={17} /> Utilities</a>}
-          {tab === 'Account' && <button className="screen-action" onClick={() => open({ mode: 'settings' })}><Settings size={17} /> Settings</button>}
-          {tab !== 'Reminders' && <button className="icon-button notification" aria-label="Open reminders" onClick={() => navigate('Reminders')}><Bell size={19} />{queue.length > 0 && <i />}</button>}
+          {tab === 'Account' && <div className="account-actions" role="group" aria-label="Profile actions">
+            <button aria-label="Edit profile" title="Edit profile" onClick={() => open({ mode: 'profile' })}><Pencil size={17} /><span>Edit</span></button>
+            <button aria-label="Download Maritime CV" title="Download Maritime CV" disabled={exportingCV} onClick={() => void exportCV()}><ArrowDownToLine size={17} /><span>CV</span></button>
+            <button aria-label="Settings" title="Settings" onClick={() => open({ mode: 'settings' })}><Settings size={17} /><span>Settings</span></button>
+          </div>}
+          {tab !== 'Reminders' && tab !== 'Account' && <button className="icon-button notification" aria-label="Open reminders" onClick={() => navigate('Reminders')}><Bell size={19} />{queue.length > 0 && <i />}</button>}
         </div>
       </header>
       <main className="content">
@@ -337,7 +351,10 @@ export function App() {
         {tab === 'Documents' && documents()}
         {tab === 'Voyage' && voyagePage()}
         {tab === 'Reminders' && reminderPage()}
-        {tab === 'Account' && profilePage()}
+        {tab === 'Account' && <Account page={accountPage} data={data} cv={cv} exporting={exportingCV}
+          onPage={openAccountPage} onReminders={() => navigate('Reminders')}
+          onService={id => open({ mode: 'service', id })} onDownload={() => void exportCV()}
+          onCertificate={id => void save({ ...data, cvIds: data.cvIds.includes(id) ? data.cvIds.filter(key => key !== id) : [...data.cvIds, id] }, 'CV updated')} />}
         {tab === 'Tools' && (utility ? <div className="panel legacy" dangerouslySetInnerHTML={{ __html: legacy.toolboxUtilityPage?.(utility) || '' }} /> : <Tools utilityDirectory={legacy.toolboxToolDirectory?.() || ''} />)}
         <footer className="content-foot"><ShieldCheck size={16} /> Toolbox preview <span>·</span> Use sample documents</footer>
       </main>
