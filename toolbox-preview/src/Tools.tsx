@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Anchor, ArrowRight, ArrowUpRight, BriefcaseBusiness, Compass, FileBadge2, GraduationCap, HeartPulse, MapPin, Search, UsersRound, Wrench } from 'lucide-react';
+import { Anchor, ArrowRight, ArrowUpRight, BriefcaseBusiness, Compass, FileBadge2, GraduationCap, HeartPulse, MapPin, Search, UsersRound } from 'lucide-react';
 import { mapLinks, serviceGroups } from './services';
 
 const icons = [Anchor, HeartPulse, UsersRound, GraduationCap, BriefcaseBusiness, FileBadge2];
@@ -30,7 +30,7 @@ export function Tools({ utilityDirectory }: { utilityDirectory: string }) {
   }
 
   return <>
-    <div className="page-heading"><div><h1>Tools</h1><p>Find the right port of call for everyday crew needs.</p></div><a className="secondary" href="#utilities"><Wrench size={16} /> Utilities</a></div>
+    <div className="page-heading"><div><h1>Tools</h1></div></div>
     <div className="services-banner">
       <div><span className="services-kicker"><MapPin size={15} /> PHILIPPINES</span><h2>Seafarer Services</h2><p>Find where to book appointments, get documents, train, and connect with crew agencies.</p></div>
       <Compass className="services-compass" size={148} strokeWidth={0.8} aria-hidden="true" />

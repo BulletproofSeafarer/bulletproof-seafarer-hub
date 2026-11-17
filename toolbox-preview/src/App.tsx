@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
-import { Anchor, ArrowDownToLine, ArrowRight, Bell, Check, ChevronDown, ChevronRight, CircleAlert, Compass, FileCheck2, FileText, Files, FolderClosed, LayoutGrid, List, LockKeyhole, Pencil, Plus, Search, Settings, Share, Ship, ShieldCheck, UploadCloud, UserRound, Wrench, X } from 'lucide-react';
+import { Anchor, ArrowDownToLine, Bell, Check, ChevronDown, ChevronRight, Clock3, Compass, FileCheck2, FileText, Files, FolderClosed, LayoutGrid, House, List, Pencil, Plus, Search, Settings, Share, Ship, ShieldCheck, UploadCloud, UserRound, Wrench, X } from 'lucide-react';
 import { assembleCV } from './cv';
+import { Dashboard } from './Dashboard';
 import { Tools } from './Tools';
 import { readiness, status } from './readiness';
 import { reminders } from './reminders';
 import { categories, storage, types, type Data, type DocumentRecord, type Kind } from './storage';
 
-type Tab = 'Documents' | 'Voyage' | 'Tools' | 'Profile' | 'Reminders';
+type Tab = 'Home' | 'Documents' | 'Voyage' | 'Tools' | 'Account' | 'Reminders';
 type Dialog = { mode: 'document'; item?: DocumentRecord; kind?: Kind } | { mode: 'detail'; item: DocumentRecord } | { mode: 'voyage' | 'profile' | 'settings' } | { mode: 'service' | 'requirement' | 'checklist'; id?: string };
-const tabs = [{ name: 'Documents', icon: Files }, { name: 'Voyage', icon: Compass }, { name: 'Tools', icon: Wrench }, { name: 'Profile', icon: UserRound }] as const;
+const tabs = [{ name: 'Home', icon: House }, { name: 'Documents', icon: Files }, { name: 'Tools', icon: Wrench }, { name: 'Account', icon: UserRound }] as const;
 const kinds = Object.keys(types) as Kind[];
 const allStatuses = ['Valid', 'Expiring Soon', 'Expired', 'No Expiry Recorded'];
 const id = () => crypto.randomUUID();
@@ -62,7 +63,7 @@ function Attachment({ file, report }: { file: File; report: (message: string) =>
 
 export function App() {
   const [data, setData] = useState<Data>();
-  const [tab, setTab] = useState<Tab>(() => new URLSearchParams(location.search).get('tab') === 'tools' ? 'Tools' : 'Documents');
+  const [tab, setTab] = useState<Tab>(() => new URLSearchParams(location.search).get('tab') === 'tools' ? 'Tools' : 'Home');
   const [dialog, setDialog] = useState<Dialog>();
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('All documents');
@@ -112,12 +113,11 @@ export function App() {
   const blockers = requirements.length - met;
   const openTasks = voyage.checklist.filter(task => !task.done).length;
   const queue = reminders(data);
-  const attention = data.documents.filter(item => ['Expired', 'Expiring Soon'].includes(status(item, data.reminderDays)));
   const filtered = data.documents.filter(item => (category === 'All documents' || types[item.kind] === category) &&
     (!statusFilter || status(item, data.reminderDays) === statusFilter) &&
     [item.title, item.kind, item.issuer].some(value => value.toLowerCase().includes(query.trim().toLowerCase())));
   const cv = assembleCV(data);
-  const initials = data.profile.name.trim().split(/\s+/).slice(0, 2).map(word => word[0]).join('') || 'TB';
+  const firstName = data.profile.name.trim().split(/\s+/)[0];
 
   function focusRequirement(row: typeof requirements[number]) {
     setDialog(row.document ? { mode: 'detail', item: row.document } : { mode: 'document', kind: row.requirement.kind });
@@ -184,20 +184,6 @@ export function App() {
   function documents() {
     return <>
       {heading('Documents', 'Manage your maritime documents and stay ready to sail.', <button className="primary" onClick={() => open({ mode: 'document' })}><Plus size={19} /> Add document</button>)}
-      <section className="voyage-hero">
-        <div className="hero-copy">
-          <div className="hero-kicker"><Ship size={16} /> UPCOMING VOYAGE</div>
-          <h2>{voyage.vessel}</h2>
-          <p>{voyage.role}<span>·</span>Joins {formatted(voyage.joining)}</p>
-          <button onClick={() => navigate('Voyage')}>View voyage <ArrowRight size={16} /></button>
-        </div>
-        <div className="hero-progress"><strong>{met}<small> / {requirements.length}</small></strong><span>Documents ready</span></div>
-      </section>
-      {(blockers > 0 || attention.length > 0) && <button className="attention" onClick={() => navigate(blockers ? 'Voyage' : 'Reminders')}>
-        <span className="attention-icon"><CircleAlert size={22} /></span>
-        <span><strong>Needs attention</strong><small>{blockers ? `${blockers} voyage document ${blockers === 1 ? 'requirement needs' : 'requirements need'} attention before joining.` : `${attention.length} ${attention.length === 1 ? 'document needs' : 'documents need'} renewal.`}</small></span>
-        <span className="attention-action">Review <ArrowRight size={16} /></span>
-      </button>}
       <section className="library">
         <div className="section-heading"><div className="flex items-center gap-3"><h2>Document library</h2><span className="count">{data!.documents.length}</span></div>
           <div className="view-options" aria-label="Library view"><button aria-label="List view" aria-pressed={!grid} onClick={() => setGrid(false)}><List size={18} /></button><button aria-label="Grid view" aria-pressed={grid} onClick={() => setGrid(true)}><LayoutGrid size={17} /></button></div></div>
@@ -258,7 +244,7 @@ export function App() {
 
   function profilePage() {
     return <>
-      {heading('Profile', 'Manage your maritime career and personal settings.', <button className="secondary" onClick={() => open({ mode: 'settings' })}><Settings size={18} /> Settings</button>)}
+      {heading('Account', 'Profile, sea service, and Maritime CV.')}
       <section className="panel"><div className="section-heading"><div><h2>{data!.profile.name || 'Your profile'}</h2><p>{data!.profile.rank}</p></div><button className="secondary" onClick={() => open({ mode: 'profile' })}>Edit profile</button></div><p>{data!.profile.summary}</p></section>
       <section className="panel"><div className="section-heading"><div><h2>Sea Service</h2><p>{data!.services.length} service records</p></div><button className="secondary" onClick={() => open({ mode: 'service' })}><Plus size={17} /> Add service</button></div>
         {cv.services.map(item => <button className="item-main reminder-row" key={item.id} onClick={() => open({ mode: 'service', id: item.id })}><span><strong>{item.vessel} · {item.role}</strong><small>{formatted(item.start)} – {item.end ? formatted(item.end) : 'Present'}</small></span><ChevronRight size={17} /></button>)}
@@ -328,19 +314,30 @@ export function App() {
   }
 
   return <>
-    <aside className="sidebar">
-      <button className="brand" onClick={() => navigate('Documents')} aria-label="Toolbox home"><span className="brand-symbol"><Anchor size={23} /></span><span>Toolbox<small>CREW WORKSPACE</small></span></button>
-      <nav aria-label="Main navigation">{tabs.map(({ name, icon: Icon }) => <button key={name} aria-current={tab === name ? 'page' : undefined} onClick={() => navigate(name)}><Icon size={20} /><span>{name}</span></button>)}</nav>
-      <div className="sidebar-foot"><button aria-current={tab === 'Reminders' ? 'page' : undefined} onClick={() => navigate('Reminders')}><Bell size={19} /> Reminders {queue.length ? <span className="sidebar-count">{queue.length}</span> : null}</button><div className="local"><span /><LockKeyhole size={14} /> Stored on this device</div></div>
-    </aside>
+    <nav className="toolbox-dock" aria-label="Main navigation" data-active={tab === 'Voyage' || tab === 'Reminders' ? 'Home' : tab}>
+      {tabs.map(({ name, icon: Icon }) => <button key={name} aria-current={tab === name || (name === 'Home' && (tab === 'Voyage' || tab === 'Reminders')) ? 'page' : undefined} onClick={() => navigate(name)}><Icon size={21} /><span>{name}</span></button>)}
+    </nav>
     <div className="workspace">
-      <header className="topbar"><button className="mobile-brand" onClick={() => navigate('Documents')}><Anchor size={21} /> Toolbox</button><div className="breadcrumb"><span>Workspace</span><ChevronRight size={15} /><strong>{tab}</strong></div><div className="top-actions"><button className="icon-button notification" aria-label="Open reminders" onClick={() => navigate('Reminders')}><Bell size={21} />{queue.length > 0 && <i />}</button><button className="avatar" aria-label="Open profile" onClick={() => navigate('Profile')}>{initials}</button></div></header>
+      <header className="topbar">
+        <button className="toolbox-brand" onClick={() => navigate('Home')} aria-label="Toolbox home"><span><Anchor size={20} /></span> Toolbox</button>
+        <div className="top-actions">
+          {(tab === 'Home' || tab === 'Voyage' || tab === 'Reminders') && <button className="screen-action" onClick={() => navigate(tab === 'Home' ? 'Voyage' : 'Home')}><Compass size={17} />{tab === 'Home' ? 'Voyage Ready' : 'Overview'}</button>}
+          {tab === 'Documents' && <button className="screen-action" onClick={() => { setStatusFilter('Expiring Soon'); setCategory('All documents'); setQuery(''); }}><Clock3 size={17} /> Expiring</button>}
+          {tab === 'Tools' && !utility && <a className="screen-action" href="#utilities"><Wrench size={17} /> Utilities</a>}
+          {tab === 'Account' && <button className="screen-action" onClick={() => open({ mode: 'settings' })}><Settings size={17} /> Settings</button>}
+          {tab !== 'Reminders' && <button className="icon-button notification" aria-label="Open reminders" onClick={() => navigate('Reminders')}><Bell size={19} />{queue.length > 0 && <i />}</button>}
+        </div>
+      </header>
       <main className="content">
         {error && !dialog && <p className="error" role="alert">{error}</p>}
+        {tab === 'Home' && <Dashboard firstName={firstName} rank={data.profile.rank} voyage={voyage} documents={data.documents} reminderDays={data.reminderDays}
+          met={met} onVoyage={() => navigate('Voyage')}
+          onDocuments={filter => { setStatusFilter(filter); setCategory('All documents'); setQuery(''); navigate('Documents'); }}
+          onDocument={item => open({ mode: 'detail', item })} />}
         {tab === 'Documents' && documents()}
         {tab === 'Voyage' && voyagePage()}
         {tab === 'Reminders' && reminderPage()}
-        {tab === 'Profile' && profilePage()}
+        {tab === 'Account' && profilePage()}
         {tab === 'Tools' && (utility ? <div className="panel legacy" dangerouslySetInnerHTML={{ __html: legacy.toolboxUtilityPage?.(utility) || '' }} /> : <Tools utilityDirectory={legacy.toolboxToolDirectory?.() || ''} />)}
         <footer className="content-foot"><ShieldCheck size={16} /> Toolbox preview <span>·</span> Use sample documents</footer>
       </main>

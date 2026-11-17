@@ -16,11 +16,11 @@ Open http://localhost:4173. To try offline use, open the production preview onli
 
 ## Try the sample voyage
 
-1. Open **Documents**. The sample voyage has one of three required documents ready.
-2. Select **View voyage** and open **Basic Safety Training**. Edit its expiry to a date after joining. The requirement should change to Met, and its renewal reminder should disappear if the new date is outside the reminder window.
+1. Open **Home**. The sample voyage has one of three required documents ready. The dock links to Home, Documents, Tools, and Account.
+2. Select **Voyage Ready** and open **Basic Safety Training**. Edit its expiry to a date after joining. The requirement should change to Met, and its renewal reminder should disappear if the new date is outside the reminder window.
 3. From Voyage, open the missing **Medical Certificate**, enter a future expiry date and attach a sample PDF or image. Save, reload, open it from Documents, and try Download. Mark the remaining checklist task complete to see **Voyage Ready**.
 4. Open **Tools** and try a utility. The calculations come from the documents-first branch. Weather resources open external links and need connectivity.
-5. Open **Profile**, choose certificates for the CV, and select **Print / Save PDF**. The preview uses the profile, sea-service records, and selected certificates. Self-entered certificates are labeled Self-reported.
+5. Open **Account**, choose certificates for the CV, and select **Print / Save PDF**. The preview uses the profile, sea-service records, and selected certificates. Self-entered certificates are labeled Self-reported.
 
 ## Code and scope
 
