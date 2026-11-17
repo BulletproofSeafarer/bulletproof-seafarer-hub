@@ -36,11 +36,12 @@ type Props = {
 export function Dashboard({ firstName, rank, voyage, documents, reminderDays, met, onVoyage, onDocuments, onDocument }: Props) {
   const total = voyage.requirements.length;
   const outstanding = total - met;
+  const joinDays = voyage.joining ? remaining(voyage.joining) : 0;
   const dated = documents.filter(document => document.expiry).sort((a, b) => a.expiry.localeCompare(b.expiry));
   const next = dated.find(document => document.expiry >= dateOffset()) ?? dated.at(-1);
   return <>
     <div className="page-heading home-heading">
-      <div><h1>Hi, {firstName || 'Seafarer'}</h1>{rank && <p>{rank}</p>}</div>
+      <div><h1>Hi, <span className="key-phrase">{firstName || 'Seafarer'}</span></h1>{rank && <p>{rank}</p>}</div>
       <span className="home-date"><CalendarDays size={16} />{dateLabel(dateOffset())}</span>
     </div>
     <section className="home-hero" aria-labelledby="home-vessel">
@@ -48,12 +49,12 @@ export function Dashboard({ firstName, rank, voyage, documents, reminderDays, me
         <span className="home-voyage-label"><Ship size={16} /> Next voyage</span>
         <h2 id="home-vessel">{voyage.vessel || 'Your next vessel'}</h2>
         <p>{[voyage.role, voyage.joining && 'Joins ' + dateLabel(voyage.joining)].filter(Boolean).join(' · ')}</p>
-        <button className="home-voyage-link" onClick={onVoyage}>Voyage Ready <ArrowRight size={17} /></button>
+        <button className="home-voyage-link" onClick={onVoyage}>{outstanding ? 'Review voyage' : 'View voyage'} <ArrowRight size={17} aria-hidden="true" /></button>
       </div>
     </section>
     <div className="home-voyage-stats">
-      <button onClick={onVoyage}><Clock3 size={19} /><strong>{countdown(voyage.joining, 'join')}</strong><span>Sign-on countdown</span></button>
-      <button onClick={onVoyage}><FileCheck2 size={19} /><strong>{met} / {total}</strong><span>Required documents ready</span><progress aria-hidden="true" max={total || 1} value={met} /></button>
+      <button onClick={onVoyage}><Clock3 size={19} /><strong>{joinDays > 0 ? <><span className="key-number">{joinDays}</span> {joinDays === 1 ? 'day' : 'days'} to join</> : countdown(voyage.joining, 'join')}</strong><span>Sign-on countdown</span></button>
+      <button onClick={onVoyage}><FileCheck2 size={19} /><strong><span className="key-number">{met}</span> / {total}</strong><span>Required documents ready</span><progress aria-hidden="true" max={total || 1} value={met} /></button>
     </div>
     <section className="home-documents">
       <div className="section-heading"><h2>Document status</h2><button className="text-action" onClick={() => onDocuments('')}>Open documents <ArrowRight size={15} /></button></div>

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", "Aptos", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-sans: "Plus Jakarta Sans Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --color-ink: #142e26;
   --color-muted: #50655c;
   --color-line: #e0e8e3;
@@ -14,8 +14,8 @@ button, a, input, select, textarea, summary { outline-offset: 4px; }
 :focus-visible { outline: 2px solid var(--toolbox-teal); }
 input[type=checkbox] { width: 18px; height: 18px; accent-color: #22604b; flex-shrink: 0; }
 h1, h2, h3, p { margin: 0; }
-h1 { font-size: clamp(2.1rem,5vw,3rem); line-height: 1.05; font-weight: 680; letter-spacing: -.058em; }
-h2 { font-size: 1.3rem; line-height: 1.2; font-weight: 650; letter-spacing: -.027em; }
+h1 { font-size: clamp(2.1rem,5vw,3rem); line-height: 1.05; font-weight: 800; letter-spacing: -.052em; }
+h2 { font-size: 1.3rem; line-height: 1.2; font-weight: 760; letter-spacing: -.027em; }
 .content { width: min(100%, 1170px); margin: auto; padding: 38px clamp(24px,4vw,58px) 20px; }
 .page-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 26px; }
 .page-heading p { color: var(--color-muted); margin-top: 9px; font-size: 14px; }
@@ -148,7 +148,7 @@ dd { overflow-wrap: anywhere; margin: 3px 0 0; }
   background: #fff;
   color-scheme: light;
 }
-.workspace { min-height: 100dvh; padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
+.workspace { position: relative; z-index: 0; min-height: 100dvh; padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
 .topbar { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: min(100%, 1060px); margin: auto; padding: max(10px,env(safe-area-inset-top)) clamp(16px,5vw,45px) 8px; min-height: 65px; border-bottom: 1px solid var(--color-line); }
 .toolbox-brand { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; letter-spacing: -.02em; font-size: 17px; }
 .toolbox-brand > span { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px; background: var(--teal-wash); color: var(--toolbox-teal); }
@@ -357,3 +357,32 @@ dd { overflow-wrap: anywhere; margin: 3px 0 0; }
 .legacy .utility-btn { background: var(--toolbox-teal); box-shadow: 0 3px 0 #05463e; }
 .legacy .utility-btn:hover { background: #075a50; }
 .legacy .utility-links a { color: var(--toolbox-teal); }
+
+.key-phrase, .home-voyage-stats .key-number { color: var(--toolbox-teal); }
+.home-voyage-stats .key-number { font-size: 1.29em; font-weight: 800; letter-spacing: -.045em; }
+.home-hero h2 { font-weight: 800; letter-spacing: -.045em; }
+.home-voyage-stats strong { color: var(--color-ink); font-weight: 750; letter-spacing: -.025em; }
+.home-metrics strong, .world-clock strong, .account-metrics dd { font-weight: 800; }
+.tool-grid strong, .service-categories strong { font-weight: 750; }
+.primary, .home-voyage-link { border-radius: 13px; font-weight: 800; }
+.primary { padding-inline: 16px; }
+.choice-actions { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.6fr); align-items: stretch; }
+.choice-actions > :is(button,a) { min-height: 48px; font-size: 14px; }
+@media (max-width: 510px) {
+  dialog { inset: auto 0 0; margin: 0; width: 100%; max-height: calc(100dvh - 12px); border-radius: 23px 23px 0 0; padding: 18px 18px calc(17px + env(safe-area-inset-bottom)); }
+  .home-heading h1 { overflow-wrap: anywhere; }
+  .home-date { font-size: 10px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .home-voyage-link svg, .choice-actions .primary svg:not(.spinner) { transition: transform 210ms var(--motion-spring); }
+  .home-voyage-link:active svg, .choice-actions .primary:active svg:not(.spinner) { transform: translateX(3px); }
+  .toolbox-dock button[aria-current] svg { animation: dock-select 275ms var(--motion-spring); }
+}
+@keyframes dock-select {
+  0% { transform: translateY(2px) scale(.88); }
+  55% { transform: translateY(-2px) scale(1.08); }
+  100% { transform: none; }
+}
+@media (max-width: 360px) {
+  .page-heading:not(.home-heading) { flex-wrap: wrap; gap: 10px; }
+}

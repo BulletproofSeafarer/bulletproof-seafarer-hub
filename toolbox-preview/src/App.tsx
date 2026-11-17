@@ -301,8 +301,8 @@ export function App() {
       const { name, url, purpose } = dialog.destination;
       return <Modal title={`Continue to ${name}?`} close={close}>
         <p className="external-purpose">{purpose}</p>
-        <p className="external-destination">Opens <strong>{new URL(url).hostname}</strong> outside Toolbox.</p>
-        <div className="form-actions">
+        <p className="external-destination">Opens <strong className="key-phrase">{new URL(url).hostname}</strong> outside Toolbox.</p>
+        <div className="form-actions choice-actions">
           <button className="secondary" onClick={close}>Cancel</button>
           <a className="primary" href={url} target="_blank" rel="noopener noreferrer" onClick={close}>Continue <ArrowUpRight size={16} /></a>
         </div>
@@ -359,7 +359,7 @@ export function App() {
         break;
       }
     }
-    return <Modal title={title} close={close}><form key={title} className="editor" onSubmit={submit}>{fields}{error && <p role="alert" className="error">{error}</p>}<div className="form-actions"><button type="button" className="secondary" onClick={close}>Cancel</button><button className="primary" type="submit" disabled={isSaving}>{isSaving && <LoaderCircle className="spinner" size={16} aria-hidden="true" />}{isSaving ? 'Saving…' : dialog.mode === 'document' ? 'Save document' : 'Save changes'}</button></div></form></Modal>;
+    return <Modal title={title} close={close}><form key={title} className="editor" onSubmit={submit}>{fields}{error && <p role="alert" className="error">{error}</p>}<div className="form-actions choice-actions"><button type="button" className="secondary" onClick={close}>Cancel</button><button className="primary" type="submit" disabled={isSaving}>{isSaving && <LoaderCircle className="spinner" size={16} aria-hidden="true" />}{isSaving ? 'Saving…' : dialog.mode === 'document' ? 'Save document' : 'Save changes'}</button></div></form></Modal>;
   }
 
   return <>
