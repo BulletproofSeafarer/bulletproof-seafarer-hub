@@ -1,5 +1,6 @@
 export type Service = { name: string; url: string; purpose: string; mapQuery?: string };
-export type ServiceGroup = { id: string; label: string; services: Service[] };
+export type ServiceCategory = 'maritime' | 'medical' | 'ofw' | 'training' | 'manning' | 'documents';
+export type ServiceGroup = { id: ServiceCategory; label: string; services: Service[] };
 
 export const serviceGroups: ServiceGroup[] = [
   { id: 'maritime', label: 'Maritime Services', services: [

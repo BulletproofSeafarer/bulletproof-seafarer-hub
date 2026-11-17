@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
-import { Anchor, ArrowDownToLine, Bell, Check, ChevronDown, ChevronRight, Clock3, Compass, FileCheck2, FileText, Files, FolderClosed, LayoutGrid, House, List, Pencil, Plus, Search, Settings, Share, Ship, ShieldCheck, UploadCloud, UserRound, Wrench, X } from 'lucide-react';
+import { Anchor, ArrowDownToLine, Bell, Check, ChevronDown, ChevronRight, Clock3, Compass, ArrowUpRight, FileCheck2, FileText, Files, FolderClosed, LayoutGrid, House, List, Pencil, Plus, Search, Settings, Share, Ship, ShieldCheck, UploadCloud, UserRound, Wrench, X } from 'lucide-react';
 import { Account, type AccountPage } from './Account';
 import { assembleCV, formatDate as formatted } from './cv';
 import { Dashboard } from './Dashboard';
 import { Tools } from './Tools';
+import { ServiceCategories, ServiceDirectory, type ExternalDestination } from './Services';
+import type { ServiceGroup } from './services';
 import { readiness, status } from './readiness';
 import { reminders } from './reminders';
 import { categories, storage, types, type Data, type DocumentRecord, type Kind } from './storage';
 
 type Tab = 'Home' | 'Documents' | 'Voyage' | 'Tools' | 'Account' | 'Reminders';
-type Dialog = { mode: 'document'; item?: DocumentRecord; kind?: Kind } | { mode: 'detail'; item: DocumentRecord } | { mode: 'voyage' | 'profile' | 'settings' } | { mode: 'service' | 'requirement' | 'checklist'; id?: string };
+type Dialog = { mode: 'external'; destination: ExternalDestination } | { mode: 'document'; item?: DocumentRecord; kind?: Kind } | { mode: 'detail'; item: DocumentRecord } | { mode: 'voyage' | 'profile' | 'settings' } | { mode: 'service' | 'requirement' | 'checklist'; id?: string };
 const tabs = [{ name: 'Home', icon: House }, { name: 'Documents', icon: Files }, { name: 'Tools', icon: Wrench }, { name: 'Account', icon: UserRound }] as const;
 const kinds = Object.keys(types) as Kind[];
 const allStatuses = ['Valid', 'Expiring Soon', 'Expired', 'No Expiry Recorded'];
@@ -70,6 +72,7 @@ export function App() {
   const [statusFilter, setStatusFilter] = useState('');
   const [grid, setGrid] = useState(false);
   const [utility, setUtility] = useState('');
+  const [serviceCategory, setServiceCategory] = useState<ServiceGroup>();
   const [accountPage, setAccountPage] = useState<AccountPage>('overview');
   const [remindersOrigin, setRemindersOrigin] = useState<'Home' | 'Account'>('Home');
   const [exportingCV, setExportingCV] = useState(false);
@@ -106,6 +109,7 @@ export function App() {
     if (next === 'Reminders') setRemindersOrigin(tab === 'Account' ? 'Account' : 'Home');
     setTab(next);
     setUtility('');
+    setServiceCategory(undefined);
     setAccountPage('overview');
     window.scrollTo(0, 0);
   }
@@ -135,6 +139,17 @@ export function App() {
     } catch {
       setError('Could not download the CV. Please try again.');
     } finally { setExportingCV(false); }
+  }
+
+  function showServiceCategory(group: ServiceGroup) {
+    setServiceCategory(group);
+    window.scrollTo(0, 0);
+    requestAnimationFrame(() => document.getElementById('service-directory-heading')?.focus({ preventScroll: true }));
+  }
+
+  function returnToServices(group: ServiceGroup) {
+    setServiceCategory(undefined);
+    requestAnimationFrame(() => document.getElementById(`service-category-${group.id}`)?.focus());
   }
 
   function openAccountPage(page: AccountPage) {
@@ -269,6 +284,17 @@ export function App() {
   function renderDialog() {
     if (!dialog) return;
     const close = () => { setDialog(undefined); setError(''); };
+    if (dialog.mode === 'external') {
+      const { name, url, purpose } = dialog.destination;
+      return <Modal title={`Continue to ${name}?`} close={close}>
+        <p className="external-purpose">{purpose}</p>
+        <p className="external-destination">Opens <strong>{new URL(url).hostname}</strong> outside Toolbox.</p>
+        <div className="form-actions">
+          <button className="secondary" onClick={close}>Cancel</button>
+          <a className="primary" href={url} target="_blank" rel="noopener noreferrer" onClick={close}>Continue <ArrowUpRight size={16} /></a>
+        </div>
+      </Modal>;
+    }
     if (dialog.mode === 'detail') {
       const item = dialog.item;
       return <Modal title={item.title} close={close}>
@@ -333,7 +359,6 @@ export function App() {
         <div className="top-actions">
           {(tab === 'Home' || tab === 'Voyage' || tab === 'Reminders') && <button className="screen-action" onClick={() => navigate(tab === 'Home' ? 'Voyage' : tab === 'Reminders' ? remindersOrigin : 'Home')}><Compass size={17} />{tab === 'Home' ? 'Voyage Ready' : tab === 'Reminders' && remindersOrigin === 'Account' ? 'Account' : 'Overview'}</button>}
           {tab === 'Documents' && <button className="screen-action" onClick={() => { setStatusFilter('Expiring Soon'); setCategory('All documents'); setQuery(''); }}><Clock3 size={17} /> Expiring</button>}
-          {tab === 'Tools' && !utility && <a className="screen-action" href="#utilities"><Wrench size={17} /> Utilities</a>}
           {tab === 'Account' && <div className="account-actions" role="group" aria-label="Profile actions">
             <button aria-label="Edit profile" title="Edit profile" onClick={() => open({ mode: 'profile' })}><Pencil size={17} /><span>Edit</span></button>
             <button aria-label="Download Maritime CV" title="Download Maritime CV" disabled={exportingCV} onClick={() => void exportCV()}><ArrowDownToLine size={17} /><span>CV</span></button>
@@ -344,10 +369,13 @@ export function App() {
       </header>
       <main className="content">
         {error && !dialog && <p className="error" role="alert">{error}</p>}
-        {tab === 'Home' && <Dashboard firstName={firstName} rank={data.profile.rank} voyage={voyage} documents={data.documents} reminderDays={data.reminderDays}
+        {tab === 'Home' && (serviceCategory
+          ? <ServiceDirectory group={serviceCategory} onBack={() => returnToServices(serviceCategory)} onExternal={destination => open({ mode: 'external', destination })} />
+          : <><Dashboard firstName={firstName} rank={data.profile.rank} voyage={voyage} documents={data.documents} reminderDays={data.reminderDays}
           met={met} onVoyage={() => navigate('Voyage')}
           onDocuments={filter => { setStatusFilter(filter); setCategory('All documents'); setQuery(''); navigate('Documents'); }}
-          onDocument={item => open({ mode: 'detail', item })} />}
+          onDocument={item => open({ mode: 'detail', item })} />
+            <ServiceCategories onSelect={showServiceCategory} /></>)}
         {tab === 'Documents' && documents()}
         {tab === 'Voyage' && voyagePage()}
         {tab === 'Reminders' && reminderPage()}
@@ -355,7 +383,9 @@ export function App() {
           onPage={openAccountPage} onReminders={() => navigate('Reminders')}
           onService={id => open({ mode: 'service', id })} onDownload={() => void exportCV()}
           onCertificate={id => void save({ ...data, cvIds: data.cvIds.includes(id) ? data.cvIds.filter(key => key !== id) : [...data.cvIds, id] }, 'CV updated')} />}
-        {tab === 'Tools' && (utility ? <div className="panel legacy" dangerouslySetInnerHTML={{ __html: legacy.toolboxUtilityPage?.(utility) || '' }} /> : <Tools utilityDirectory={legacy.toolboxToolDirectory?.() || ''} />)}
+        {tab === 'Tools' && <Tools utilityDirectory={legacy.toolboxToolDirectory?.() || ''}
+          utilityPage={utility ? legacy.toolboxUtilityPage?.(utility) ?? '' : undefined}
+          onExternal={destination => open({ mode: 'external', destination })} />}
         <footer className="content-foot"><ShieldCheck size={16} /> Toolbox preview <span>·</span> Use sample documents</footer>
       </main>
     </div>
