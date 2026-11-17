@@ -1,0 +1,12 @@
+:root{--vault-forest:#113e30;--vault-accent:#126c4f;--vault-paper:#f5f8f5;--vault-line:#dbe5df;--vault-shadow:0 8px 24px -18px #123e30a0}
+body,body .app,#view{background:var(--vault-paper)!important;color:#172e27}
+.app>header{background:#fff!important;border-bottom:1px solid var(--vault-line)}
+.app #view{padding-bottom:calc(110px + env(safe-area-inset-bottom))}
+.app :is(.docs-hero,.account-hero,.utility-hero,.tl-hero,.voyage-card,.home-banner,.tool-learning){border-radius:24px;background:radial-gradient(ellipse at 95% 5%,#316950,transparent 65%),var(--vault-forest)!important;color:white!important;border:0;box-shadow:var(--vault-shadow)}
+.app :is(.docs-hero,.account-hero,.tl-hero,.voyage-card,.home-banner,.tool-learning) :is(h1,h2,p,small,.muted,.greeting){color:#f2faf4!important}
+.app :is(.card,.docs-link,.docs-record,.utility-panel,.tb-settings-group,.tl-course,.tool-grid button){border:1px solid var(--vault-line);border-radius:18px;box-shadow:var(--vault-shadow)}
+.app nav{width:min(calc(100% - 24px),490px);bottom:max(8px,env(safe-area-inset-bottom));padding:6px 4px;background:#fffffff5;border:1px solid var(--vault-line);border-radius:25px;box-shadow:0 6px 25px #123e3024}
+.app nav button{flex:1;min-width:0;min-height:44px}.app nav button.active{color:var(--vault-accent);background:#e7f1ea;border-radius:18px}.app nav button.plus{flex:0 0 50px;margin-top:0}
+.tool-directory h1{margin:0 0 14px}.tool-directory h2{font-size:18px;margin:20px 0 10px}.tool-learning,.tool-grid button{width:100%;text-align:left;padding:16px}.tool-learning strong{font-size:22px}.tool-directory small{display:block;margin-top:6px}.tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tool-grid button{background:white;color:#193b2e}
+.tb-welcome{position:fixed;inset:0;z-index:9999;display:grid;place-content:center;justify-items:center;gap:16px;background:var(--vault-forest);color:#fff;font:650 24px system-ui;pointer-events:none}.tb-welcome img{width:70px;border-radius:19px}
+@media(prefers-reduced-motion:no-preference){.tb-welcome{animation:vault-welcome .9s both}@keyframes vault-welcome{0%,70%{opacity:1}100%{opacity:0}}}
